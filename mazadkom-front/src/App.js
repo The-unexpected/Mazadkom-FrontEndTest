@@ -1,12 +1,44 @@
-import React, { Component } from 'react'
+import React from 'react'
+import NavBar from './components/Nav';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from "./components/Home"
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 
-export default class App extends Component {
+
+class App extends React.Component {
+
+ 
   render() {
+  
     return (
-      <div>
-        <h1>hello !</h1>
-      </div>
+      
+      <Router>
+        <NavBar />
+        <Switch>
+            <Route exact path="/">
+             <Home/>
+            </Route>
+          {/* <Route exact path="/profile">
+            <Profile/>
+          </Route> */}
+          {/* <Route exact path="/contact">
+            <Form/>
+          </Route> */}
+          {/* <Route exact path="/about">
+              <AboutUs />
+          </Route> */}
+          {/* <Route exact path = '/feed'>
+          <Feeder/>
+          </Route> */}
+        </Switch>
+        {/* <Footer /> */}
+      </Router>
     )
   }
 }
 
+export default (App);
