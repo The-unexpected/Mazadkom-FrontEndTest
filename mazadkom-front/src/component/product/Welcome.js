@@ -42,7 +42,7 @@ class Welcome extends Component {
             </div>
           ) : (
             <div className="col-md-12  label-center">
-              <h2>HI! {userName} Welcome to BUYMYCOW</h2>
+              <h2>HI! {userName} Welcome to Mazadkom</h2>
             </div>
           )}
         </div>

@@ -13,8 +13,9 @@
 import React, { Component } from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import Welcome from './component/product/Welcome';
+import product from './component/card';
 import './App.css';
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 class App extends Component {
   // Initialize state
@@ -34,12 +35,14 @@ class App extends Component {
       <div className="App container-fluid">
         <div className="row nav-bar">
           <div className="col-md-12 app-title">
-            <h1>BUYMYCOW</h1>
+            <h1>Mazadkom</h1>
           </div>
         </div>
         <div className="row">
           <Welcome details={this.state.details} />
         </div>
+      <product/>
+      
       </div>
     );
   }

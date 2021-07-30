@@ -23,7 +23,7 @@ class DetailList extends Component {
     return <div className="detailsList">{detailsNodes}</div>;
   }
 }
-let Details = React.createClass({
+let Details =({
   render: function () {
     //display an individual donation
     return (
