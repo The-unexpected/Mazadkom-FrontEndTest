@@ -1,39 +1,48 @@
-import React, { Component } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import Welcome from './component/product/Welcome';
-import OurCard from './component/OurCard';
-import './App.css';
+import React from 'react'
+import NavBar from './components/Nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from "./components/Home"
+import Login from './components/Login';
+import Register from './components/Register';
 
-class App extends Component {
-  // Initialize state
-  state = { details: [], bidHistory: [] };
-  // Fetch liveStock Details after first mount
-  componentDidMount() {
-    this.getDetails();
-  }
-  getDetails = () => {
-    // Get the livestock Details and store them in state
-    fetch('/api/details')
-      .then((res) => res.json())
-      .then((details) => this.setState({ details }));
-  };
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
+
+
+class App extends React.Component {
+
+
   render() {
+
     return (
-      <>
-        <div className="App container-fluid">
-          <div className="row nav-bar">
-            <div className="col-md-12 app-title">
-              <h1>Mazadkom</h1>
-            </div>
-          </div>
-          <div className="row">
-            <Welcome details={this.state.details} />
-          </div>
-        </div>
-        <OurCard />
-      </>
-    );
+
+      <Router>
+        <NavBar />
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route exact path="/login">
+            <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          {/* <Route exact path="/about">
+              <AboutUs />
+          </Route> */}
+          {/* <Route exact path = '/feed'>
+          <Feeder/>
+          </Route> */}
+        </Switch>
+        {/* <Footer /> */}
+      </Router>
+      // add OurCard to products route
+    )
   }
 }
-export default App;
+
+export default (App);

@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+
+:root{
+    --main-color:#a58faa
+}
+
+.home{
+    position:relative;
+    height: 90vh;
+    width: 100%;
+    background: rgb(165,143,170);
+    background: linear-gradient(0deg, rgba(165,143,170,1) 0%, rgba(237,237,208,1) 100%);
+    
+}
+
+.custom-shape-divider-bottom-1627664528 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1627664528 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 89px;
+}
+
+.custom-shape-divider-bottom-1627664528 .shape-fill {
+    fill: #F8F9FA;
+}
+
+.nav{
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.navbar-brand h1{
+    font-family: 'Gowun Batang';
+    font-weight: bolder;
+ color :var(--main-color);
+ text-shadow: 2px 2px 3px #232323
+}
+
+.navbar-brand span{
+    color:black;
+}
+
+.nav-link{
+    font-family: 'Gowun Batang', serif;
+    font-weight: bolder;
+    font-size: larger;
+    text-shadow: 1px 1px 2px #232323
+}
+.nav-link:hover{
+    color:var(--main-color) !important;
+}
+
+.display{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image img{
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.image .header-text{
+position: absolute;
+width: 40%;
+top: 30%;
+left: 15%;
+}
+
+.image .header-text h1 {
+    font-family: 'Gowun Batang';
+    font-weight: bolder ;
+    text-shadow: 2px 2px 3px #232323
+}
+
+.image .header-text h1 span{
+    color: var(--main-color);
+    font-weight: bolder ;
+}
+
+.image .header-text p{
+    font-family: 'Gowun Batang', serif;
+    font-weight: bolder;
+    padding-top: 1vh;
+
+}
