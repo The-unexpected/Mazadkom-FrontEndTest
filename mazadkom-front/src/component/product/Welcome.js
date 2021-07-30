@@ -48,14 +48,14 @@ class Welcome extends Component {
         </div>
         <div className="label-center"></div>
         <div className="row">
-          <div className="col-md-12 product-detail-div">
+          {/* <div className="col-md-12 product-detail-div"> */}
             {/*<h3 className="label-center">LiveStock Available For Bidding</h3> */}
             {this.props.details.length !== 0 && (
               <DetailList data={this.props.details} userName={userName} />
             )}
           </div>
         </div>
-      </div>
+      // </div>
     );
   }
 }

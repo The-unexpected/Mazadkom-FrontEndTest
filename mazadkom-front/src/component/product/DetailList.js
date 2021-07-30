@@ -102,14 +102,14 @@ class Details extends Component {
     this.setState({ showBidInput: true });
   }
   render() {
-    const imgUrl = require(`./assets/${this.props.image}`);
+    // const imgUrl = require(`./assets/${this.props.image}`);
     //display an individual LiveStock Detail
     return (
       <div className="col-md-4">
         <div className="bid-detail-div">
           <div className="row">
             <div className="col-md-12">
-              <Image src={imgUrl} width="275" height="183" rounded />
+              {/* <Image src={imgUrl} width="275" height="183" rounded /> */}
             </div>
           </div>
           <div className="row">
