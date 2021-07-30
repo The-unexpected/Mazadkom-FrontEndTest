@@ -9,7 +9,7 @@ export default class Register extends Component {
     super(props);
     this.state = {
       name: '',
-      pswd: ''
+      password: ''
     }
   }
 
@@ -58,7 +58,7 @@ export default class Register extends Component {
 
           <Form.Group className="mb-3" controlId="formBasicPassword" >
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" name="pswd" onChange={this.handleChange} />
+            <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleChange} />
           </Form.Group>
 
           <Button variant="primary" type="submit">

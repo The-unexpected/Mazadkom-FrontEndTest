@@ -7,7 +7,7 @@ export default class Login extends Component {
     super(props);
     this.state = {
       name: '',
-      pswd: ''
+      password: ''
     }
   }
 
@@ -57,7 +57,7 @@ export default class Login extends Component {
 
           <Form.Group className="mb-3" controlId="formBasicPassword">
             <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" name="pswd" onChange={this.handleChange} autoComplete="current-password" />
+            <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleChange} autoComplete="current-password" />
           </Form.Group>
 
 
