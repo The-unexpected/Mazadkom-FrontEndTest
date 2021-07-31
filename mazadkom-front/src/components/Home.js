@@ -11,7 +11,7 @@ class Home extends Component {
                         <div className="display">
 
                             <div className="image">
-                                <img src={Image}></img>
+                                <img src={Image}/>
                                 <div className="header-text">
                                     <h1>What is <span>Mazad</span>Kom?</h1>
                                     <p> MazadKom enables you to enter and bidding on some of the global Leonardo Da Vinci paintings online in a secure, easy to use platform. </p>

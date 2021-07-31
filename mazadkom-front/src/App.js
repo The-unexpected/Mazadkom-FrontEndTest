@@ -6,6 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Footer from './components/Footer'; 
 import AboutUs from './components/AboutUs';
+import Room from './components/room';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -26,9 +27,9 @@ class App extends React.Component {
           <Route exact path="/about">
               <AboutUs />
           </Route>
-          {/* <Route exact path = '/feed'>
-          <Feeder/>
-          </Route> */}
+          <Route exact path = '/room'>
+          <Room/>
+          </Route>
         </Switch>
         <Footer />
       </Router>

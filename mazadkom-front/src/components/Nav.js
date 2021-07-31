@@ -20,6 +20,7 @@ class NavBar extends Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="#product">Our-Products</Nav.Link>
               <Nav.Link href="/about">About US</Nav.Link>
+              <Nav.Link href="/room">Room</Nav.Link>
               <Nav.Link eventKey={2} href="/login">
                 Log-In
               </Nav.Link>
