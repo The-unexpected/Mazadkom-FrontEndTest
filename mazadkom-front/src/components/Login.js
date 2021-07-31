@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import "./css/login.css"
 
 export default class Login extends Component {
   constructor(props) {
@@ -43,15 +44,15 @@ export default class Login extends Component {
 
 
 
-      <div>
-
-        <Form id="signin-form" onSubmit={this.handleSubmit}>
+      <div className="container">
+        <div className="signin-form">
+        <Form className="form"  onSubmit={this.handleSubmit}>
           <Form.Group className="mb-3" controlId="formBasicEmail"  >
 
             <Form.Label>Name </Form.Label>
             <Form.Control type="text" placeholder="Enter Your name" name="name" onChange={this.handleChange} />
             <Form.Text className="text-muted">
-              We'll never share your credentials with anyone else.
+              We'll never share your personal infos with anyone else.
             </Form.Text>
           </Form.Group>
 
@@ -61,10 +62,11 @@ export default class Login extends Component {
           </Form.Group>
 
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
+          <div className="button-login"><Button  variant="outline-secondary">LogIn</Button>{' '}</div>
+        
         </Form>
+        </div>
+       
       </div>
 
     )

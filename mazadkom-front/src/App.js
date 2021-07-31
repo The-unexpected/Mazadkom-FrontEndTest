@@ -4,7 +4,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
-
+import Footer from './components/Footer'; 
+import AboutUs from './components/AboutUs';
+import Room from './components/room';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 
 class App extends React.Component {
@@ -22,14 +24,14 @@ class App extends React.Component {
           <Route exact path="/register">
             <Register />
           </Route>
-          {/* <Route exact path="/about">
+          <Route exact path="/about">
               <AboutUs />
-          </Route> */}
-          {/* <Route exact path = '/feed'>
-          <Feeder/>
-          </Route> */}
+          </Route>
+          <Route exact path = '/room'>
+          <Room/>
+          </Route>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
       // add OurCard to products route
     );
