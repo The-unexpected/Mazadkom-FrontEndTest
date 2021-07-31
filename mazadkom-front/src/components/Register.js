@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import "./css/login.css"
+
 
 export default class Register extends Component {
 
@@ -9,6 +11,7 @@ export default class Register extends Component {
     super(props);
     this.state = {
       name: '',
+      email:'',
       password: ''
     }
   }
@@ -24,6 +27,13 @@ export default class Register extends Component {
       ...this.state,
       created_at: Date.now() / 1000,
     };
+
+    // handleEmail =(e)=>{
+    //   e.preventDefault();
+    //   this.setState({ [e.target.email]: });
+    //   console.log(this.state);
+      
+    // }
 
     const userDetails = {
       username: this.state.name,
@@ -44,28 +54,34 @@ export default class Register extends Component {
   render() {
     return (
 
-      <div>
+      <div className="container">
+      <div className="signin-form">
+      <Form className="form"  onSubmit={this.handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicName"  >
+          <Form.Label>User Name </Form.Label>
+          <Form.Control type="text" placeholder="Enter Your name" name="name" onChange={this.handleChange} />
+          <Form.Text className="text-muted">
+            We'll never share your personal infos with anyone else.
+          </Form.Text>
+        </Form.Group>
 
-        <Form id="signup-form" onSubmit={this.handleSubmit}>
+        <Form.Group className="mb-3" controlId="formBasicEmail">
+          <Form.Label>ُEmail </Form.Label>
+          <Form.Control type="email" placeholder="Enter Your Email" name="email"  />
+        </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicEmail" >
-            <Form.Label>Name </Form.Label>
-            <Form.Control type="text" placeholder="Enter Your name" name="name" onChange={this.handleChange} />
-            <Form.Text className="text-muted">
-              We'll never share your credentials with anyone else.
-            </Form.Text>
-          </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicPassword">
+          <Form.Label>Password</Form.Label>
+          <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleChange} autoComplete="current-password" />
+        </Form.Group>
 
-          <Form.Group className="mb-3" controlId="formBasicPassword" >
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleChange} />
-          </Form.Group>
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
+        <div className="button-login"><Button  variant="outline-secondary">SignUp</Button>{' '}</div>
+      
+      </Form>
       </div>
+     
+    </div>
 
     )
   }

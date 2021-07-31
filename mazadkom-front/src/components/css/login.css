@@ -1,0 +1,34 @@
+.signin-form{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 80vh;
+    margin: auto;
+}
+
+.form{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    background-color: #FFF;
+    padding: 50px 20px;
+    border: 2px solid var(--main-color) ;
+}
+
+.button-login{
+    
+    width: 70%;
+    font-weight: bolder;
+    font-family: 'Gowun Batang', serif;
+    margin: auto;
+    margin-top: 5vh;
+    text-align: center;
+}
+.btn {
+    width: 50%;
+    margin: auto;
+    margin-bottom: 5vh;
+}
+
+.btn:hover{
+    background-color: var(--main-color);
+   }

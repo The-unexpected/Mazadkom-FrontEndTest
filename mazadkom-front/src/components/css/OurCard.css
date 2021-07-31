@@ -1,35 +1,37 @@
-:root {
-  --gradient: linear-gradient(to left top, #dd2476 10%, #ff512f 90%) !important;
+.image-card{
+  height: 110vh;
+  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;  
+}
+.card-title {
+/* text-align: center; */
+color: var(--main-color);
+text-shadow: 1px 1px 2px #232323;
+font-weight: bolder;
 }
 
-body {
-  background: #111 !important;
+.card-text {
+padding-top: 2vh;
+/* text-align: center; */
+font-weight: bolder;
+font-family: 'Gowun Batang', serif;
+
 }
 
-.card {
-  background: #222;
-  border: 1px solid #dd2476;
-  color: rgba(250, 250, 250, 0.8);
-  margin-bottom: 2rem;
+.image-card image{
+  max-height: 40vh !important;
+}
+.card-img-top {
+  max-height: 60vh;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
 }
 
-.btn {
-  border: 5px solid;
-  border-image-slice: 1;
-  background: var(--gradient) !important;
-  -webkit-background-clip: text !important;
-  -webkit-text-fill-color: transparent !important;
-  border-image-source: var(--gradient) !important;
-  text-decoration: none;
-  transition: all 0.4s ease;
+.button {
+ width: 30%;
+ margin: auto;
+ margin-bottom: 5vh;
 }
 
-.btn:hover,
-.btn:focus {
-  background: var(--gradient) !important;
-  -webkit-background-clip: none !important;
-  -webkit-text-fill-color: #fff !important;
-  border: 5px solid #fff !important;
-  box-shadow: #222 1px 0 10px;
-  text-decoration: underline;
+.button:hover{
+ background-color: var(--main-color) !important;
 }
