@@ -3,6 +3,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import "./css/login.css"
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 
 export default class Login extends Component {
   constructor(props) {
@@ -44,9 +45,10 @@ export default class Login extends Component {
     console.log(loggedInUser);
     if (loggedInUser) {
       localStorage.setItem("token", loggedInUser.data.token);
-      this.setState({ user: loggedInUser.data.user.admin })
-      // this.setState({ redirect: true })
+      localStorage.setItem("username", loggedInUser.data.user.username);
     };
+    window.location.href = "/";
+
   };
 
 
