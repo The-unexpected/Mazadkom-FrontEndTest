@@ -11,6 +11,7 @@ class NavBar extends Component {
     localStorage.clear();
     console.log("logged out");
     window.location.reload();
+    window.location.href = "/";
   }
   render() {
     return (
@@ -27,6 +28,7 @@ class NavBar extends Component {
               <Nav.Link href="#product">Our-Products</Nav.Link>
               <Nav.Link href="/about">About US</Nav.Link>
               <Nav.Link href="/room">Room</Nav.Link>
+              {localStorage.getItem('token') && <Nav.Link href="/profile">Profile</Nav.Link>}
 
               {!localStorage.getItem('token') &&
                 <>

@@ -26,11 +26,11 @@ export default class Login extends Component {
       created_at: Date.now(),
     };
 
-    console.log(payload);
-    const userDetails = {
-      username: this.state.username,
-      password: this.state.password
-    }
+    // console.log(payload);
+    // const userDetails = {
+    //   username: this.state.username,
+    //   password: this.state.password
+    // }
 
     const loggedInUser = await axios.post(`http://localhost:5000/signin`, {}, {
       auth: {
@@ -46,6 +46,7 @@ export default class Login extends Component {
     if (loggedInUser) {
       localStorage.setItem("token", loggedInUser.data.token);
       localStorage.setItem("username", loggedInUser.data.user.username);
+      localStorage.setItem("id", loggedInUser.data.user._id);
     };
     window.location.href = "/";
 

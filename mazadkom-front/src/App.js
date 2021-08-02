@@ -7,6 +7,7 @@ import Register from './components/Register';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import Room from './components/room';
+import Profile from './components/Profile';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 class App extends React.Component {
@@ -29,6 +30,9 @@ class App extends React.Component {
           </Route>
           <Route exact path='/room'>
             <Room />
+          </Route>
+          <Route exact path='/profile'>
+            <Profile />
           </Route>
         </Switch>
         <Footer />
