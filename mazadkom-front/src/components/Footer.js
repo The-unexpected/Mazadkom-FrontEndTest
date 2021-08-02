@@ -11,32 +11,32 @@ class Footer extends React.Component {
       <>
 
         <div className='space'></div>
-        <div class="w3hubs-footer">
+        <div className="w3hubs-footer">
 
-          <div class="w3hubs-icon">
+          <div className="w3hubs-icon">
             <ul>
-              <li><SocialIcon network="facebook" url="" className = 'soc-icon'/></li>
-              <li><SocialIcon network="instagram" url="" className = 'soc-icon'/>
+              <li><SocialIcon network="facebook" url="" className='soc-icon' /></li>
+              <li><SocialIcon network="instagram" url="" className='soc-icon' />
               </li>
               <li>
-              <SocialIcon network="twitter" url="" className = 'soc-icon'/>
+                <SocialIcon network="twitter" url="" className='soc-icon' />
               </li>
               <li>
-              <SocialIcon network="google" url="" className = 'soc-icon'/>
+                <SocialIcon network="google" url="" className='soc-icon' />
               </li>
             </ul>
           </div>
-          <div class="w3hubs-nav">
+          <div className="w3hubs-nav">
             <ul>
               <li><Link to="/">Home</Link></li>
               <li><Link to="/about">AboutUs</Link></li>
               <li><Link to="/login">Login</Link></li>
               <li><Link to="/register">Register</Link></li>
-            
+
             </ul>
             <p >
-            &copy;Un-Expected Team 2021
-          </p>
+              &copy;Un-Expected Team 2021
+            </p>
           </div>
         </div>
 

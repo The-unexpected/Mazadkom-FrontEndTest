@@ -4,10 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Home from './components/Home';
 import Login from './components/Login';
 import Register from './components/Register';
-import Footer from './components/Footer'; 
+import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import Room from './components/room';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Profile from './components/Profile';
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
 class App extends React.Component {
   render() {
@@ -19,16 +20,19 @@ class App extends React.Component {
             <Home />
           </Route>
           <Route exact path="/login">
-            <Login />
+            {localStorage.getItem('token') ? <Redirect to="/" /> : <Login />}
           </Route>
           <Route exact path="/register">
             <Register />
           </Route>
           <Route exact path="/about">
-              <AboutUs />
+            <AboutUs />
           </Route>
-          <Route exact path = '/room'>
-          <Room/>
+          <Route exact path='/room'>
+            <Room />
+          </Route>
+          <Route exact path='/profile'>
+            <Profile />
           </Route>
         </Switch>
         <Footer />
