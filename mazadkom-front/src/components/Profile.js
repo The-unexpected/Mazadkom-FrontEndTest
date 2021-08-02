@@ -13,7 +13,8 @@ export default class Profile extends Component {
       username: '',
       image: '',
       title: '',
-      description: ''
+      description: '',
+      bids:[]
 
     }
   }
@@ -22,23 +23,26 @@ export default class Profile extends Component {
 
   componentDidMount() {
     const id = localStorage.getItem('id');
-    console.log(id);
+    console.log("id=",id);
     try {
       const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
         let response = JSON.parse(JSON.stringify(res));
         console.log(response);
-        console.log(res.data.UserInfo[0]);
+        // console.log(res.data.UserInfo[0]);
         this.setState({
           username: response.data.UserInfo[0].username,
           image: response.data.UserInfo[0].image,
           bids: response.data.UserInfo[0].bids[0],
-          title: response.data.UserInfo[0].bids[0].title,
-          description: response.data.UserInfo[0].bids[0].description,
-          price: response.data.UserInfo[0].bids[0].startingPrice,
+          // title: response.data.UserInfo[0].bids[0].title,
+          // description: response.data.UserInfo[0].bids[0].description,
+          // price: response.data.UserInfo[0].bids[0].startingPrice,
 
         })
-        console.log('bids', this.state.price);
-        console.log('bids', this.state.bids.length);
+        console.log('bids', this.state.bids.title);
+        console.log('bids', this.state.bids.description);
+        console.log('bids', this.state.bids.startingPrice);
+        // console.log('bids', this.state.price);
+        // console.log('bids', this.state.bids.length);
 
         return res;
       })
@@ -54,7 +58,7 @@ export default class Profile extends Component {
     return (
       <div>
         <h1>Greetings {this.state.username} ! </h1>
-        {this.state.title &&
+        
           <Card
             bg="primary"
             text="white"
@@ -63,15 +67,16 @@ export default class Profile extends Component {
           >
             <Card.Header>Claimed bid</Card.Header>
             <Card.Body>
-              <Card.Title>{this.state.title} </Card.Title>
+              <Card.Title>{this.state.bids.title} </Card.Title>
               <Card.Text>
-                {this.state.description}
+                {this.state.bids.description}
               </Card.Text>
             </Card.Body>
-            <Card.Footer>{this.state.price}</Card.Footer>
-          </Card>}
-
+            <Card.Footer>{this.state.bids.startingPrice}</Card.Footer>
+          </Card>
+        
       </div>
     )
+  
+    }
   }
-}
