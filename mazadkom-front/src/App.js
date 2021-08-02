@@ -6,7 +6,7 @@ import Login from './components/Login';
 import Register from './components/Register';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
-import Room from './components/room';
+import Room from './components/Room';
 import Profile from './components/Profile';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
