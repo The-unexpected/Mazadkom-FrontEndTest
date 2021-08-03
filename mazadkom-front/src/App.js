@@ -7,6 +7,9 @@ import Register from './components/Register';
 import Footer from './components/Footer';
 import AboutUs from './components/AboutUs';
 import Room from './components/Room';
+import Room2 from './components/Room2';
+import Room3 from './components/Room3';
+
 import Profile from './components/Profile';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 
@@ -30,6 +33,12 @@ class App extends React.Component {
           </Route>
           <Route exact path='/room'>
             <Room />
+          </Route>
+          <Route exact path='/room2'>
+            <Room2 />
+          </Route>
+          <Route exact path='/room3'>
+            <Room3 />
           </Route>
           <Route exact path='/profile'>
             <Profile />

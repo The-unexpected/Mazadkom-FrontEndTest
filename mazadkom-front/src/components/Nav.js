@@ -27,7 +27,13 @@ class NavBar extends Component {
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="#product">Our-Products</Nav.Link>
               <Nav.Link href="/about">About US</Nav.Link>
-              <Nav.Link href="/room">Room</Nav.Link>
+              {/* <Nav.Link href="/room">Room</Nav.Link>
+              <Nav.Link href="/room2">Room2</Nav.Link>
+
+              <Nav.Link href="/room3">Room3</Nav.Link> */}
+
+              
+
               {localStorage.getItem('token') && <Nav.Link href="/profile">Profile</Nav.Link>}
 
               {!localStorage.getItem('token') &&

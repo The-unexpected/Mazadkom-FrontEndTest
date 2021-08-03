@@ -50,6 +50,7 @@ export default class Profile extends Component {
     catch (e) {
       console.log(e.message);
     }
+   
   }
 
 
