@@ -1,18 +1,22 @@
 import React from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
+import { Card, Row, Col, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Monaliza from "./image/monaliza.jpg";
 class Room extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       messages: [],
-      startPrice: 0,
+      startPrice: 100,
       totalPrice: 0,
       click1_count: '',
       username: '',
 
       count: 0,
+
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.increaseBy20 = this.increaseBy20.bind(this);
@@ -38,31 +42,31 @@ class Room extends React.Component {
       });
     });
 
-    
-}
+
+  }
 
   sendMessage(event) {
     const body = event.target.value;
     const id = localStorage.getItem('id');
-    const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
-        let response = JSON.parse(JSON.stringify(res));
-        console.log(response);
-       
-        this.setState({
-          username: response.data.UserInfo[0].username,
-       
-        })
-   
+    axios.get(`http://localhost:5000/user/${id}`).then(res => {
+      let response = JSON.parse(JSON.stringify(res));
+      console.log("response", response);
 
-        return res;
-  
-  })
-    
+      this.setState({
+        username: response.data.UserInfo[0].username,
+
+      })
+
+      console.log(this.state.username);
+      return res;
+
+    })
+
     // if pressing enter button and body exsit
     if (event.keyCode === 13 && body) {
       let message = {
         body: body,
-        from:this.state.username ,
+        from: this.state.username,
       };
 
       console.log('here', message);
@@ -122,6 +126,19 @@ class Room extends React.Component {
         })}
         <h1>Counter = {this.state.count}</h1>
         <h1 id="counterroom111"> total={this.state.click1_count}</h1>
+
+        <Card className="image-card">
+          <Card.Img variant="top"  src={Monaliza} />
+          <Card.Body>
+            <Card.Title>Portrait of a Musician</Card.Title>
+            <Card.Text>
+              The Portrait of a Musician is an unfinished painting widely attributed to the Italian Renaissance artist Leonardo da Vinci, dated to circa 1483–1487. Produced while Leonardo was in Milan, the work is painted in oils, and perhaps tempera, on a small panel of walnut wood.
+            </Card.Text>
+            <Card.Text>Price : {this.state.startPrice+this.state.click1_count}$
+            </Card.Text>
+          </Card.Body>
+
+        </Card>
       </div>
     );
   }
