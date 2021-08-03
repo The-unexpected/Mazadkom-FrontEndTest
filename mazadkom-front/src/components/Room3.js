@@ -1,6 +1,9 @@
 import React from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
+import { Card, Row, Col, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Portraite from "./image/monaliza.jpg";
 class Room3 extends React.Component {
   constructor(props) {
     super(props);
@@ -23,6 +26,7 @@ class Room3 extends React.Component {
 
   componentDidMount() {
     this.socket = io('localhost:5000');
+    console.log('socket', this.state)
     this.socket.on('message3', (message3) => {
       this.setState({
         messages: [message3, ...this.state.messages],
@@ -38,31 +42,31 @@ class Room3 extends React.Component {
       });
     });
 
-    
-}
+
+  }
 
   sendMessage(event) {
     const body = event.target.value;
     const id = localStorage.getItem('id');
     const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
-        let response = JSON.parse(JSON.stringify(res));
-        console.log(response);
-       
-        this.setState({
-          username: response.data.UserInfo[0].username,
-       
-        })
-   
+      let response = JSON.parse(JSON.stringify(res));
+      console.log(response);
 
-        return res;
-  
-  })
-    
+      this.setState({
+        username: response.data.UserInfo[0].username,
+
+      })
+
+
+      return res;
+
+    })
+
     // if pressing enter button and body exsit
     if (event.keyCode === 13 && body) {
       let message3 = {
         body: body,
-        from:this.state.username ,
+        from: this.state.username,
       };
 
       console.log('here', message3);
@@ -122,6 +126,18 @@ class Room3 extends React.Component {
         })}
         <h1>Counter = {this.state.count}</h1>
         <h1 id="counterroom333"> total={this.state.click3_count}</h1>
+        <Card className="image-card">
+          <Card.Img variant="top" src={Portraite} />
+          <Card.Body>
+            <Card.Title>Portrait of a Musician</Card.Title>
+            <Card.Text>
+              The Portrait of a Musician is an unfinished painting widely attributed to the Italian Renaissance artist Leonardo da Vinci, dated to circa 1483–1487. Produced while Leonardo was in Milan, the work is painted in oils, and perhaps tempera, on a small panel of walnut wood.
+            </Card.Text>
+            <Card.Text>Price : {this.state.startPrice + this.state.click1_count}$
+            </Card.Text>
+          </Card.Body>
+
+        </Card>
       </div>
     );
   }
