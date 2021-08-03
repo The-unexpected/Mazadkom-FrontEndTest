@@ -9,7 +9,7 @@ class Room extends React.Component {
       messages: [],
       startPrice: 0,
       totalPrice: 0,
-      click_count: '',
+      click1_count: '',
       username: '',
 
       count: 0,
@@ -27,8 +27,11 @@ class Room extends React.Component {
         messages: [message, ...this.state.messages],
       });
     });
+    this.socket.emit('room111', () => {
+      console.log('room111');
+    })
 
-    this.socket.on('counter', (count) => {
+    this.socket.on('counterroom111', (count) => {
       this.setState({
         count: count,
         ...this.state.count,
@@ -69,31 +72,31 @@ class Room extends React.Component {
   }
 
   increaseBy20(e) {
-    this.socket.emit('clicked', this.increaseBy20); //Emitting user click
-    this.socket.on('click_count', (value) => {
+    this.socket.emit('clickedroom111', this.increaseBy20); //Emitting user click
+    this.socket.on('click1_count', (value) => {
       console.log('value', value);
       this.setState({
-        click_count: value,
+        click1count: value,
       });
     });
   }
 
   increaseBy100(e) {
-    this.socket.emit('clicked1', this.increaseBy100); //Emitting user click
-    this.socket.on('click_count', (value) => {
+    this.socket.emit('clicked1room111', this.increaseBy100); //Emitting user click
+    this.socket.on('click1_count', (value) => {
       console.log('value', value);
       this.setState({
-        click_count: value,
+        click1_count: value,
       });
     });
   }
 
   increaseBy200(e) {
-    this.socket.emit('clicked2', this.increaseBy200); //Emitting user click
-    this.socket.on('click_count', (value) => {
+    this.socket.emit('clicked2room111', this.increaseBy200); //Emitting user click
+    this.socket.on('click1_count', (value) => {
       console.log('value', value);
       this.setState({
-        click_count: value,
+        click1_count: value,
       });
     });
   }
@@ -118,7 +121,7 @@ class Room extends React.Component {
           );
         })}
         <h1>Counter = {this.state.count}</h1>
-        <h1 id="counter"> total={this.state.click_count}</h1>
+        <h1 id="counterroom111"> total={this.state.click1_count}</h1>
       </div>
     );
   }
