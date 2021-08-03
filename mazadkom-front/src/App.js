@@ -14,7 +14,7 @@ class App extends React.Component {
   render() {
     return (
       <Router>
-        <NavBar />
+        {/* <NavBar /> */}
         <Switch>
           <Route exact path="/">
             <Home />
@@ -35,7 +35,7 @@ class App extends React.Component {
             <Profile />
           </Route>
         </Switch>
-        <Footer />
+        {/* <Footer /> */}
       </Router>
       // add OurCard to products route
     );
