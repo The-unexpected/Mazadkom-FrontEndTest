@@ -1,7 +1,7 @@
 import React from 'react';
 import io from 'socket.io-client';
 import axios from 'axios';
-class Room extends React.Component {
+class Room2 extends React.Component {
   constructor(props) {
     super(props);
 
@@ -9,7 +9,7 @@ class Room extends React.Component {
       messages: [],
       startPrice: 0,
       totalPrice: 0,
-      click1_count: '',
+      click2_count: '',
       username: '',
 
       count: 0,
@@ -18,20 +18,21 @@ class Room extends React.Component {
     this.increaseBy20 = this.increaseBy20.bind(this);
     this.increaseBy100 = this.increaseBy100.bind(this);
     this.increaseBy200 = this.increaseBy200.bind(this);
+    alert('hello in room 2');
   }
 
   componentDidMount() {
     this.socket = io('localhost:5000');
-    this.socket.on('message', (message) => {
+    this.socket.on('message2', (message2) => {
       this.setState({
-        messages: [message, ...this.state.messages],
+        messages: [message2, ...this.state.messages],
       });
     });
-    this.socket.emit('room111', () => {
-      console.log('room111');
+    
+    this.socket.emit('room222', () => {
+      console.log('room222');
     })
-
-    this.socket.on('counterroom111', (count) => {
+    this.socket.on('counterroom222', (count) => {
       this.setState({
         count: count,
         ...this.state.count,
@@ -60,43 +61,43 @@ class Room extends React.Component {
     
     // if pressing enter button and body exsit
     if (event.keyCode === 13 && body) {
-      let message = {
+      let message2 = {
         body: body,
         from:this.state.username ,
       };
 
-      console.log('here', message);
-      this.setState({ messages: [message, ...this.state.messages] });
-      this.socket.emit('message', message);
+      console.log('here', message2);
+      this.setState({ messages: [message2, ...this.state.messages] });
+      this.socket.emit('message2', message2);
     }
   }
 
   increaseBy20(e) {
-    this.socket.emit('clickedroom111', this.increaseBy20); //Emitting user click
-    this.socket.on('click1_count', (value) => {
+    this.socket.emit('clickedroom222', this.increaseBy20); //Emitting user click
+    this.socket.on('click2_count', (value) => {
       console.log('value', value);
       this.setState({
-        click1count: value,
+        click2_count: value,
       });
     });
   }
 
   increaseBy100(e) {
-    this.socket.emit('clicked1room111', this.increaseBy100); //Emitting user click
-    this.socket.on('click1_count', (value) => {
+    this.socket.emit('clicked1room222', this.increaseBy100); //Emitting user click
+    this.socket.on('click2_count', (value) => {
       console.log('value', value);
       this.setState({
-        click1_count: value,
+        click2_count: value,
       });
     });
   }
 
   increaseBy200(e) {
-    this.socket.emit('clicked2room111', this.increaseBy200); //Emitting user click
-    this.socket.on('click1_count', (value) => {
+    this.socket.emit('clicked2room222', this.increaseBy200); //Emitting user click
+    this.socket.on('click2_count', (value) => {
       console.log('value', value);
       this.setState({
-        click1_count: value,
+        click2_count: value,
       });
     });
   }
@@ -113,18 +114,18 @@ class Room extends React.Component {
           placeholder="enter your message"
           onKeyUp={this.sendMessage}
         />
-        {this.state.messages.map((message) => {
+        {this.state.messages.map((message2) => {
           return (
             <p>
-              message: {message.body} from {message.from}
+              message: {message2.body} from {message2.from}
             </p>
           );
         })}
         <h1>Counter = {this.state.count}</h1>
-        <h1 id="counterroom111"> total={this.state.click1_count}</h1>
+        <h1 id="counterroom222"> total={this.state.click2_count}</h1>
       </div>
     );
   }
 }
 
-export default Room;
+export default Room2;

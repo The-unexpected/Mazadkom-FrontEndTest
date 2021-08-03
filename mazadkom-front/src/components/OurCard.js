@@ -25,6 +25,7 @@ export class OurCard extends Component {
 
   render() {
     return (
+      
       <div className="container mb-5 mt-5 pt-5 pb-5">
      <Row xs={1} md={3} className="g-4">
     <Col>
@@ -36,7 +37,7 @@ export class OurCard extends Component {
           The Mona Lisa is an oil painting by Italian artist, inventor, and writer Leonardo da Vinci. Likely completed in 1506, the piece features a portrait of a seated woman set against an imaginary landscape. In addition to being one of the most famous works of art, it is also the most valuable.
           </Card.Text>
         </Card.Body>
-          <Button className="button"  variant="outline-secondary" onClick={this.joinRoom}>Join Room</Button>{' '}
+          <Button className="button"  variant="outline-secondary" onClick={this.joinRoom}  href="/room">Join Room</Button>{' '}
       </Card>
     </Col>
     <Col>
@@ -48,7 +49,7 @@ export class OurCard extends Component {
           This painting from the late 13th century by Italian painter Duccio di Buoninsega, in contrast, expresses the emotions of love and tenderness between mother and child. The infant Jesus returns the Madonna's placid but intense gaze
           </Card.Text>
         </Card.Body>
-          <Button className="button" variant="outline-secondary" onClick={this.joinRoom}>Join Room</Button>{' '}
+          <Button className="button" variant="outline-secondary" onClick={this.joinRoom}  href="/room2">Join Room</Button>{' '}
       </Card>
     </Col>
     <Col>
@@ -60,7 +61,7 @@ export class OurCard extends Component {
           The Portrait of a Musician is an unfinished painting widely attributed to the Italian Renaissance artist Leonardo da Vinci, dated to circa 1483–1487. Produced while Leonardo was in Milan, the work is painted in oils, and perhaps tempera, on a small panel of walnut wood. 
           </Card.Text>
         </Card.Body>
-        <Button className="button" variant="outline-secondary" onClick={this.joinRoom}>Join Room</Button>{' '}
+        <Button className="button" variant="outline-secondary" onClick={this.joinRoom} href="/room3">Join Room</Button>{' '}
 
       </Card>
     </Col>
