@@ -1,6 +1,6 @@
 import React from 'react';
 import io from 'socket.io-client';
-
+import axios from 'axios';
 class Room extends React.Component {
   constructor(props) {
     super(props);
@@ -10,7 +10,7 @@ class Room extends React.Component {
       startPrice: 0,
       totalPrice: 0,
       click_count: '',
-    
+      username: '',
 
       count: 0,
     };
@@ -19,6 +19,7 @@ class Room extends React.Component {
     this.increaseBy100 = this.increaseBy100.bind(this);
     this.increaseBy200 = this.increaseBy200.bind(this);
   }
+
   componentDidMount() {
     this.socket = io('localhost:5000');
     this.socket.on('message', (message) => {
@@ -33,15 +34,32 @@ class Room extends React.Component {
         ...this.state.count,
       });
     });
-  }
+
+    
+}
 
   sendMessage(event) {
     const body = event.target.value;
+    const id = localStorage.getItem('id');
+    const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
+        let response = JSON.parse(JSON.stringify(res));
+        console.log(response);
+       
+        this.setState({
+          username: response.data.UserInfo[0].username,
+       
+        })
+   
+
+        return res;
+  
+  })
+    
     // if pressing enter button and body exsit
     if (event.keyCode === 13 && body) {
       let message = {
         body: body,
-        from: 'Me',
+        from:this.state.username ,
       };
 
       console.log('here', message);
@@ -101,7 +119,6 @@ class Room extends React.Component {
         })}
         <h1>Counter = {this.state.count}</h1>
         <h1 id="counter"> total={this.state.click_count}</h1>
-       
       </div>
     );
   }
