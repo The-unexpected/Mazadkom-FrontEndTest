@@ -37,11 +37,7 @@ export default class Login extends Component {
         username: this.state.username,
         password: this.state.password
       }
-    }).catch(err => {
-      console.log(err.response);
-      alert(err.response.data.err);
-    });
-
+    })
     console.log(loggedInUser);
     if (loggedInUser) {
       localStorage.setItem("token", loggedInUser.data.token);
