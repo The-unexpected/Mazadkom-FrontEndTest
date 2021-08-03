@@ -2,6 +2,7 @@ import React from 'react';
 import io from 'socket.io-client';
 
 class Room extends React.Component {
+
     constructor(props) {
         super(props)
 
@@ -71,7 +72,7 @@ class Room extends React.Component {
             </div>
         );
     }
+
 }
 
 export default Room;
-
