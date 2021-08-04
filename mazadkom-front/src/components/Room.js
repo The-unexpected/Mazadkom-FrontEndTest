@@ -125,7 +125,7 @@ class Room extends React.Component {
           );
         })}
         <h1>Counter = {this.state.count}</h1>
-        <h1 id="counterroom111"> total={this.state.click1_count}</h1>
+        <h1 id="counterroom111"> Price : {this.state.startPrice+this.state.click1_count}$</h1>
 
         <Card className="image-card">
           <Card.Img variant="top"  src={Monaliza} />

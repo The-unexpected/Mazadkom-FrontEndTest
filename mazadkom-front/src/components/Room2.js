@@ -3,14 +3,15 @@ import io from 'socket.io-client';
 import axios from 'axios';
 import { Card, Row, Col, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Maddona from "./image/monaliza.jpg";
+import Maddona from "./image/Madonna_of_the_Carnation.jpg";
+
 class Room2 extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       messages: [],
-      startPrice: 0,
+      startPrice: 400,
       totalPrice: 0,
       click2_count: '',
       username: '',
@@ -125,7 +126,7 @@ class Room2 extends React.Component {
           );
         })}
         <h1>Counter = {this.state.count}</h1>
-        <h1 id="counterroom222"> total={this.state.click2_count}</h1>
+        <h1 id="counterroom222">Price : {this.state.startPrice+this.state.click2_count}$</h1> 
         <Card className="image-card">
           <Card.Img variant="top" src={Maddona} />
           <Card.Body>
@@ -133,7 +134,8 @@ class Room2 extends React.Component {
             <Card.Text>
               The Portrait of a Musician is an unfinished painting widely attributed to the Italian Renaissance artist Leonardo da Vinci, dated to circa 1483–1487. Produced while Leonardo was in Milan, the work is painted in oils, and perhaps tempera, on a small panel of walnut wood.
             </Card.Text>
-            <Card.Text>Price : {this.state.startPrice + this.state.click1_count}$
+            <Card.Text>Price : {this.state.startPrice+this.state.click2_count}$
+
             </Card.Text>
           </Card.Body>
 
