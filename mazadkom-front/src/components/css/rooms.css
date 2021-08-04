@@ -1,0 +1,57 @@
+.App{
+    width: 100%;
+    height: 100%;
+    padding: 1vh 0;
+    padding-bottom: 10vh;
+}
+.btn-head{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.chat{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.chat h3{
+    color:var(--main-color);
+    font-weight: 700;
+}
+
+.chat input{
+width: 50%;
+padding: 10px;
+border-radius: 1rem;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+.bidding{
+    width: 100%;
+    height: 100%;
+    padding: 5vh 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chat-box{
+    width: 100%;
+    height: max-content;
+    background-color: #ccc;
+    padding :10px 10px;
+    border-radius: 1rem;
+    margin: 1rem 0rem;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.note{
+    background-color: var(--main-color);
+}
+
+.chat-box span{
+    color:red;
+}

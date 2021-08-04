@@ -112,3 +112,15 @@ left: 15%;
     padding-top: 1vh;
 
 }
+
+.sing-out{
+    background-color: var(--main-color) !important;
+    width: 20% !important;
+    align-items: center ;
+    display: flex;
+
+}
+
+.sing-out:hover{
+    background-color: red !important;
+}

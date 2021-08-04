@@ -23,17 +23,10 @@ class NavBar extends Component {
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
           <Navbar.Collapse id="responsive-navbar-nav">
 
-            <Nav className="ml-auto " >
+            <Nav className="ml-auto w-100" >
               <Nav.Link href="/">Home</Nav.Link>
               <Nav.Link href="#product">Our-Products</Nav.Link>
-              <Nav.Link href="/about">About US</Nav.Link>
-              {/* <Nav.Link href="/room">Room</Nav.Link>
-              <Nav.Link href="/room2">Room2</Nav.Link>
-
-              <Nav.Link href="/room3">Room3</Nav.Link> */}
-
-              
-
+              <Nav.Link href="/about">About-US</Nav.Link>
               {localStorage.getItem('token') && <Nav.Link href="/profile">Profile</Nav.Link>}
 
               {!localStorage.getItem('token') &&
@@ -46,19 +39,15 @@ class NavBar extends Component {
                   </Nav.Link>
                 </>}
 
+        {
+          localStorage.getItem('token') &&
+          <Button  className="sing-out" onClick={this.logOut}> Sign-Out</Button>
+        }
+
             </Nav>
-
-
-
-
-
           </Navbar.Collapse>
 
         </Container>
-        {
-          localStorage.getItem('token') &&
-          <Button onClick={this.logOut}>Sign Out</Button>
-        }
       </Navbar >
     )
   }
