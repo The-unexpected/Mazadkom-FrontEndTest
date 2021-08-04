@@ -35,7 +35,7 @@ export default class Register extends Component {
 
     // const HOST = process.env.REACT_APP_SERVER;
     // console.log(HOST);
-    const newUser = await axios.post(`http://localhost:5000/signup`, userDetails).catch((error) => {
+    const newUser = await axios.post(`https://mazadkom.herokuapp.com/signup`, userDetails).catch((error) => {
       console.log(error.response);
       alert(error.response.data.error);
     });
