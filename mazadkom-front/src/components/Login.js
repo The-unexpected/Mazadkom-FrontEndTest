@@ -32,7 +32,7 @@ export default class Login extends Component {
     //   password: this.state.password
     // }
 
-    const loggedInUser = await axios.post(`https://mazadkom.herokuapp.com/signin`, {}, {
+    const loggedInUser = await axios.post(`http://localhost:5000/signin`, {}, {
       auth: {
         username: this.state.username,
         password: this.state.password
