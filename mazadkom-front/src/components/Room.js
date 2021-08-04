@@ -15,7 +15,8 @@ class Room extends React.Component {
       click_count: 100,
       username: '',
       count: 0,
-      show: false
+      show: false,
+      showTimer: true
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.increaseBy50 = this.increaseBy50.bind(this);
@@ -107,6 +108,7 @@ class Room extends React.Component {
 
 
   increaseBy50(e) {
+    this.setState({ showTimer: false });
     this.socket.emit('clicked', this.increaseBy50); //Emitting user click
     this.socket.on('click_count', (value) => {
       console.log('value', value);
@@ -119,6 +121,7 @@ class Room extends React.Component {
 
 
   increaseBy100(e) {
+    this.setState({ showTimer: false });
     this.socket.emit('clicked1', this.increaseBy100); //Emitting user click
     this.socket.on('click_count', (value) => {
       console.log('value', value);
@@ -130,6 +133,7 @@ class Room extends React.Component {
   }
 
   increaseBy200(e) {
+    this.setState({ showTimer: false });
     this.socket.emit('clicked2', this.increaseBy200); //Emitting user click
     this.socket.on('click_count', (value) => {
       console.log('value', value);
@@ -144,26 +148,26 @@ class Room extends React.Component {
     return (
       <div className="App">
         <div className="container">
-         
+
 
 
 
           <div className="row">
-          <div className="bidding">
-          {this.state.show &&
-            <div className="btn-head">
-              <Button className="w-25 m-auto"  variant="secondary" onClick={this.increaseBy50} >increase 50$</Button>
-              <Button className="w-25 m-auto"  variant="secondary" onClick={this.increaseBy100}>increase 100$</Button>
-              <Button className="w-25 m-auto" variant="secondary" onClick={this.increaseBy200}>increase 200$</Button>
+            <div className="bidding">
+              {this.state.show &&
+                <div className="btn-head">
+                  <Button className="w-25 m-auto" variant="secondary" onClick={this.increaseBy50} >increase 50$</Button>
+                  <Button className="w-25 m-auto" variant="secondary" onClick={this.increaseBy100}>increase 100$</Button>
+                  <Button className="w-25 m-auto" variant="secondary" onClick={this.increaseBy200}>increase 200$</Button>
+                </div>
+              }
+              {!this.state.show &&
+                <Button className="w-25 m-auto" variant="secondary" onClick={this.showButtons}>Start Bidding</Button>
+              }
+
             </div>
-          }
-            {!this.state.show && 
-               <Button  className="w-25 m-auto" variant="secondary" onClick={this.showButtons}>Start Bidding</Button>
-            }
-               
-              </div>
-              </div>
-              <div className="row">
+          </div>
+          <div className="row">
             <div className="col-4">
               <Card className="image-card">
                 <Card.Img variant="top" src={Monaliza} />
@@ -178,9 +182,9 @@ class Room extends React.Component {
               </Card>
             </div>
             <div className="col">
-    
+
               <div className="chat">
-                <h3>Timer = {this.state.count}</h3>
+                {this.state.showTimer && <h3>Timer = {this.state.count}</h3>}
                 <h3 id="counterroom111"> The Increase amount = {this.state.click_count}</h3>
                 <input
                   type="text"
@@ -188,29 +192,29 @@ class Room extends React.Component {
                   onKeyUp={this.sendMessage}
                 />
                 <div className="row">
-               <div className="col" >
-               {this.state.messages.map((message) => {
-                  return (
-                    <div className="chat-box">
-                    <p>
-                    <span > Message </span>  : {message.body} from {message.from}
-                    </p>
-                    </div>
-                  );
-                })}
-              </div>
-              <div className="col">
-                {this.state.prints.map((print) => {
-                  return (
-                    <div className="chat-box note">
-                    <p>
-                    <span> Note </span> : {print.from} {print.body}.
-                    </p>
-                    </div>
-                  );
-                })}
+                  <div className="col" >
+                    {this.state.messages.map((message) => {
+                      return (
+                        <div className="chat-box">
+                          <p>
+                            <span > Message </span>  : {message.body} from {message.from}
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
+                  <div className="col">
+                    {this.state.prints.map((print) => {
+                      return (
+                        <div className="chat-box note">
+                          <p>
+                            <span> Note </span> : {print.from} {print.body}.
+                          </p>
+                        </div>
+                      );
+                    })}
+                  </div>
                 </div>
-               </div>
 
               </div>
             </div>
