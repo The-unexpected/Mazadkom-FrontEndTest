@@ -26,7 +26,7 @@ class Room3 extends React.Component {
   }
 
   componentDidMount() {
-    this.socket = io('localhost:5000');
+    this.socket = io('https://mazadkom.herokuapp.com');
     console.log('socket', this.state)
     this.socket.on('message3', (message3) => {
       this.setState({
@@ -49,7 +49,7 @@ class Room3 extends React.Component {
   sendMessage(event) {
     const body = event.target.value;
     const id = localStorage.getItem('id');
-    const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
+    const request = axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
       let response = JSON.parse(JSON.stringify(res));
       console.log(response);
 
