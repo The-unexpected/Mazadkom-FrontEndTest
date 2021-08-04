@@ -160,6 +160,8 @@ class Room extends React.Component {
 
         <h1 id="counterroom111"> total={this.state.click_count}</h1>
 
+ 
+
         <Card className="image-card">
           <Card.Img variant="top" src={Monaliza} />
           <Card.Body>
