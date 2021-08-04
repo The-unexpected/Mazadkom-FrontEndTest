@@ -25,13 +25,13 @@ class Room2 extends React.Component {
   }
 
   componentDidMount() {
-    this.socket = io('localhost:5000');
+    this.socket = io('https://mazadkom.herokuapp.com');
     this.socket.on('message2', (message2) => {
       this.setState({
         messages: [message2, ...this.state.messages],
       });
     });
-    
+
     this.socket.emit('room222', () => {
       console.log('room222');
     })
@@ -42,31 +42,31 @@ class Room2 extends React.Component {
       });
     });
 
-    
-}
+
+  }
 
   sendMessage(event) {
     const body = event.target.value;
     const id = localStorage.getItem('id');
-    const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
-        let response = JSON.parse(JSON.stringify(res));
-        console.log(response);
-       
-        this.setState({
-          username: response.data.UserInfo[0].username,
-       
-        })
-   
+    const request = axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
+      let response = JSON.parse(JSON.stringify(res));
+      console.log(response);
 
-        return res;
-  
-  })
-    
+      this.setState({
+        username: response.data.UserInfo[0].username,
+
+      })
+
+
+      return res;
+
+    })
+
     // if pressing enter button and body exsit
     if (event.keyCode === 13 && body) {
       let message2 = {
         body: body,
-        from:this.state.username ,
+        from: this.state.username,
       };
 
       console.log('here', message2);
@@ -127,13 +127,13 @@ class Room2 extends React.Component {
         <h1>Counter = {this.state.count}</h1>
         <h1 id="counterroom222"> total={this.state.click2_count}</h1>
         <Card className="image-card">
-          <Card.Img variant="top"  src={Maddona} />
+          <Card.Img variant="top" src={Maddona} />
           <Card.Body>
             <Card.Title>Portrait of a Musician</Card.Title>
             <Card.Text>
               The Portrait of a Musician is an unfinished painting widely attributed to the Italian Renaissance artist Leonardo da Vinci, dated to circa 1483–1487. Produced while Leonardo was in Milan, the work is painted in oils, and perhaps tempera, on a small panel of walnut wood.
             </Card.Text>
-            <Card.Text>Price : {this.state.startPrice+this.state.click1_count}$
+            <Card.Text>Price : {this.state.startPrice + this.state.click1_count}$
             </Card.Text>
           </Card.Body>
 

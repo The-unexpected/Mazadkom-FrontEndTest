@@ -14,7 +14,7 @@ export default class Profile extends Component {
       image: '',
       title: '',
       description: '',
-      bids:[]
+      bids: []
 
     }
   }
@@ -23,9 +23,9 @@ export default class Profile extends Component {
 
   componentDidMount() {
     const id = localStorage.getItem('id');
-    console.log("id=",id);
+    console.log("id=", id);
     try {
-      const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
+      const request = axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
         let response = JSON.parse(JSON.stringify(res));
         console.log(response);
         // console.log(res.data.UserInfo[0]);
@@ -38,9 +38,9 @@ export default class Profile extends Component {
           // price: response.data.UserInfo[0].bids[0].startingPrice,
 
         })
-        console.log('bids', this.state.bids.title);
-        console.log('bids', this.state.bids.description);
-        console.log('bids', this.state.bids.startingPrice);
+        // console.log('bids', this.state.bids.title);
+        // console.log('bids', this.state.bids.description);
+        // console.log('bids', this.state.bids.startingPrice);
         // console.log('bids', this.state.price);
         // console.log('bids', this.state.bids.length);
 
@@ -50,7 +50,7 @@ export default class Profile extends Component {
     catch (e) {
       console.log(e.message);
     }
-   
+
   }
 
 
@@ -59,7 +59,8 @@ export default class Profile extends Component {
     return (
       <div>
         <h1>Greetings {this.state.username} ! </h1>
-        
+
+        {this.state.bids &&
           <Card
             bg="primary"
             text="white"
@@ -75,9 +76,9 @@ export default class Profile extends Component {
             </Card.Body>
             <Card.Footer>{this.state.bids.startingPrice}</Card.Footer>
           </Card>
-        
+        }
       </div>
     )
-  
-    }
+
   }
+}
