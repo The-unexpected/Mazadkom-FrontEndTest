@@ -34,7 +34,7 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
-    this.socket = io('http://localhost:5000');
+    this.socket = io('https://mazadkom.herokuapp.com');
     this.socket.on('message', (message) => {
       this.setState({
         messages: [message, ...this.state.messages],
@@ -61,7 +61,7 @@ class Room extends React.Component {
   sendMessage(event) {
     const body = event.target.value;
     const id = localStorage.getItem('id');
-    axios.get(`http://localhost:5000/user/${id}`).then(res => {
+    axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
@@ -87,7 +87,7 @@ class Room extends React.Component {
   // remove.catch if we get an error
   async sendPrint(event) {
     const id = localStorage.getItem('id');
-    await axios.get(`http://localhost:5000/user/${id}`).then(res => {
+    await axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({

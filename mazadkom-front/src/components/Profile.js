@@ -25,7 +25,7 @@ export default class Profile extends Component {
     const id = localStorage.getItem('id');
     console.log("id=", id);
     try {
-      const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
+      const request = axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
         let response = JSON.parse(JSON.stringify(res));
         console.log(response);
 
