@@ -9,6 +9,7 @@ class Room extends React.Component {
     super(props);
     this.state = {
       messages: [],
+      prints: [],
       startPrice: 100,
       click_count: 100,
       username: '',
@@ -18,6 +19,7 @@ class Room extends React.Component {
     this.increaseBy50 = this.increaseBy50.bind(this);
     this.increaseBy100 = this.increaseBy100.bind(this);
     this.increaseBy200 = this.increaseBy200.bind(this);
+    this.sendPrint = this.sendPrint.bind(this);
   }
 
   componentDidMount() {
@@ -25,6 +27,12 @@ class Room extends React.Component {
     this.socket.on('message', (message) => {
       this.setState({
         messages: [message, ...this.state.messages],
+      });
+    });
+
+    this.socket.on('print', (print) => {
+      this.setState({
+        prints: [print, ...this.state.prints],
       });
     });
 
@@ -38,7 +46,7 @@ class Room extends React.Component {
 
 
   }
-
+  // remove.catch if we get an error
   sendMessage(event) {
     const body = event.target.value;
     const id = localStorage.getItem('id');
@@ -65,6 +73,28 @@ class Room extends React.Component {
     }
   }
 
+  // remove.catch if we get an error
+  async sendPrint(event) {
+    const id = localStorage.getItem('id');
+    await axios.get(`http://localhost:5000/user/${id}`).then(res => {
+      let response = JSON.parse(JSON.stringify(res));
+      console.log("response", response);
+      this.setState({
+        username: response.data.UserInfo[0].username,
+      })
+      return response;
+    })
+
+    let print = {
+      body: 'has increased the bid',
+      from: this.state.username,
+    };
+    console.log('here', print);
+    this.setState({ prints: [print, ...this.state.prints] });
+    this.socket.emit('print', print);
+  }
+
+
   increaseBy50(e) {
     this.socket.emit('clicked', this.increaseBy50); //Emitting user click
     this.socket.on('click_count', (value) => {
@@ -73,6 +103,7 @@ class Room extends React.Component {
         click_count: value,
       });
     });
+    this.sendPrint(e);
   }
 
 
@@ -84,6 +115,7 @@ class Room extends React.Component {
         click_count: value,
       });
     });
+    this.sendPrint(e);
   }
 
   increaseBy200(e) {
@@ -94,6 +126,7 @@ class Room extends React.Component {
         click_count: value,
       });
     });
+    this.sendPrint(e);
   }
 
   render() {
@@ -117,6 +150,13 @@ class Room extends React.Component {
         })}
         <h1>Counter = {this.state.count}</h1>
 
+        {this.state.prints.map((print) => {
+          return (
+            <p>
+              Note: {print.from} {print.body}.
+            </p>
+          );
+        })}
 
         <h1 id="counterroom111"> total={this.state.click_count}</h1>
 

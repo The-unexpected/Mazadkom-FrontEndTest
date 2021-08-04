@@ -25,10 +25,10 @@ export default class Profile extends Component {
     const id = localStorage.getItem('id');
     console.log("id=", id);
     try {
-      const request = axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
+      const request = axios.get(`http://localhost:5000/user/${id}`).then(res => {
         let response = JSON.parse(JSON.stringify(res));
         console.log(response);
-        // console.log(res.data.UserInfo[0]);
+
         this.setState({
           username: response.data.UserInfo[0].username,
           image: response.data.UserInfo[0].image,
@@ -36,7 +36,6 @@ export default class Profile extends Component {
           // title: response.data.UserInfo[0].bids[0].title,
           // description: response.data.UserInfo[0].bids[0].description,
           // price: response.data.UserInfo[0].bids[0].startingPrice,
-
         })
         // console.log('bids', this.state.bids.title);
         // console.log('bids', this.state.bids.description);
