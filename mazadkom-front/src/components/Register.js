@@ -61,7 +61,7 @@ export default class Register extends Component {
             </Form.Group>
 
             <Form.Group className="mb-3" controlId="formBasicEmail">
-              <Form.Label>ُEmail </Form.Label>
+              <Form.Label>Email </Form.Label>
               <Form.Control type="email" placeholder="Enter Your Email" name="email" onChange={this.handleChange} />
             </Form.Group>
 

@@ -44,7 +44,7 @@ class App extends React.Component {
             <Profile />
           </Route>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </Router>
       // add OurCard to products route
     );
