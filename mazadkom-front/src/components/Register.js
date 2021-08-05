@@ -2,7 +2,13 @@ import React, { Component } from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import "./css/login.css"
+import {
+  NotificationContainer
+  , NotificationManager
+} from 'react-notifications';
+import 'react-notifications/lib/notifications.css';
 import axios from 'axios';
+
 
 
 export default class Register extends Component {
@@ -15,6 +21,7 @@ export default class Register extends Component {
     }
   }
 
+ 
   handleChange = async (e) => {
     this.setState({ [e.target.name]: e.target.value });
     console.log(this.state);
@@ -22,6 +29,7 @@ export default class Register extends Component {
 
   handleSubmit = async (e) => {
     e.preventDefault();
+
     const payload = {
       ...this.state,
       created_at: Date.now(),
@@ -42,13 +50,15 @@ export default class Register extends Component {
     console.log(newUser);
 
     // console.log('handle submit payload is = ', payload);
+    NotificationManager.success('success','Sign-Up');
   };
 
 
 
   render() {
     return (
-
+      <>
+      <NotificationContainer/>
       <div className="container">
         <div className="signin-form">
           <Form className="form" onSubmit={this.handleSubmit}>
@@ -77,7 +87,7 @@ export default class Register extends Component {
         </div>
 
       </div>
-
+      </>
     )
   }
 }
