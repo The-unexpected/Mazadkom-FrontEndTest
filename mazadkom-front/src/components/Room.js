@@ -18,6 +18,7 @@ class Room extends React.Component {
       show: false,
       showTimer: false,
       showWinner: false
+
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.increaseBy50 = this.increaseBy50.bind(this);
@@ -57,7 +58,7 @@ class Room extends React.Component {
   }
 
   componentDidMount() {
-    this.socket = io('http://localhost:5000');
+    this.socket = io('https://mazadkom.herokuapp.com');
     this.socket.on('message', (message) => {
       this.setState({
         messages: [message, ...this.state.messages],
@@ -96,7 +97,7 @@ class Room extends React.Component {
   sendMessage(event) {
     const body = event.target.value;
     const id = localStorage.getItem('id');
-    axios.get(`http://localhost:5000/user/${id}`).then(res => {
+    axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
@@ -124,7 +125,7 @@ class Room extends React.Component {
   // remove.catch if we get an error
   async sendPrint(event) {
     const id = localStorage.getItem('id');
-    await axios.get(`http://localhost:5000/user/${id}`).then(res => {
+    await axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
@@ -144,6 +145,7 @@ class Room extends React.Component {
 
 
   increaseBy50(e) {
+    this.setState({ showTimer: false });
     this.socket.emit('clicked', this.increaseBy50); //Emitting user click
     this.socket.on('click_count', (value) => {
       console.log('value', value);
@@ -158,6 +160,7 @@ class Room extends React.Component {
 
 
   increaseBy100(e) {
+    this.setState({ showTimer: false });
     this.socket.emit('clicked1', this.increaseBy100); //Emitting user click
     this.socket.on('click_count', (value) => {
       console.log('value', value);
@@ -171,6 +174,7 @@ class Room extends React.Component {
   }
 
   increaseBy200(e) {
+    this.setState({ showTimer: false });
     this.socket.emit('clicked2', this.increaseBy200); //Emitting user click
     this.socket.on('click_count', (value) => {
       console.log('value', value);
@@ -227,6 +231,7 @@ class Room extends React.Component {
                   <h3>Timer = {this.state.count}</h3>
                 }
 
+
                 <h3 id="counterroom111"> The Increase amount = {this.state.click_count}</h3>
                 <input
                   type="text"
@@ -239,7 +244,8 @@ class Room extends React.Component {
                       return (
                         <div className="chat-box">
                           <p>
-                            <span > Message </span>  : {message.body}from : {message.from}
+                            <span > Message </span>  : {message.body} from : {message.from}
+
                           </p>
                         </div>
                       );
@@ -251,12 +257,14 @@ class Room extends React.Component {
                         <div className="chat-box note">
                           <p>
                             <span> Note !! </span> : {print.from} {print.body}.
+
                           </p>
                         </div>
                       );
                     })}
                   </div>
                 </div>
+
               </div>
             </div>
           </div>
