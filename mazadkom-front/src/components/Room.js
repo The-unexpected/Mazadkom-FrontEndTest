@@ -11,12 +11,14 @@ class Room extends React.Component {
     this.state = {
       messages: [],
       prints: [],
-      startPrice: 100,
-      click_count: 100,
+      startPrice: 200,
+      click_count: 0,
       username: '',
-      count: 0,
+      count: 10,
       show: false,
-      showTimer: true
+      showTimer: false,
+      showWinner: false
+
     };
     this.sendMessage = this.sendMessage.bind(this);
     this.increaseBy50 = this.increaseBy50.bind(this);
@@ -24,14 +26,35 @@ class Room extends React.Component {
     this.increaseBy200 = this.increaseBy200.bind(this);
     this.sendPrint = this.sendPrint.bind(this);
     this.showButtons = this.showButtons.bind(this);
+    this.winnerName = '';
+    this.getwinner();
+
+
   }
 
 
+  getwinner() {
+    let id = localStorage.getItem('id');
+    axios.get(`http://localhost:5000/user/${id}`).then(res => {
+      let response = JSON.parse(JSON.stringify(res));
+      console.log("response", response);
+      this.setState({
+        username: response.data.UserInfo[0].username,
+
+      })
+      this.socket.on('resWinner', (resWinner) => {
+        this.winnerName = resWinner;
+
+      })
+    })
+
+  }
 
   showButtons() {
     this.setState({
-      show: true
+      show: true,
     })
+
   }
 
   componentDidMount() {
@@ -53,8 +76,20 @@ class Room extends React.Component {
       this.setState({
         count: count,
         ...this.state.count,
+        showTimer: true
       });
+      if (count === "Times UP") {
+        this.setState({
+          show: false,
+          showWinner: true
+        })
+
+        console.log("showw", this.state.show);
+      }
+      console.log(count);
     });
+
+
 
 
   }
@@ -71,6 +106,8 @@ class Room extends React.Component {
       console.log(this.state.username);
       return res;
     })
+
+
 
     // if pressing enter button and body exsit
     if (event.keyCode === 13 && body) {
@@ -117,6 +154,8 @@ class Room extends React.Component {
       });
     });
     this.sendPrint(e);
+    this.socket.emit('winner', this.state.username);
+
   }
 
 
@@ -130,6 +169,8 @@ class Room extends React.Component {
       });
     });
     this.sendPrint(e);
+    this.socket.emit('winner', this.state.username);
+
   }
 
   increaseBy200(e) {
@@ -142,6 +183,8 @@ class Room extends React.Component {
       });
     });
     this.sendPrint(e);
+    this.socket.emit('winner', this.state.username);
+
   }
 
   render() {
@@ -172,11 +215,11 @@ class Room extends React.Component {
               <Card className="image-card">
                 <Card.Img variant="top" src={Monaliza} />
                 <Card.Body>
-                  <Card.Title>Portrait of a Musician</Card.Title>
+                  <Card.Title>Mona Liza</Card.Title>
                   <Card.Text>
-                    The Portrait of a Musician is an unfinished painting widely attributed to the Italian Renaissance artist Leonardo da Vinci, dated to circa 1483–1487. Produced while Leonardo was in Milan, the work is painted in oils, and perhaps tempera, on a small panel of walnut wood.
+                    The Mona Lisa is an oil painting by Italian artist, inventor, and writer Leonardo da Vinci. Likely completed in 1506, the piece features a portrait of a seated woman set against an imaginary landscape. In addition to being one of the most famous works of art, it is also the most valuable.
                   </Card.Text>
-                  <Card.Text>Starting Price : {this.state.startPrice + this.state.click_count}$
+                  <Card.Text className="price">Starting Price : <span>{this.state.startPrice}$</span>
                   </Card.Text>
                 </Card.Body>
               </Card>
@@ -184,7 +227,11 @@ class Room extends React.Component {
             <div className="col">
 
               <div className="chat">
-                {this.state.showTimer && <h3>Timer = {this.state.count}</h3>}
+                {this.state.showTimer &&
+                  <h3>Timer = {this.state.count}</h3>
+                }
+
+
                 <h3 id="counterroom111"> The Increase amount = {this.state.click_count}</h3>
                 <input
                   type="text"
@@ -197,7 +244,8 @@ class Room extends React.Component {
                       return (
                         <div className="chat-box">
                           <p>
-                            <span > Message </span>  : {message.body} from {message.from}
+                            <span > Message </span>  : {message.body} from : {message.from}
+
                           </p>
                         </div>
                       );
@@ -208,7 +256,8 @@ class Room extends React.Component {
                       return (
                         <div className="chat-box note">
                           <p>
-                            <span> Note </span> : {print.from} {print.body}.
+                            <span> Note !! </span> : {print.from} {print.body}.
+
                           </p>
                         </div>
                       );
@@ -220,6 +269,11 @@ class Room extends React.Component {
             </div>
           </div>
         </div>
+        { this.state.showWinner && 
+        <div className="result">
+          <h1>{this.winnerName} Won The Bid With <span>{this.state.click_count+this.state.startPrice}$ </span></h1>
+        </div>
+        }
       </div>
     );
   }
