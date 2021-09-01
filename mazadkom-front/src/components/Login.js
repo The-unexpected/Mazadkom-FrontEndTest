@@ -1,85 +1,88 @@
-import React, { Component } from 'react';
-import Form from 'react-bootstrap/Form';
-import Button from 'react-bootstrap/Button';
-import "./css/login.css"
-import axios from 'axios';
-import { Redirect } from "react-router-dom";
+import React, { useState } from "react";
+import Form from "react-bootstrap/Form";
+import Button from "react-bootstrap/Button";
+import "./css/login.css";
+import axios from "axios";
 
-export default class Login extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      username: '',
-      password: ''
-    }
-  }
+function Login() {
+  const [state, setState] = useState({ username: "", password: "" });
 
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value });
-    console.log(this.state);
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setState((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
 
-  handleSubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const payload = {
-      ...this.state,
+      ...state,
       created_at: Date.now(),
     };
 
-    // console.log(payload);
-    // const userDetails = {
-    //   username: this.state.username,
-    //   password: this.state.password
-    // }
-
-    const loggedInUser = await axios.post(`https://mazadkom.herokuapp.com/signin`, {}, {
-      auth: {
-        username: this.state.username,
-        password: this.state.password
-      }
-    }).catch(err => {
-      console.log(err.response);
-    });
+    const loggedInUser = await axios
+      .post(
+        `https://mazadkom.herokuapp.com/signin`,
+        {},
+        {
+          auth: {
+            username: state.username,
+            password: state.password,
+          },
+        }
+      )
+      .catch((err) => {
+        console.log(err.response);
+      });
 
     console.log(loggedInUser);
     if (loggedInUser) {
       localStorage.setItem("token", loggedInUser.data.token);
       localStorage.setItem("username", loggedInUser.data.user.username);
       localStorage.setItem("id", loggedInUser.data.user._id);
-    };
+    }
     window.location.href = "/";
-
   };
 
+  return (
+    <div className="container">
+      <div className="signin-form">
+        <Form className="form" onSubmit={handleSubmit}>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Name </Form.Label>
+            <Form.Control
+              type="text"
+              placeholder="Enter Your name"
+              name="username"
+              onChange={handleChange}
+            />
+            <Form.Text className="text-muted">
+              We'll never share your personal infos with anyone else.
+            </Form.Text>
+          </Form.Group>
 
-  render() {
-    return (
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              onChange={handleChange}
+              autoComplete="current-password"
+            />
+          </Form.Group>
 
-      <div className="container">
-        <div className="signin-form">
-          <Form className="form" onSubmit={this.handleSubmit}>
-            <Form.Group className="mb-3" controlId="formBasicEmail"  >
-
-              <Form.Label>Name </Form.Label>
-              <Form.Control type="text" placeholder="Enter Your name" name="username" onChange={this.handleChange} />
-              <Form.Text className="text-muted">
-                We'll never share your personal infos with anyone else.
-              </Form.Text>
-            </Form.Group>
-
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-              <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" name="password" onChange={this.handleChange} autoComplete="current-password" />
-            </Form.Group>
-
-
-            <div className="button-login"><Button variant="outline-secondary" type="submit">LogIn</Button>        </div>
-
-          </Form>
-        </div>
-
+          <div className="button-login">
+            <Button variant="outline-secondary" type="submit">
+              LogIn
+            </Button>{" "}
+          </div>
+        </Form>
       </div>
-
-    )
-  }
+    </div>
+  );
 }
+
+export default Login;
