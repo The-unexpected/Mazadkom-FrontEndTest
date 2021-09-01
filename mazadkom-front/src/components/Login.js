@@ -4,7 +4,7 @@ import Button from "react-bootstrap/Button";
 import "./css/login.css";
 import axios from "axios";
 
-function Login() {
+function Login(props) {
   const [state, setState] = useState({ username: "", password: "" });
 
   const handleChange = (e) => {

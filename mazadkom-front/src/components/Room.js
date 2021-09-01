@@ -23,7 +23,7 @@ function Room(props) {
 
 let winnerName='';
 
-  function getwinner () {
+  const getwinner=()=>{
     try {
       let id = localStorage.getItem('id');
       axios.get(`http://localhost:5000/user/${id}`).then(res => {
@@ -44,11 +44,13 @@ let winnerName='';
  
 
   const showButtons = () => {
+    setUsername(localStorage.getItem('username'))
    setShow(true)
   }
 
   useEffect(() => {
     try {
+      // setUsername(response.data.UserInfo[0].username);
       props.socket = io('https://mazadkom.herokuapp.com');
       props.socket.on('message', (message) => {
         setMessages([message, ...messages]);
@@ -67,17 +69,18 @@ let winnerName='';
           setShowWinner(true)
         }
       });
-    
+      
     } catch (error) {
       console.log(error.message);
 
     }
   }, [])
 
-  function sendMessage (event){
+  const sendMessage=(event)=>{
     try {
       const body = event.target.value;
       const id = localStorage.getItem('id');
+      console.log(id);
       axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
         let response = JSON.parse(JSON.stringify(res));
         console.log("response", response);
@@ -102,8 +105,10 @@ let winnerName='';
 
   }
 
-  async function sendPrint(){
+  const sendPrint=async(e)=>{
     try {
+      // setUsername(localStorage.getItem('username'))
+
       const id = localStorage.getItem('id');
       await axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then(res => {
         let response = JSON.parse(JSON.stringify(res));
@@ -123,10 +128,11 @@ let winnerName='';
 
     }
   }
-
+ 
   const increaseBy50 = (e) => {
     try {
       setShowTimer(false);
+      console.log(username);
       props.socket.emit('clicked', increaseBy50); //Emitting user click
       props.socket.on('click_count', (value) => {
         console.log('value', value);
