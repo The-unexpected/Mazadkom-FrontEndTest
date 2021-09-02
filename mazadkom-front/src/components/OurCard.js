@@ -1,39 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Monaliza from "./image/monaliza.jpg";
 import Maddona from "./image/Madonna_of_the_Carnation.jpg";
 import Portraite from "./image/Portrait_of_a_Musician.jpg";
+import axios from "axios";
 import "./css/OurCard.css";
 
 function OurCard(props) {
+  const [data, setData] = useState([]);
+  useEffect((props) => {
+    try {
+      axios.get(`https://mazadkom.herokuapp.com/apiElement`).then((res) => {
+        let response = JSON.parse(JSON.stringify(res.data.productElementInfo));
+        setData(response);
+        console.log(response);
+      });
+    } catch (e) {
+      console.log(e.message);
+    }
+  }, []);
+
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
-      <Row xs={1} md={3} className="g-4">
-        <Col>
-          <Card className="image-card">
-            <Card.Img variant="top" src={Monaliza} />
-            <Card.Body>
-              <Card.Title>Mona Liza</Card.Title>
-              <Card.Text>
-                The Mona Lisa is an oil painting by Italian artist, inventor,
-                and writer Leonardo da Vinci. Likely completed in 1506, the
-                piece features a portrait of a seated woman set against an
-                imaginary landscape. In addition to being one of the most famous
-                works of art, it is also the most valuable.
-              </Card.Text>
-            </Card.Body>
-            <Button
-              className="button"
-              variant="outline-secondary"
-              onClick={props.joinRoom}
-              href="/room"
-            >
-              Join Room
-            </Button>{" "}
-          </Card>
-        </Col>
-        <Col>
+      {data.map((element) => {
+        return (
+          <Row xs={1} md={3} className="g-4">
+            <Col>
+              <Card className="image-card">
+                <Card.Img variant="top" src={element.picture} />
+                <Card.Body>
+                  <Card.Title>{element.title}</Card.Title>
+                  <Card.Text>
+                    <p>{element.description} </p> <br />
+                    <p>{element.startingPrice}</p>
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  className="button"
+                  variant="outline-secondary"
+                  onClick={props.joinRoom}
+                  href="/room"
+                >
+                  Join Room
+                </Button>{" "}
+              </Card>
+            </Col>
+          </Row>
+        );
+      })}
+
+      {/* <Col>
           <Card className="image-card">
             <Card.Img variant="top" src={Maddona} />
             <Card.Body>
@@ -56,7 +73,7 @@ function OurCard(props) {
         </Col>
         <Col>
           <Card className="image-card">
-            <Card.Img variant="top" src={Portraite} alt="portrait"/>
+            <Card.Img variant="top" src={Portraite} alt="portrait" />
             <Card.Body>
               <Card.Title>Portrait of a Musician</Card.Title>
               <Card.Text>
@@ -74,9 +91,9 @@ function OurCard(props) {
             >
               Join Room
             </Button>{" "}
-          </Card>
-        </Col>
-      </Row>
+          </Card> */}
+      {/* </Col> */}
+      {/* </Row> */}
     </div>
   );
 }
