@@ -4,18 +4,29 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
+import {  Row, Col } from "react-bootstrap";
+
+function Profile(props) {
+
 import "./css/profile.css";
 
 
 function Profile() {
   const [show, setShow] = useState(false);
+
   const [username, setUsername] = useState("");
  
 
   // const [image, setImage] = useState("");
   // const [title, setTitle] = useState("");
   // const [description, setDescription] = useState("");
+
+  const [bids, setBids] = useState([]);
+  const [posts, setPosts] = useState([]);
+
   // const [bids, setBids] = useState([]);
+
   const [addP, setAddP] = useState({
     title: "",
     description: "",
@@ -50,24 +61,42 @@ function Profile() {
       picture: addP.picture,
       startingPrice: addP.startingPrice,
     };
+
+    const id = localStorage.getItem("id");
+    console.log("id=", id);
+
     
 
     const newProduct = await axios
-      .post(`https://mazadkom.herokuapp.com/apiElement`, productData)
+      .post(`http://localhost:5000/posts/${id}`, productData)
+      .then((res) => {
+        let response = JSON.parse(JSON.stringify(res));
+        console.log('newProduct', response.data);
+        setPosts(response.data)
+
+        // setImage(response.data.UserInfo[0].image);
+        // setBids(response.data.UserInfo[0].bids[0]);
+      });
+
+
+    const apiProduct = await axios
+      .post(`http://localhost:5000/apiElement`, productData)
       .catch((error) => {
         console.log(error.response);
         alert(error.response.data.error);
       });
+    console.log(apiProduct);
+
     console.log(newProduct);
 
   };
 
   useEffect((props) => {
     const id = localStorage.getItem("id");
-    console.log("id=", id);
+    // console.log("id=", id);
     try {
       const request = axios
-        .get(`https://mazadkom.herokuapp.com/user/${id}`)
+        .get(`http://localhost:5000/user/${id}`)
         .then((res) => {
           let response = JSON.parse(JSON.stringify(res));
           console.log(response);
@@ -150,6 +179,32 @@ function Profile() {
           <Card.Footer>{bids.startingPrice}</Card.Footer>
         </Card> */}
       )}
+      {posts.map((element) => {
+        return (
+          <Row xs={1} md={3} className="g-4">
+            <Col>
+              <Card className="image-card">
+                <Card.Img variant="top" src={element.picture} />
+                <Card.Body>
+                  <Card.Title>{element.title}</Card.Title>
+                  <Card.Text>
+                    <p>{element.description} </p> <br />
+                    <p>{element.startingPrice}</p>
+                  </Card.Text>
+                </Card.Body>
+                <Button
+                  className="button"
+                  variant="outline-secondary"
+                 
+                >
+                  Delete
+                </Button>{" "}
+              </Card>
+            </Col>
+          </Row>
+        );
+      })}
+
     </div>
     </div>
   );

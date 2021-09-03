@@ -24,7 +24,7 @@ function Login() {
 
     const loggedInUser = await axios
       .post(
-        `https://mazadkom.herokuapp.com/signin`,
+        `http://localhost:5000/signin`,
         {},
         {
           auth: {

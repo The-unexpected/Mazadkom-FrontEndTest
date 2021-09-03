@@ -11,7 +11,7 @@ function OurCard(props) {
   const [data, setData] = useState([]);
   useEffect((props) => {
     try {
-      axios.get(`https://mazadkom.herokuapp.com/apiElement`).then((res) => {
+      axios.get(`http://localhost:5000/apiElement`).then((res) => {
         let response = JSON.parse(JSON.stringify(res.data.productElementInfo));
         setData(response);
         console.log(response);
