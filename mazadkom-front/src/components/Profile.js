@@ -4,19 +4,19 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-
-import {  Row, Col } from "react-bootstrap";
+import "./css/profile.css";
+import { Row, Col } from "react-bootstrap";
 
 function Profile(props) {
 
-import "./css/profile.css";
 
 
-function Profile() {
+
+
   const [show, setShow] = useState(false);
 
   const [username, setUsername] = useState("");
- 
+
 
   // const [image, setImage] = useState("");
   // const [title, setTitle] = useState("");
@@ -31,13 +31,13 @@ function Profile() {
     title: "",
     description: "",
     picture: "",
-    startingPrice: "",  
+    startingPrice: "",
   });
- 
 
 
-  const showForm=()=>{
-    setShow (true);
+
+  const showForm = () => {
+    setShow(true);
   }
 
   const handleChange = async (e) => {
@@ -65,7 +65,7 @@ function Profile() {
     const id = localStorage.getItem("id");
     console.log("id=", id);
 
-    
+
 
     const newProduct = await axios
       .post(`http://localhost:5000/posts/${id}`, productData)
@@ -109,62 +109,62 @@ function Profile() {
     }
   }, []);
   return (
-      <div className="container">
+    <div className="container">
       <h1>Greetings {username} ! </h1>
       <div className="signin-form">
-      {show &&
-      <Form className="form-product" onSubmit={handleSubmit}>
-        <Form.Group className="mb-2" controlId="formGridPassword">
-          <Form.Label>Title </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Product title"
-            name="title"
-            onChange={handleChange}
-          />
-        </Form.Group>
+        {show &&
+          <Form className="form-product" onSubmit={handleSubmit}>
+            <Form.Group className="mb-2" controlId="formGridPassword">
+              <Form.Label>Title </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Product title"
+                name="title"
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>description </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter a short description"
-            name="description"
-            onChange={handleChange}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>description </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter a short description"
+                name="description"
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Picture URL </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter URL"
-            name="picture"
-            onChange={handleChange}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Picture URL </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter URL"
+                name="picture"
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>Starting Price </Form.Label>
-          <Form.Control
-            type="text"
-            placeholder="Enter Your name"
-            name="startingPrice"
-            onChange={handleChange}
-          />
-        </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Starting Price </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Your name"
+                name="startingPrice"
+                onChange={handleChange}
+              />
+            </Form.Group>
 
-        <div className="button-add">
-          <Button variant="secondary" type="submit">
-            Add Product
-          </Button>{" "}
-        </div>
-      </Form>
-}
-      {!show &&
-         <Button className="w-25 m-auto" variant="secondary" onClick={showForm}>Add Product</Button>
-              }
-      {/* {bids && (
+            <div className="button-add">
+              <Button variant="secondary" type="submit">
+                Add Product
+              </Button>{" "}
+            </div>
+          </Form>
+        }
+        {!show &&
+          <Button className="w-25 m-auto" variant="secondary" onClick={showForm}>Add Product</Button>
+        }
+        {/* {bids && (
         <Card
           bg="primary"
           text="white"
@@ -178,36 +178,37 @@ function Profile() {
           </Card.Body>
           <Card.Footer>{bids.startingPrice}</Card.Footer>
         </Card> */}
-      )}
-      {posts.map((element) => {
-        return (
-          <Row xs={1} md={3} className="g-4">
-            <Col>
-              <Card className="image-card">
-                <Card.Img variant="top" src={element.picture} />
-                <Card.Body>
-                  <Card.Title>{element.title}</Card.Title>
-                  <Card.Text>
-                    <p>{element.description} </p> <br />
-                    <p>{element.startingPrice}</p>
-                  </Card.Text>
-                </Card.Body>
-                <Button
-                  className="button"
-                  variant="outline-secondary"
-                 
-                >
-                  Delete
-                </Button>{" "}
-              </Card>
-            </Col>
-          </Row>
-        );
-      })}
+        {/* )} */}
+        {posts.map((element) => {
+          return (
+            <Row xs={1} md={3} className="g-4">
+              <Col>
+                <Card className="image-card">
+                  <Card.Img variant="top" src={element.picture} />
+                  <Card.Body>
+                    <Card.Title>{element.title}</Card.Title>
+                    <Card.Text>
+                      <p>{element.description} </p> <br />
+                      <p>{element.startingPrice}</p>
+                    </Card.Text>
+                  </Card.Body>
+                  <Button
+                    className="button"
+                    variant="outline-secondary"
 
-    </div>
+                  >
+                    Delete
+                  </Button>{" "}
+                </Card>
+              </Col>
+            </Row>
+          );
+        })}
+
+      </div>
     </div>
   );
 }
 
-export default Profile;
+
+export default Profile
