@@ -38,22 +38,37 @@ function Profile() {
       picture: addP.picture,
       startingPrice: addP.startingPrice,
     };
-
+    const id = localStorage.getItem("id");
+    console.log("id=", id);
     const newProduct = await axios
-      .post(`https://mazadkom.herokuapp.com/apiElement`, productData)
+      .post(`http://localhost:5000/posts/${id}`, productData)
+      .then((res) => {
+        let response = JSON.parse(JSON.stringify(res));
+        console.log('newProduct', response);
+
+        // setImage(response.data.UserInfo[0].image);
+        // setBids(response.data.UserInfo[0].bids[0]);
+      });
+
+
+    const apiProduct = await axios
+      .post(`http://localhost:5000/apiElement`, productData)
       .catch((error) => {
         console.log(error.response);
         alert(error.response.data.error);
       });
-    console.log(newProduct);
+    console.log(apiProduct);
+
+
+
   };
 
   useEffect((props) => {
     const id = localStorage.getItem("id");
-    console.log("id=", id);
+    // console.log("id=", id);
     try {
       const request = axios
-        .get(`https://mazadkom.herokuapp.com/user/${id}`)
+        .get(`http://localhost:5000/user/${id}`)
         .then((res) => {
           let response = JSON.parse(JSON.stringify(res));
           console.log(response);
