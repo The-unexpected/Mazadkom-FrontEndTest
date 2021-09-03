@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Row, Col, Button } from "react-bootstrap";
+import { Card, Row, Col, Button ,CardGroup} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Monaliza from "./image/monaliza.jpg";
 import Maddona from "./image/Madonna_of_the_Carnation.jpg";
@@ -23,12 +23,15 @@ function OurCard(props) {
 
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
-      {data.map((element) => {
+      <CardGroup className="container mb-5 mt-5 pt-5 pb-5">
+      <Card className="image-card">
+      <Row xs={1} md={3} className="g-4">
+        {data.map((element) => {
         return (
-          <Row xs={1} md={3} className="g-4">
+          // <Row xs={1} md={2} className="g-4">
             <Col>
-              <Card className="image-card">
-                <Card.Img variant="top" src={element.picture} />
+              {/* <Card className="image-card"> */}
+                <Card.Img variant="top" className="pic" src={element.picture} />
                 <Card.Body>
                   <Card.Title>{element.title}</Card.Title>
                   <Card.Text>
@@ -44,11 +47,16 @@ function OurCard(props) {
                 >
                   Join Room
                 </Button>{" "}
-              </Card>
+              {/* </Card> */}
             </Col>
-          </Row>
+          // </Row>
+       
         );
+       
       })}
+      </Row>
+       </Card>
+      </CardGroup>
 
       {/* <Col>
           <Card className="image-card">

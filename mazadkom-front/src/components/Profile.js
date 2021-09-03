@@ -4,21 +4,41 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import Card from "react-bootstrap/Card";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+
 import {  Row, Col } from "react-bootstrap";
 
 function Profile(props) {
+
+import "./css/profile.css";
+
+
+function Profile() {
+  const [show, setShow] = useState(false);
+
   const [username, setUsername] = useState("");
+ 
+
   // const [image, setImage] = useState("");
   // const [title, setTitle] = useState("");
   // const [description, setDescription] = useState("");
+
   const [bids, setBids] = useState([]);
   const [posts, setPosts] = useState([]);
+
+  // const [bids, setBids] = useState([]);
+
   const [addP, setAddP] = useState({
     title: "",
     description: "",
     picture: "",
-    startingPrice: "",
+    startingPrice: "",  
   });
+ 
+
+
+  const showForm=()=>{
+    setShow (true);
+  }
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
@@ -34,14 +54,19 @@ function Profile(props) {
       ...addP,
       created_at: Date.now(),
     };
+
     const productData = {
       title: addP.title,
       description: addP.description,
       picture: addP.picture,
       startingPrice: addP.startingPrice,
     };
+
     const id = localStorage.getItem("id");
     console.log("id=", id);
+
+    
+
     const newProduct = await axios
       .post(`http://localhost:5000/posts/${id}`, productData)
       .then((res) => {
@@ -62,7 +87,7 @@ function Profile(props) {
       });
     console.log(apiProduct);
 
-
+    console.log(newProduct);
 
   };
 
@@ -77,18 +102,19 @@ function Profile(props) {
           console.log(response);
           setUsername(response.data.UserInfo[0].username);
           // setImage(response.data.UserInfo[0].image);
-          setBids(response.data.UserInfo[0].bids[0]);
+          // setBids(response.data.UserInfo[0].bids[0]);
         });
     } catch (e) {
       console.log(e.message);
     }
   }, []);
   return (
-    <div>
+      <div className="container">
       <h1>Greetings {username} ! </h1>
-
+      <div className="signin-form">
+      {show &&
       <Form className="form-product" onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+        <Form.Group className="mb-2" controlId="formGridPassword">
           <Form.Label>Title </Form.Label>
           <Form.Control
             type="text"
@@ -128,14 +154,17 @@ function Profile(props) {
           />
         </Form.Group>
 
-        <div className="button-login">
-          <Button variant="outline-secondary" type="submit">
+        <div className="button-add">
+          <Button variant="secondary" type="submit">
             Add Product
           </Button>{" "}
         </div>
       </Form>
-
-      {bids && (
+}
+      {!show &&
+         <Button className="w-25 m-auto" variant="secondary" onClick={showForm}>Add Product</Button>
+              }
+      {/* {bids && (
         <Card
           bg="primary"
           text="white"
@@ -148,7 +177,7 @@ function Profile(props) {
             <Card.Text>{bids.description}</Card.Text>
           </Card.Body>
           <Card.Footer>{bids.startingPrice}</Card.Footer>
-        </Card>
+        </Card> */}
       )}
       {posts.map((element) => {
         return (
@@ -176,6 +205,7 @@ function Profile(props) {
         );
       })}
 
+    </div>
     </div>
   );
 }
