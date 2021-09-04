@@ -21,14 +21,19 @@ function OurCard(props) {
     }
   }, []);
 
+
+
+  
   return (
+    
     <div className="container mb-5 mt-5 pt-5 pb-5">
       <CardGroup className="container mb-5 mt-5 pt-5 pb-5">
-      <Card className="image-card">
+      {/* <Card className="image-card"> */}
       <Row xs={1} md={3} className="g-4">
         {data.map((element) => {
-        return (
-          // <Row xs={1} md={2} className="g-4">
+         return (
+     <div className="cards">
+          {/* // <Row xs={1} md={2} className="g-4"> */}
             <Col>
               {/* <Card className="image-card"> */}
                 <Card.Img variant="top" className="pic" src={element.picture} />
@@ -48,16 +53,21 @@ function OurCard(props) {
                   Join Room
                 </Button>{" "}
               {/* </Card> */}
+          
             </Col>
-          // </Row>
+                </div>
+            
+        //  </Row>
        
         );
        
       })}
       </Row>
-       </Card>
+      {/* </Card> */}
       </CardGroup>
+      
 
+   
       {/* <Col>
           <Card className="image-card">
             <Card.Img variant="top" src={Maddona} />
@@ -103,7 +113,8 @@ function OurCard(props) {
       {/* </Col> */}
       {/* </Row> */}
     </div>
-  );
-}
+    
+   );
+ }
 
 export default OurCard;

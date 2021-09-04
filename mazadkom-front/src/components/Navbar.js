@@ -46,10 +46,10 @@ function NavBar(props) {
             )}
 
             {localStorage.getItem("token") && (
-              <Button className="sing-out" onClick={logOut}>
+              <Nav.Link className="sing-out" onClick={logOut}>
                 {" "}
                 Sign-Out
-              </Button>
+              </Nav.Link>
             )}
           </Nav>
         </Navbar.Collapse>

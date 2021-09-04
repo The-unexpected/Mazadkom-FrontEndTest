@@ -1,3 +1,7 @@
+/* .col{
+background-color: #EDE0D4;
+} */
+
 .pic{
   height: 110vh;
   box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;  
@@ -35,3 +39,7 @@ font-family: 'Gowun Batang', serif;
 .button:hover{
  background-color: var(--main-color) !important;
 }
+
+/* .cards{
+  margin: 5px;
+} */

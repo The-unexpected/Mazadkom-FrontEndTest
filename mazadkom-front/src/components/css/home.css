@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
 
 :root{
-    --main-color:#a58faa
+    --main-color:rgb(211, 51, 51)
 }
 
 body{
@@ -12,9 +12,10 @@ body{
     position:relative;
     height: 90vh;
     width: 100%;
-    background: rgb(165,143,170);
-    background: linear-gradient(0deg, rgba(165,143,170,1) 0%, rgba(237,237,208,1) 100%);
-    
+   /* background: rgb(228, 215, 190); */
+    /* background: linear-gradient(0deg, rgba(165,143,170,1) 0%, rgba(237,237,208,1) 100%); */
+    /* background: linear-gradient(0deg, rgb(180, 174, 137) 0%, rgba(237,237,208,1) 100%);  */
+
 }
 
 .custom-shape-divider-bottom-1627664528 {
@@ -24,7 +25,7 @@ body{
     width: 100%;
     overflow: hidden;
     line-height: 0;
-    transform: rotate(180deg);
+    transform: rotate(180deg); 
 }
 
 .custom-shape-divider-bottom-1627664528 svg {
@@ -54,7 +55,19 @@ body{
 }
 
 .nav-link{
+    background-color:rgb(243, 237, 237);
+    border: none;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 9px 15px;
+    cursor: pointer;
+  
+
     font-family: 'Gowun Batang', serif;
+    border-radius:15%;
     font-weight: bolder;
     font-size: larger;
     text-shadow: 1px 1px 2px #232323
@@ -80,19 +93,24 @@ body{
     position: relative;
     width: 100%;
     height: 100%;
+   
+  
 }
 
 .image img{
     position: relative;
     width: 100%;
     height: 100%;
+
+  
+  
 }
 
 .image .header-text{
 position: absolute;
 width: 40%;
-top: 30%;
-left: 15%;
+top: 20%;
+left: 10%;
 }
 
 .image .header-text h1 {
@@ -114,13 +132,22 @@ left: 15%;
 }
 
 .sing-out{
-    background-color: var(--main-color) !important;
-    width: 20% !important;
+     background-color: var(--main-color) !important;
+     border-radius: 10px;
+     margin-left: 400px;
+    width: 10% !important;
+    text-align: center;
     align-items: center ;
     display: flex;
+    font-family: 'Gowun Batang', serif;
+    font-weight: bolder;
+    font-size: larger;
+    text-shadow: 1px 1px 2px #232323;
+    color:rgb(233, 229, 229) !important;
 
 }
 
 .sing-out:hover{
-    background-color: red !important;
+    background-color: rgb(221, 65, 65) !important;
+    color: wheat !important;
 }

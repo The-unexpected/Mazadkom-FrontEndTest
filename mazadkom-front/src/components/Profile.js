@@ -17,13 +17,15 @@ function Profile(props) {
 
   const [username, setUsername] = useState("");
 
-
   // const [image, setImage] = useState("");
   // const [title, setTitle] = useState("");
   // const [description, setDescription] = useState("");
 
   const [bids, setBids] = useState([]);
   const [posts, setPosts] = useState([]);
+  const [deletePosts, setDeletePosts] = useState({});
+  const [userEffect, setUserEffect] = useState([]);
+  const [updatePosts, setUpdatePosts] = useState({});
 
   // const [bids, setBids] = useState([]);
 
@@ -91,12 +93,53 @@ function Profile(props) {
 
   };
 
+  const handleSubmitDelete = async (e, index) => {
+    e.preventDefault();
+
+    const productData = {
+      title: addP.title,
+      description: addP.description,
+      picture: addP.picture,
+      startingPrice: addP.startingPrice,
+    };
+
+    const id = localStorage.getItem("id");
+    const id2 = index;
+
+    const deleteProduct = await axios
+      .delete(`http://localhost:5000/posts/${id}/${id2}`, productData)
+      .then((res) => {
+        let response = (res.data);
+        console.log('res', res.data);
+        setDeletePosts(response.data)
+
+      });
+    getPosts()
+  }
+  async function getPosts() {
+    const id = localStorage.getItem("id");
+    // console.log("id=", id);
+    try {
+      const request = axios
+        .get(`http://localhost:5000/posts/${id}`)
+        .then((res) => {
+          let response = res.data;
+          console.log(response);
+          setUserEffect(response);
+          // setImage(response.data.UserInfo[0].image);
+          // setBids(response.data.UserInfo[0].bids[0]);
+        });
+    } catch (e) {
+      console.log(e.message);
+    }
+  }
+
   useEffect((props) => {
     const id = localStorage.getItem("id");
     // console.log("id=", id);
     try {
       const request = axios
-        .get(`http://localhost:5000/user/${id}`)
+        .get(`http://localhost:5000/users/${id}`)
         .then((res) => {
           let response = JSON.parse(JSON.stringify(res));
           console.log(response);
@@ -107,10 +150,51 @@ function Profile(props) {
     } catch (e) {
       console.log(e.message);
     }
+    getPosts()
+    console.log('user', userEffect);
   }, []);
+
   return (
     <div className="container">
-      <h1>Greetings {username} ! </h1>
+         {userEffect.map((element) => {
+        return (
+
+
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img src={element.picture} alt="Avatar" style={{ width: '450px', height: '600px' }} />
+              </div>
+              <div class="flip-card-back">
+                <h1>{element.title}</h1>
+                <p>{element.description}</p>
+                <p>{element.startingPrice}</p>
+                <Button
+                  className="buttonD"
+                  variant="outline-secondary"
+                  onClick={e => { handleSubmitDelete(e, element._id) }}
+
+                >
+                  Delete
+                </Button>{" "}
+                <Button
+                  className="buttonU"
+                  variant="outline-secondary"
+                  
+
+
+                >
+                  Update
+                </Button>{" "}
+              </div>
+            </div>
+          </div>
+
+
+
+        )
+      })}
+
       <div className="signin-form">
         {show &&
           <Form className="form-product" onSubmit={handleSubmit}>
@@ -179,31 +263,7 @@ function Profile(props) {
           <Card.Footer>{bids.startingPrice}</Card.Footer>
         </Card> */}
         {/* )} */}
-        {posts.map((element) => {
-          return (
-            <Row xs={1} md={3} className="g-4">
-              <Col>
-                <Card className="image-card">
-                  <Card.Img variant="top" src={element.picture} />
-                  <Card.Body>
-                    <Card.Title>{element.title}</Card.Title>
-                    <Card.Text>
-                      <p>{element.description} </p> <br />
-                      <p>{element.startingPrice}</p>
-                    </Card.Text>
-                  </Card.Body>
-                  <Button
-                    className="button"
-                    variant="outline-secondary"
 
-                  >
-                    Delete
-                  </Button>{" "}
-                </Card>
-              </Col>
-            </Row>
-          );
-        })}
 
       </div>
     </div>
