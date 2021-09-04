@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './css/home.css'
-import Image from './image/bidding.png';
+import Image from './image/bid2.jpg';
+import Image2 from './image/bid2.jpg';
+import Image3 from './image/bid2.jpg';
 import Cards from './OurCard'
 class Home extends Component {
     render() {
