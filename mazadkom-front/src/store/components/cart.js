@@ -16,8 +16,8 @@ import TextField from '@material-ui/core/TextField';
 const useStyles = makeStyles((theme) => ({
   root: {
     width: '100%',
-    maxWidth: '36ch',
-    backgroundColor: 'transparent',
+    maxWidth: '42ch',
+    backgroundColor: '#e7eaf6',
     marginLeft: 100,
   },
   inline: {
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 120,
   },
   cart: {
-    background: 'rgb(150, 30, 30)',
+    background: 'linear-gradient(45deg, #38598b 40%, #a2a8d3 90%)',
     margin: 100,
     borderWidth: 3,
     borderColor: 'black',

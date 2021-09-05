@@ -6,7 +6,7 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
-import { addItem, increment } from '../store/simplecart.js';
+import { addItem, AddingOne } from '../store/simplecart.js';
 import { catChange, reset } from '../store/products.js';
 import Logo from "./images/online.jpg";
 const useStyles = makeStyles((theme) => ({
@@ -14,10 +14,10 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1,
   },
   bar: {
-    background: '#F8F9FA',
+    background: 'linear-gradient(45deg, #141010 30%,#132743 70%)',
     height: 110,
     borderWidth: 2,
-    borderColor: 'rgb(150, 30, 30)',
+   
     borderStyle: 'solid',
   },
   menuButton: {
@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
   title: {
 
 
-    color: 'black',
+    color: '#e0ffcd',
   },
 }));
 
@@ -65,7 +65,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch => ({
   catChange: (name) => dispatch(catChange(name)),
   reset: () => dispatch(reset()),
-  increment: (product) => dispatch(increment(product)),
+  AddingOne: (product) => dispatch(AddingOne(product)),
   addItem: (product) => dispatch(addItem(product))
 });
 

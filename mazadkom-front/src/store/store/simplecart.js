@@ -4,12 +4,12 @@ let initialState = {
 }
 
 
-//----------------REDUCER-----------------\\
+
 export default (state = initialState, action) => {
   let { type, payload } = action;
 
   switch(type) {
-    case 'INCREMENT':
+    case 'AddingOne':
       return payload.disabled ? state : { ...state, cartItems: state.cartItems + 1 };
 
     case 'ADD':
@@ -49,7 +49,7 @@ export const addItem = (product) => {
   }
 }
 
-export const increment = (product) => {
+export const AddingOne = (product) => {
   return {
     type: 'ADD',
     payload: product

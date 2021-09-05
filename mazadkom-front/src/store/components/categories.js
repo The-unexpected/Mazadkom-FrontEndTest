@@ -10,7 +10,8 @@ import { makeStyles } from '@material-ui/core/styles';
 const useStyles = makeStyles((theme) => ({
   buttonBar: {
     height: '0px',
-    marginRight: '-900px'
+    marginRight: '-900px',
+  
   },
 }));
 
@@ -18,11 +19,11 @@ const Categories = props => {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.buttonBar} id="catBar" color="default" >
+    <AppBar className={classes.buttonBar} id="catBar"  >
       <Tabs>
         {props.catReducer.categories.map(catugary => {
           return (
-            <Button color="default" onClick={() => props.changeCategory(catugary.name)}>{catugary.displayName}</Button>
+            <Button  onClick={() => props.changeCategory(catugary.name)}>{catugary.displayName}</Button>
           )
         })}
       </Tabs>

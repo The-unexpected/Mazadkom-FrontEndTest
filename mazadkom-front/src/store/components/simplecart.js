@@ -14,25 +14,19 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
-    width: 10,
-    maxWidth: '36ch',
+    width: 1,
+    maxWidth: '20ch',
     zIndex: 1000,
-    borderWidth: 2,
-    borderColor: 'rgb(150, 30, 30)',
-    borderStyle: 'solid',
-    fontSize: 18,
-    paddingLeft: 5,
+   
+    fontSize: 20,
+   
   },
-  inline: {
-    display: 'inline',
-  },
-  cartText: {
-    fontSize: 10,
-  },
+
+ 
   button: {
-    background: 'rgb(150, 30, 30)',
-    borderWidth: 1.5,
-    borderColor: 'rgb(150, 30, 30)',
+    background: '#38598b',
+    borderWidth: 2,
+    borderColor: '#a2a8d3',
     borderStyle: 'solid',
     fontSize: 13,
   }

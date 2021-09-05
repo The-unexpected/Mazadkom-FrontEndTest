@@ -27,10 +27,9 @@ const useStyles = makeStyles((theme) => ({
     display: 'inline-block',
     width: 300,
     height: 450,
-    padding: 20,
-    margin: 37,
+    margin: 35,
     borderWidth: 3,
-    borderColor: 'rgb(150, 30, 30)',
+    borderColor: '#24527a',
     borderStyle: 'solid',
   },
   media: {
@@ -38,25 +37,19 @@ const useStyles = makeStyles((theme) => ({
    
  
   },
-  content: {
-    height: 300,
-  },
+  
   categoryName: {
     textAlign: 'center',
     fontSize: 36,
-    color:'rgb(150, 30, 30)',
-    border:'60px'
+    color:'#113f67',
+  
   },
-  prodText: {
-    fontSize: 15,
-  },
+ 
   cardButton: {
-    fontSize: 13,
-    color:'rgb(150, 30, 30)',
+    fontSize: 15,
+    color:'#113f67',
   },
-  desc: {
-    fontSize: 12,
-  }
+  
 }));
 
 
