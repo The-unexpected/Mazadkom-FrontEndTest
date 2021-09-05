@@ -2,19 +2,19 @@
 let initialState = {
   categories: [
     { 
-      name: 'Womens',
-      displayName: 'Womens',
+      name: 'Botany',
+      displayName: 'Botany',
       description: `A collection of women's fashion`
     },
     { 
-      name: 'Mens',
-      displayName: 'Mens',
+      name: 'Architecture',
+      displayName: 'Architecture',
       description: `A collection of men's fashion`
     },
     {
-      name: 'Accessories',
-      displayName: 'Accessories',
-      description: `A collection of fashion accessories`
+      name: 'Fantasy',
+      displayName: 'Fantasy',
+      description: `A collection of fashion Fantasy`
     }
   ],
   activeCategory: ''
