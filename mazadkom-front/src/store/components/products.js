@@ -22,17 +22,17 @@ import { FormHelperText } from '@material-ui/core';
 const useStyles = makeStyles((theme) => ({
   root: {
     // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
-    marginTop: 180,
-    marginLeft: 169,
+    marginTop: 130,
+   
   },
   card: {
     display: 'inline-block',
-    width: 200,
-    height: 400,
+    width: 300,
+    height: 450,
     padding: 20,
-    margin: 20,
-    borderWidth: 1,
-    borderColor: 'gray',
+    margin: 37,
+    borderWidth: 3,
+    borderColor: 'rgb(150, 30, 30)',
     borderStyle: 'solid',
   },
   media: {
@@ -78,7 +78,7 @@ const Products = props => {
     <Container className={classes.root} maxWidth="md">
       <Typography className={classes.categoryName}>{props.catReducer.activeCategory}</Typography>
         {props.apiReducer.results.map(product => {
-          if (product.category === props.catReducer.activeCategory)
+          if (product.catugary === props.catReducer.activeCategory)
           return (
             <Card className={classes.card}>
               <CardActionArea>
@@ -102,7 +102,7 @@ const Products = props => {
                 </Button>
                 <Button className={classes.cardButton} size="small" color="primary" onClick={(product) => props.selectProduct(product)}>
                   <NavLink to={{
-                    pathname: `/details/:${product._id}`,
+                    pathname: `/details/:${product.id}`,
                     state: product,
                     }}
                   >

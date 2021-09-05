@@ -2,7 +2,7 @@ let initialState = {
   selectedProd: []
 }
 
-//---------------REDUCER----------------\\
+
 export default (state = initialState, action) => {
   let { type, payload } = action;
 
@@ -17,7 +17,6 @@ export default (state = initialState, action) => {
 }
 
 
-//--------------ACTIONS--------------||
 export const selectProduct = (product) => {
   return {
     type: 'SELECT',

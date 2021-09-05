@@ -1,11 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import './styles/style.scss';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Categories from './components/categories.js';
 import Products from './components/products.js';
-import Header from './components/header.js';
-
 import SimpleCart from './components/simplecart.js';
 import Details from './components/prodDetails.js';
 import Cart from './components/cart.js';
@@ -29,11 +27,11 @@ function App(props) {
           <SimpleCart />
           <Products />
         </Route>
-        <Route 
-          exact 
-          path={`/details/:${props.prodReducer._id}`}
+        <Route
+          exact
+          path={`/details/:${props.prodReducer.id}`}
           component={(props) => <Details {...props} />}
-          >
+        >
         </Route>
         <Route exact path="/cart">
           <Cart />

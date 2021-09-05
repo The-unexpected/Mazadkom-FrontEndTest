@@ -20,11 +20,11 @@ const Categories = props => {
   const classes = useStyles();
 
   return (
-    <AppBar className={classes.buttonBar} id="catBar" color="default" position="fixed">
+    <AppBar className={classes.buttonBar} id="catBar" color="default" >
       <Tabs>
-        {props.catReducer.categories.map(category => {
+        {props.catReducer.categories.map(catugary => {
           return (
-            <Button color="default" onClick={() => props.changeCategory(category.name)}>{category.displayName}</Button>
+            <Button color="default" onClick={() => props.changeCategory(catugary.name)}>{catugary.displayName}</Button>
           )
         })}
       </Tabs>
@@ -36,7 +36,7 @@ const mapStateToProps = state => ({
   catReducer: state.catReducer
 })
 
-//could also write as one line: 'const mapDispatchToProps = { changeCategory, catChange, reset }
+
 const mapDispatchToProps = dispatch => ({
   changeCategory: (name) => dispatch(changeCategory(name)),
   catChange: (name) => dispatch(catChange(name)),

@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
   let { type, payload } = action;
 
   switch(type) {
-    case 'CHANGE CATEGORY':
+    case 'CHANGE catugary':
       let activeCategory = payload;
       return {...state, activeCategory};
 
@@ -37,11 +37,9 @@ export default (state = initialState, action) => {
   }
 }
 
-//------------ACTIONS----------------\\
-//an action is simply an object literal with a type (to be evaluated in a reducer) and a payload (data)
 export const changeCategory = (name) => {
     return {
-      type: 'CHANGE CATEGORY',
+      type: 'CHANGE catugary',
       payload: name
     }
 }

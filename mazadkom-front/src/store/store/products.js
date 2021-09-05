@@ -94,7 +94,7 @@ export default (state = initialState, action) => {
   let { type, payload } = action;
 
   switch(type) {
-    case 'CHANGE ACTIVE CATEGORY':
+    case 'CHANGE ACTIVE catugary':
       let selectCategory = payload;
       return { ...state, activeCategory: selectCategory };
     
@@ -104,10 +104,10 @@ export default (state = initialState, action) => {
 }
 
 //------------ACTIONS--------------------\\
-export const catChange = (category) => {
+export const catChange = (catugary) => {
   return {
-    type: 'CHANGE ACTIVE CATEGORY',
-    payload: category
+    type: 'CHANGE ACTIVE catugary',
+    payload: catugary
   }
 }
 
