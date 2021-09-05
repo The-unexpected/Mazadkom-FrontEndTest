@@ -11,14 +11,23 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import * as actions from '../store/api-actions';
 const useStyles = makeStyles({
+  button: {
+    marginLeft: 0,
+    paddingLeft: 20,
+    paddingRight: 20,
+    background: '#132743',
+    borderWidth: 1,
+    borderColor: 'white',
+    borderStyle: 'solid',
+  },
   root: {
-    maxWidth: 400,
-    padding: 50,
-    margin: 50,
-    marginTop: 150,
-    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
+    maxWidth: 800,
+    padding: 30,
+    margin: 7,
+  
+    background: 'linear-gradient(190deg, #141010 30%,#66bfbf 70%)',
     borderWidth: 4,
-    borderColor: 'rgb(150, 30, 30)',
+ 
     borderStyle: 'solid',
   },
 });
@@ -34,7 +43,7 @@ const Details = (props) => {
         <CardMedia
           component="img"
           alt="Contemplative Reptile"
-          height="400"
+          height="750"
           image={selectedProduct.image}
           title="Contemplative Reptile"
         />
@@ -51,7 +60,7 @@ const Details = (props) => {
         </CardContent>
       </CardActionArea>
       <CardActions>
-        <Button size="small" color="primary" onClick={() => props.addItem(selectedProduct)}>
+        <Button size="small" className={classes.button} color="primary" onClick={() => props.addItem(selectedProduct)}>
           Add to Cart!
         </Button>
       </CardActions>

@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 120,
   },
   cart: {
-    background: 'linear-gradient(45deg, #38598b 40%, #a2a8d3 90%)',
+    background: 'linear-gradient(190deg, #141010 30%,#66bfbf 70%)',
     margin: 100,
     borderWidth: 3,
     borderColor: 'black',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     paddingLeft: 25,
     paddingRight: 25,
-    background: 'rgb(150, 30, 30)',
+    background: '#5585b5',
     borderWidth: 1.5,
     borderColor: 'white',
     borderStyle: 'solid',
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 30,
   },
   orderButton: {
-    background: 'rgb(150, 30, 30)',
+    background: '#2c5d63',
     borderWidth: 1.5,
     borderColor: 'white',
     borderStyle: 'solid',
@@ -111,8 +111,8 @@ function SimpleCart(props) {
         <List className={classes.total}>Total Cost: ${cartTotal}.00</List>
         <form className={classes.form} noValidate autoComplete="off">
             <div>
-              <Typography variant="h5" component="h2">
-                Billing Info
+              <Typography variant="h7" component="h2" color='#141010'>
+                 Info
               </Typography>
               <TextField required id="standard-required" label="Full Name"/>
               <TextField

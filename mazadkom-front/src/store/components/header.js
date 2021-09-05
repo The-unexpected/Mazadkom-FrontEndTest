@@ -4,6 +4,7 @@ import { NavLink } from 'react-router-dom';
 import AppBar from '@material-ui/core/AppBar';
 import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
+
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import { addItem, AddingOne } from '../store/simplecart.js';
@@ -13,8 +14,15 @@ const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
   },
+  button: {
+    
+    borderColor: 'white',
+    borderStyle: 'solid',
+ 
+  
+  },
   bar: {
-    background: 'linear-gradient(45deg, #141010 30%,#132743 70%)',
+    background: 'linear-gradient(45deg, #141010 30%,#66bfbf 70%)',
     height: 110,
     borderWidth: 2,
    
@@ -40,15 +48,21 @@ function Header(props) {
       <AppBar className="header-bar">
         <Toolbar className={classes.bar}>
         <h1>
-            <img className="logoS" src={Logo} alt="logo"></img>  
+            <img className="logoS" src={Logo} alt="logo" ></img>  
           </h1>
+          
           <Typography className="logo" id="headerTitle" variant="h3"  className={classes.title}>
             Online Store
           </Typography>
+          <Button className={classes.button}>
           <NavLink to="/cart" id="cartButton" color="inherit">Cart({props.cartReducer.cartList.length})</NavLink>
-       
- 
+          </Button>
+          <Button className={classes.button}>
             <NavLink id="cartButton" color="inherit"  to='/cat'>Show catagery</NavLink>
+            </Button>
+
+
+          
         
         </Toolbar>
       </AppBar>

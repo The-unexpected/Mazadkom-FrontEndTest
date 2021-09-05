@@ -23,10 +23,19 @@ const useStyles = makeStyles((theme) => ({
     marginTop: 30,
    
   },
+  button: {
+    marginLeft: 0,
+    paddingLeft: 20,
+    paddingRight: 20,
+    background: '#132743',
+    borderWidth: 1,
+    borderColor: 'white',
+    borderStyle: 'solid',
+  },
   card: {
     display: 'inline-block',
     width: 300,
-    height: 450,
+    height: 470,
     margin: 35,
     borderWidth: 3,
     borderColor: '#24527a',
@@ -89,10 +98,10 @@ const Products = props => {
                 </CardContent>
               </CardActionArea>
               <CardActions>
-                <Button className={classes.cardButton} size="small" color="primary" onClick={() => props.addItem(product)}>
+                <Button className={classes.button} size="small" color="primary" onClick={() => props.addItem(product)}>
                   Add to Cart!
                 </Button>
-                <Button className={classes.cardButton} size="small" color="primary" onClick={(product) => props.selectProduct(product)}>
+                <Button className={classes.button} size="small" color="primary" onClick={(product) => props.selectProduct(product)}>
                   <NavLink to={{
                     pathname: `/details/:${product.id}`,
                     state: product,

@@ -30,7 +30,7 @@ function NavBar(props) {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#product">Our-Products</Nav.Link>
             <Nav.Link href="/about">About-US</Nav.Link>
-            <Nav.Link href="/store">store</Nav.Link>
+           
             {localStorage.getItem("token") && (
               <Nav.Link href="/profile">Profile</Nav.Link>
             )}
@@ -45,13 +45,14 @@ function NavBar(props) {
                 </Nav.Link>
               </>
             )}
-
+ <Nav.Link href="/store">Online Store</Nav.Link>
             {localStorage.getItem("token") && (
               <Nav.Link className="sing-out" onClick={logOut}>
                 {" "}
                 Sign-Out
               </Nav.Link>
             )}
+
           </Nav>
         </Navbar.Collapse>
       </Container>
