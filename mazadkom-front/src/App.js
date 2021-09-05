@@ -7,6 +7,7 @@ import Register from "./components/Register";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import Room from "./components/Room";
+import Store from "./store/index";
 
 import Profile from "./components/Profile";
 import {
@@ -39,6 +40,9 @@ function App(props) {
           </Route>
           <Route exact path="/profile">
             <Profile />
+          </Route>
+          <Route exact path="/store">
+            <Store/>
           </Route>
         </Switch>
         <Footer />

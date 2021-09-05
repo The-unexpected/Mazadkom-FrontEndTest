@@ -30,6 +30,7 @@ function NavBar(props) {
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="#product">Our-Products</Nav.Link>
             <Nav.Link href="/about">About-US</Nav.Link>
+            <Nav.Link href="/store">store</Nav.Link>
             {localStorage.getItem("token") && (
               <Nav.Link href="/profile">Profile</Nav.Link>
             )}
