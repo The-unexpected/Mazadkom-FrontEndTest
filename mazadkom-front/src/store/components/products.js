@@ -14,15 +14,13 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
-import CardHeader from '@material-ui/core/CardHeader';
-import { FormHelperText } from '@material-ui/core';
+
 
 
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
-    marginTop: 130,
+    marginTop: 30,
    
   },
   card: {
@@ -37,8 +35,8 @@ const useStyles = makeStyles((theme) => ({
   },
   media: {
     padding: '50%',
-    marginRight: 50,
-    height: 50,
+   
+ 
   },
   content: {
     height: 300,
@@ -46,13 +44,15 @@ const useStyles = makeStyles((theme) => ({
   categoryName: {
     textAlign: 'center',
     fontSize: 36,
-    fontFamily: 'monospace',
+    color:'rgb(150, 30, 30)',
+    border:'60px'
   },
   prodText: {
     fontSize: 15,
   },
   cardButton: {
-    fontSize: 11,
+    fontSize: 13,
+    color:'rgb(150, 30, 30)',
   },
   desc: {
     fontSize: 12,
@@ -73,7 +73,6 @@ const Products = props => {
 
   const classes = useStyles();
 
-  //--------working to get API rendering------------\\
   return (
     <Container className={classes.root} maxWidth="md">
       <Typography className={classes.categoryName}>{props.catReducer.activeCategory}</Typography>

@@ -18,7 +18,7 @@ const useStyles = makeStyles({
     marginTop: 150,
     // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
     borderWidth: 4,
-    borderColor: 'white',
+    borderColor: 'rgb(150, 30, 30)',
     borderStyle: 'solid',
   },
 });

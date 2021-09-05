@@ -5,7 +5,7 @@ import { addItem, remove } from '../store/simplecart.js';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
+
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 120,
   },
   cart: {
-    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
+    background: 'rgb(150, 30, 30)',
     margin: 100,
     borderWidth: 3,
     borderColor: 'black',
@@ -39,7 +39,7 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     paddingLeft: 25,
     paddingRight: 25,
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background: 'rgb(150, 30, 30)',
     borderWidth: 1.5,
     borderColor: 'white',
     borderStyle: 'solid',
@@ -51,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
     padding: 30,
   },
   orderButton: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background: 'rgb(150, 30, 30)',
     borderWidth: 1.5,
     borderColor: 'white',
     borderStyle: 'solid',
@@ -79,7 +79,7 @@ function SimpleCart(props) {
     <>
       <List className={classes.cart}>
         <List className={classes.root}>
-          Items in Cart:
+          
           {props.cartReducer.cartList.map(product => {
             return (
               <ListItem className={classes.item} alignItems="flex-start">
@@ -128,11 +128,8 @@ function SimpleCart(props) {
                   readOnly: true,
                 }}
               />
-              <TextField
-                id="standard-state-input"
-                label="State"
-              />
-              <TextField id="standard-search" label="Zip Code" />
+            
+           
               <TextField
                 id="standard-credit-card"
                 label="Credit Card #"
@@ -145,10 +142,7 @@ function SimpleCart(props) {
                   shrink: true,
                 }}
               />
-              <TextField
-                id="standard-CVV"
-                label="CVV"
-              />
+              
             </div>
           </form>
           <Button className={classes.orderButton}>Place Your Order</Button>

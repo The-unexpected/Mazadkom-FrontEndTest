@@ -5,7 +5,6 @@ import { addItem, remove } from '../store/simplecart.js';
 import { makeStyles } from '@material-ui/core/styles';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
-import Divider from '@material-ui/core/Divider';
 import ListItemText from '@material-ui/core/ListItemText';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import Avatar from '@material-ui/core/Avatar';
@@ -15,14 +14,13 @@ import Button from '@material-ui/core/Button';
 const useStyles = makeStyles((theme) => ({
   root: {
     position: 'fixed',
-    width: 160,
+    width: 10,
     maxWidth: '36ch',
-    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
     zIndex: 1000,
-    borderWidth: 1.5,
-    borderColor: 'gray',
+    borderWidth: 2,
+    borderColor: 'rgb(150, 30, 30)',
     borderStyle: 'solid',
-    fontSize: 15,
+    fontSize: 18,
     paddingLeft: 5,
   },
   inline: {
@@ -32,11 +30,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: 10,
   },
   button: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
+    background: 'rgb(150, 30, 30)',
     borderWidth: 1.5,
-    borderColor: 'white',
+    borderColor: 'rgb(150, 30, 30)',
     borderStyle: 'solid',
-    fontSize: 10,
+    fontSize: 13,
   }
 }));
 
@@ -45,7 +43,7 @@ function SimpleCart(props) {
   return (
     <>
       <List className={classes.root}>
-        Items in Cart:
+      
         {props.cartReducer.cartList.map(product => {
           return (
             <ListItem alignItems="flex-start">

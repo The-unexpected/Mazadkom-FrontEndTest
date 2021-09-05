@@ -6,7 +6,6 @@ import { Typography } from '@material-ui/core';
 import Button from '@material-ui/core/Button';
 import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
-import SimpleCart from './simplecart.js';
 import { addItem, increment } from '../store/simplecart.js';
 import { catChange, reset } from '../store/products.js';
 
@@ -16,17 +15,17 @@ const useStyles = makeStyles((theme) => ({
   },
   bar: {
     background: '#F8F9FA',
-    height: 120,
+    height: 110,
     borderWidth: 2,
-    borderColor: 'black',
+    borderColor: 'rgb(150, 30, 30)',
     borderStyle: 'solid',
   },
   menuButton: {
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
-    fontFamily: 'monospace',
+    
+ 
     color: 'black',
   },
 }));
@@ -38,14 +37,14 @@ function Header(props) {
 
   return (
     <div className={classes.root}>
-      <AppBar >
+      <AppBar className="header-bar">
         <Toolbar className={classes.bar}>
-          <Typography id="headerTitle" variant="h3" className={classes.title}>
+          <Typography className="logo" id="headerTitle" variant="h3" className={classes.title}>
           Online Store
           </Typography>
           <NavLink to="/cart" id="cartButton" color="inherit">Cart({props.cartReducer.cartList.length})</NavLink>
           <Button color="inherit">
-          <NavLink to=''>All ITEMS</NavLink>
+          <NavLink className="slider-menu" to=''>All ITEMS</NavLink>
      
           </Button>
         </Toolbar>
