@@ -39,25 +39,21 @@ function Profile(props) {
     setShowFormUpdate(true);
     // addP.title = name;
     // console.log('name',name);
-    const newUpdate = userEffect.filter((value,index) => {
+    const newUpdate = userEffect.filter((value, index) => {
       // console.log('value',value);
-      console.log('id',idx);
-      
+      console.log("id", idx);
 
-      
-      return index === idx
-     
-    })
-    setNewUpdate(newUpdate)
-    console.log('newUpdate', newUpdate);
-    
+      return index === idx;
+    });
+    setNewUpdate(newUpdate);
+    console.log("newUpdate", newUpdate);
+
     // index(idx);
     // addP.title.value(newUpdate.title);
     // addP.description.value(newUpdate.description);
     // addP.picture.value(newUpdate.picture);
     // addP.startingPrice.value(newUpdate.startingPrice);
-
-  }
+  };
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
@@ -101,12 +97,12 @@ function Profile(props) {
         console.log(error.response);
         alert(error.response.data.error);
       });
-    console.log(apiProduct);
+    // console.log(apiProduct);
 
-    console.log(newProduct);
+    // console.log(newProduct);
   };
 
-  const handleSubmitDelete = async (e, index) => {  
+  const handleSubmitDelete = async (e, index, title) => {
     e.preventDefault();
 
     const productData = {
@@ -123,19 +119,20 @@ function Profile(props) {
       .delete(`http://localhost:5000/posts/${id}/${id2}`)
       .then((res) => {
         let response = res.data;
-        console.log("res", res.data);
+        // console.log("res", res.data);
         setDeletePosts(response.data);
       });
+    console.log(productData);
     const apiProductDelete = await axios
-      .delete(`http://localhost:5000/apiElement/${id2}`)
+      .delete(`http://localhost:5000/apiElement/remove/${title}`)
       .catch((error) => {
-        console.log('delete', error.response);
+        console.log("delete", error.response);
         alert(error.response.data.error);
       });
 
-    console.log('apiDelete', apiProductDelete);
-    getPosts()
-  }
+    console.log("apiDelete", apiProductDelete);
+    getPosts();
+  };
   async function getPosts() {
     const id = localStorage.getItem("id");
     // console.log("id=", id);
@@ -144,7 +141,7 @@ function Profile(props) {
         .get(`http://localhost:5000/posts/${id}`)
         .then((res) => {
           let response = res.data;
-          console.log(response);
+          // console.log(response);
           setUserEffect(response);
           // setImage(response.data.UserInfo[0].image);
           // setBids(response.data.UserInfo[0].bids[0]);
@@ -154,29 +151,37 @@ function Profile(props) {
     }
   }
 
-  const handleSubmitUpdate = async (e,index) => {
-    console.log('hereeeee');
+  const handleSubmitUpdate = async (e, index, title) => {
+    console.log("hereeeee");
     const productData = {
       title: addP.title,
       description: addP.description,
       picture: addP.picture,
       startingPrice: addP.startingPrice,
     };
-    console.log('handle',productData.title)
+    console.log("handle", productData.title);
     const id = localStorage.getItem("id");
     const id2 = index;
     const updateProduct = await axios
       .put(`http://localhost:5000/posts/${id}/${id2}`, productData)
       .then((res) => {
-        let response = (res.data);
-        console.log('res', res.data);
-        setUpdatePosts(response)
+        let response = res.data;
+        // console.log("res", res.data);
+        setUpdatePosts(response);
       });
-    handleSubmit();
-    getPosts()
-  }
 
-  useEffect((props) => {
+    const updateProductApi = await axios
+      .put(`http://localhost:5000/apiElement/update/${title}`, productData)
+      .then((res) => {
+        let response = res.data;
+        console.log("res", response);
+      });
+
+    handleSubmit();
+    getPosts();
+  };
+
+  useEffect(() => {
     const id = localStorage.getItem("id");
     const parsed = JSON.parse(localStorage.getItem("user"));
     setUser(parsed);
@@ -186,67 +191,61 @@ function Profile(props) {
         .get(`http://localhost:5000/users/${id}`)
         .then((res) => {
           let response = JSON.parse(JSON.stringify(res));
-          console.log(response);
+          // console.log(response);
           setUsername(response.data.UserInfo[0].username);
           // setImage(response.data.UserInfo[0].image);
           // setBids(response.data.UserInfo[0].bids[0]);
         });
     } catch (e) {
-      console.log(e.message);
+      // console.log(e.message);
     }
-    getPosts()
-    console.log('user', userEffect);
+    getPosts();
   }, [userEffect]);
 
   return (
     <div className="container">
-      {userEffect.map((element,idx) => {
+      {userEffect.map((element, idx) => {
         return (
           <div key={idx}>
-
-
-          <div class="flip-card">
-            <div class="flip-card-inner">
-              <div class="flip-card-front">
-                <img
-                  src={element.picture}
-                  alt="Avatar"
-                  style={{ width: "450px", height: "600px" }}
-                />
-              </div>
-              <div class="flip-card-back">
-                <h1>{element.title}</h1>
-                <p>{element.description}</p>
-                <p>{element.startingPrice}</p>
-                <Button
-                  className="buttonD"
-                  variant="outline-secondary"
-                  onClick={(e) => {
-                    handleSubmitDelete(e, element._id);
-                  }}
-                >
-                  Delete
-                </Button>{" "}
-                <Button
-                  className="buttonU"
-                  variant="outline-secondary"
-                  onClick={e => {FormUpdate(idx) ; console.log('button',idx)}}
-                  
-
-
-                >
-                  Update
-                </Button>{" "}
+            <div class="flip-card">
+              <div class="flip-card-inner">
+                <div class="flip-card-front">
+                  <img
+                    src={element.picture}
+                    alt="Avatar"
+                    style={{ width: "450px", height: "600px" }}
+                  />
+                </div>
+                <div class="flip-card-back">
+                  {element._id}
+                  <h1>{element.title}</h1>
+                  <p>{element.description}</p>
+                  <p>{element.startingPrice}</p>
+                  <Button
+                    className="buttonD"
+                    variant="outline-secondary"
+                    onClick={(e) => {
+                      handleSubmitDelete(e, element._id, element.title);
+                    }}
+                  >
+                    Delete
+                  </Button>{" "}
+                  <Button
+                    className="buttonU"
+                    variant="outline-secondary"
+                    onClick={(e) => {
+                      FormUpdate(idx, element.title);
+                      console.log("button", idx);
+                    }}
+                  >
+                    Update
+                  </Button>{" "}
+                </div>
               </div>
             </div>
           </div>
-          </div>
-
-
-
-        )
+        );
       })}
-
 
       <div className="signin-form">
         {show && (
@@ -324,11 +323,8 @@ function Profile(props) {
         {/* )} */}
       </div>
 
-
       <div className="signin-form">
-        
-        {showFormUpdate &&
-        
+        {showFormUpdate && (
           <Form className="form-product" onSubmit={handleSubmitUpdate}>
             <Form.Group className="mb-2" controlId="formGridPassword">
               <Form.Label>Title </Form.Label>
@@ -336,9 +332,11 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter Product title"
                 name="title"
-                onChange={{handleChange}} value={newUpdate.title} type='text'
+                onChange={{ handleChange }}
+                value={newUpdate.title}
+                type="text"
 
-              // onChange={handleChange}
+                // onChange={handleChange}
               />
             </Form.Group>
 
@@ -348,7 +346,9 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter a short description"
                 name="description"
-                onChange={(e) => handleChange(e)} value={newUpdate.description} type='text'
+                onChange={(e) => handleChange(e)}
+                value={newUpdate.description}
+                type="text"
               />
             </Form.Group>
 
@@ -358,7 +358,9 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter URL"
                 name="picture"
-                onChange={(e) => handleChange(e)} value={newUpdate.picture} type='text'
+                onChange={(e) => handleChange(e)}
+                value={newUpdate.picture}
+                type="text"
               />
             </Form.Group>
 
@@ -368,7 +370,9 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter Your name"
                 name="startingPrice"
-                onChange={(e) => handleChange(e)} value={newUpdate.startingPrice} type='text'
+                onChange={(e) => handleChange(e)}
+                value={newUpdate.startingPrice}
+                type="text"
               />
             </Form.Group>
 
@@ -378,16 +382,12 @@ function Profile(props) {
               </Button>{" "}
             </div>
           </Form>
-     
-        }
+        )}
         {/* {!showFormUpdate &&
           <Button className="w-25 m-auto" variant="secondary" onClick={FormUpdate}>Add Product</Button>
         } */}
-      
       </div>
-    
     </div>
- 
   );
 }
 

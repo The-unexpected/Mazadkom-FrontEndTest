@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Row, Col, Button ,CardGroup} from "react-bootstrap";
+import { Card, Row, Col, Button, CardGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
 import "./css/OurCard.css";
@@ -18,53 +18,49 @@ function OurCard(props) {
     }
   }, []);
 
-
-
-  
   return (
-    
     <div className="container mb-5 mt-5 pt-5 pb-5">
       <CardGroup className="container mb-5 mt-5 pt-5 pb-5">
-      {/* <Card className="image-card"> */}
-      <Row xs={1} md={3} className="g-4">
-        {data.map((element) => {
-         return (
-     <div className="cards">
-          {/* // <Row xs={1} md={2} className="g-4"> */}
-            <Col>
-              {/* <Card className="image-card"> */}
-                <Card.Img variant="top" className="pic" src={element.picture} />
-                <Card.Body>
-                  <Card.Title>{element.title}</Card.Title>
-                  <Card.Text>
-                    <p>{element.description} </p> <br />
-                    <p>{element.startingPrice}</p>
-                  </Card.Text>
-                </Card.Body>
-                <Button
-                  className="button"
-                  variant="outline-secondary"
-                  onClick={props.joinRoom}
-                  href="/room"
-                >
-                  Join Room
-                </Button>{" "}
-              {/* </Card> */}
-          
-            </Col>
-                </div>
-            
-        //  </Row>
-       
-        );
-       
-      })}
-      </Row>
-      {/* </Card> */}
-      </CardGroup>
-      
+        {/* <Card className="image-card"> */}
+        <Row xs={1} md={3} className="g-4">
+          {data.map((element) => {
+            return (
+              <div className="cards">
+                {/* // <Row xs={1} md={2} className="g-4"> */}
+                <Col>
+                  {/* <Card className="image-card"> */}
+                  <Card.Img
+                    variant="top"
+                    className="pic"
+                    src={element.picture}
+                  />
+                  <Card.Body>
+                    <Card.Title>{element.title}</Card.Title>
+                    <Card.Text>
+                      {element._id}
+                      <p>{element.description} </p> <br />
+                      <p>{element.startingPrice}</p>
+                    </Card.Text>
+                  </Card.Body>
+                  <Button
+                    className="button"
+                    variant="outline-secondary"
+                    onClick={props.joinRoom}
+                    href="/room"
+                  >
+                    Join Room
+                  </Button>{" "}
+                  {/* </Card> */}
+                </Col>
+              </div>
 
-   
+              //  </Row>
+            );
+          })}
+        </Row>
+        {/* </Card> */}
+      </CardGroup>
+
       {/* <Col>
           <Card className="image-card">
             <Card.Img variant="top" src={Maddona} />
@@ -110,8 +106,7 @@ function OurCard(props) {
       {/* </Col> */}
       {/* </Row> */}
     </div>
-    
-   );
- }
+  );
+}
 
 export default OurCard;
