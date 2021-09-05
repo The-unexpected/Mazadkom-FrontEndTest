@@ -50,7 +50,7 @@ function Login(props) {
       const parsed = JSON.parse(localStorage.getItem("user"));
       setUser(parsed);
     }
-    history.push("/");
+    await history.push("/");
   };
 
   return (

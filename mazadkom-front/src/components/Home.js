@@ -4,10 +4,12 @@ import Image from "./image/bid2.jpg";
 import Cards from "./OurCard";
 import { UserContext } from "../context/context";
 
+
 function Home(props) {
-  const context = useContext(UserContext);
+  const { user, setUser } = useContext(UserContext);
   useEffect(() => {
-    console.log("from home", context);
+    const parsed = JSON.parse(localStorage.getItem("user"));
+    setUser(parsed);
   }, []);
   // console.log("from home", user);
   return (

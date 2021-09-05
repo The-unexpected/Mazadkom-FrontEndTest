@@ -7,12 +7,9 @@ import { UserContext } from "../context/context";
 
 function NavBar(props) {
   const { user, setUser } = useContext(UserContext);
-  const [nav, setNav] = useState("");
 
   useEffect(() => {
     console.log(user);
-    setNav(user);
-    console.log("nav", nav);
   }, []);
 
   let history = useHistory();
