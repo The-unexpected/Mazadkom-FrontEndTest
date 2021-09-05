@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Button ,CardGroup} from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Monaliza from "./image/monaliza.jpg";
-import Maddona from "./image/Madonna_of_the_Carnation.jpg";
-import Portraite from "./image/Portrait_of_a_Musician.jpg";
 import axios from "axios";
 import "./css/OurCard.css";
 
