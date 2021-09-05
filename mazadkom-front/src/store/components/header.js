@@ -24,8 +24,8 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    
- 
+
+
     color: 'black',
   },
 }));
@@ -40,12 +40,11 @@ function Header(props) {
       <AppBar className="header-bar">
         <Toolbar className={classes.bar}>
           <Typography className="logo" id="headerTitle" variant="h3" className={classes.title}>
-          Online Store
+            Online Store
           </Typography>
           <NavLink to="/cart" id="cartButton" color="inherit">Cart({props.cartReducer.cartList.length})</NavLink>
           <Button color="inherit">
-          <NavLink className="slider-menu" to=''>All ITEMS</NavLink>
-     
+            <NavLink className="slider-menu" to=''>All catagery</NavLink>
           </Button>
         </Toolbar>
       </AppBar>

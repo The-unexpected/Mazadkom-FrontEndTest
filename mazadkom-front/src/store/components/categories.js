@@ -9,8 +9,8 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   buttonBar: {
-    height:'0px',
-    marginRight:'-900px'
+    height: '0px',
+    marginRight: '-900px'
   },
 }));
 

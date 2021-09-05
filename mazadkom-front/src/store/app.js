@@ -10,10 +10,9 @@ import Cart from './components/cart.js';
 import { makeStyles } from '@material-ui/core/styles';
 import * as actions from './store/api-actions';
 import { reset, addItem } from './store/simplecart.js';
+import Home from './components/Home';
 const useStyles = makeStyles((theme) => ({
-  root: {
-    backgroundColor: '#c7e6f0',
-  }
+
 }));
 
 function App(props) {
@@ -23,6 +22,7 @@ function App(props) {
     <>
       <Switch>
         <Route className={classes.root} exact path="/" width={1}>
+       <Home/>
           <Categories />
           <SimpleCart />
           <Products />
