@@ -9,10 +9,11 @@ function NavBar(props) {
   const { user, setUser } = useContext(UserContext);
   const [nav, setNav] = useState("");
 
-  // useEffect(() => {
-  //   setNav(user);
-  //   console.log("nav", user.user.data.token);
-  // }, []);
+  useEffect(() => {
+    console.log(user);
+    setNav(user);
+    console.log("nav", nav);
+  }, []);
 
   let history = useHistory();
   const logOut = () => {
@@ -45,12 +46,12 @@ function NavBar(props) {
             <Nav.Link onClick={() => history.push("/")}>Home</Nav.Link>
             {/* <Nav.Link href="#product">Our-Products</Nav.Link> */}
             <Nav.Link onClick={() => history.push("/about")}>About-US</Nav.Link>
-            {user?.user?.data?.token && (
+            {user?.data?.token && (
               <Nav.Link onClick={() => history.push("/profile")}>
                 Profile
               </Nav.Link>
             )}
-            {!user?.user?.data?.token && (
+            {!user?.data?.token && (
               <>
                 <Nav.Link eventKey={2} onClick={() => history.push("/login")}>
                   Log-In
@@ -63,7 +64,7 @@ function NavBar(props) {
                 </Nav.Link>
               </>
             )}
-            {user?.user?.data?.token && (
+            {user?.data?.token && (
               <Nav.Link className="sing-out" onClick={logOut}>
                 {" "}
                 Sign-Out
