@@ -26,7 +26,7 @@ function App(props) {
             <Home />
           </Route>
           <Route exact path="/login">
-            {localStorage.getItem("token") ? <Redirect to="/" /> : <Login />}
+            <Login />
           </Route>
           <Route exact path="/register">
             <Register />

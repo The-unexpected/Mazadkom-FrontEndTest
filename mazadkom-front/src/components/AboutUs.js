@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Card, Container } from "react-bootstrap";
 // import { Card, Jumbotron, Container } from 'react-bootstrap';
@@ -10,8 +10,11 @@ import Dana from "./image/Alaa.jpg";
 import "./css/AboutUs.css";
 import { SocialIcon } from "react-social-icons";
 import { Row, Col } from "react-bootstrap";
+import { UserContext } from "../context/context";
 
 function AboutUs(props) {
+  const { user, setUser } = useContext(UserContext);
+
   return (
     <div className="img-cards">
       <div className="jumb">
