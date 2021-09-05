@@ -1,11 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./css/login.css";
 import axios from "axios";
+import { UserContext } from "../context/context";
+import { useHistory } from "react-router-dom";
 
-function Login() {
+function Login(props) {
+  let history = useHistory();
   const [state, setState] = useState({ username: "", password: "" });
+  const { user, setUser } = useContext(UserContext);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -39,11 +43,14 @@ function Login() {
 
     console.log(loggedInUser);
     if (loggedInUser) {
+      localStorage.setItem("user", JSON.stringify(loggedInUser));
       localStorage.setItem("token", loggedInUser.data.token);
       localStorage.setItem("username", loggedInUser.data.user.username);
       localStorage.setItem("id", loggedInUser.data.user._id);
+      const parsed = JSON.parse(localStorage.getItem("user"));
+      setUser(parsed);
     }
-    window.location.href = "/";
+    history.push("/");
   };
 
   return (

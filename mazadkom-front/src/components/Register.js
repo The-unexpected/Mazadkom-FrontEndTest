@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import "./css/login.css";
@@ -10,9 +10,6 @@ import "react-notifications/lib/notifications.css";
 import axios from "axios";
 
 function Register(props) {
-  // const [username, setUsername] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
   const [state, setState] = useState({ username: "", password: "", email: "" });
 
   const handleChange = async (e) => {

@@ -8,19 +8,8 @@ import "./css/profile.css";
 import { Row, Col } from "react-bootstrap";
 
 function Profile(props) {
-
-
-
-
-
   const [show, setShow] = useState(false);
-
   const [username, setUsername] = useState("");
-
-  // const [image, setImage] = useState("");
-  // const [title, setTitle] = useState("");
-  // const [description, setDescription] = useState("");
-
   const [bids, setBids] = useState([]);
   const [posts, setPosts] = useState([]);
   const [deletePosts, setDeletePosts] = useState({});
