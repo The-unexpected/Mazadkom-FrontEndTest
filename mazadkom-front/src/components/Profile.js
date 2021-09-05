@@ -12,12 +12,15 @@ function Profile(props) {
   const { user, setUser } = useContext(UserContext);
 
   const [show, setShow] = useState(false);
+  const [showFormUpdate, setShowFormUpdate] = useState(false);
+
   const [username, setUsername] = useState("");
   const [bids, setBids] = useState([]);
   const [posts, setPosts] = useState([]);
   const [deletePosts, setDeletePosts] = useState({});
   const [userEffect, setUserEffect] = useState([]);
   const [updatePosts, setUpdatePosts] = useState({});
+  const [newUpdate, setNewUpdate] = useState({});
 
   // const [bids, setBids] = useState([]);
 
@@ -31,6 +34,30 @@ function Profile(props) {
   const showForm = () => {
     setShow(true);
   };
+
+  const FormUpdate = (idx) => {
+    setShowFormUpdate(true);
+    // addP.title = name;
+    // console.log('name',name);
+    const newUpdate = userEffect.filter((value,index) => {
+      // console.log('value',value);
+      console.log('id',idx);
+      
+
+      
+      return index === idx
+     
+    })
+    setNewUpdate(newUpdate)
+    console.log('newUpdate', newUpdate);
+    
+    // index(idx);
+    // addP.title.value(newUpdate.title);
+    // addP.description.value(newUpdate.description);
+    // addP.picture.value(newUpdate.picture);
+    // addP.startingPrice.value(newUpdate.startingPrice);
+
+  }
 
   const handleChange = async (e) => {
     const { name, value } = e.target;
@@ -79,7 +106,7 @@ function Profile(props) {
     console.log(newProduct);
   };
 
-  const handleSubmitDelete = async (e, index) => {
+  const handleSubmitDelete = async (e, index) => {  
     e.preventDefault();
 
     const productData = {
@@ -93,14 +120,22 @@ function Profile(props) {
     const id2 = index;
 
     const deleteProduct = await axios
-      .delete(`http://localhost:5000/posts/${id}/${id2}`, productData)
+      .delete(`http://localhost:5000/posts/${id}/${id2}`)
       .then((res) => {
         let response = res.data;
         console.log("res", res.data);
         setDeletePosts(response.data);
       });
-    getPosts();
-  };
+    const apiProductDelete = await axios
+      .delete(`http://localhost:5000/apiElement/${id2}`)
+      .catch((error) => {
+        console.log('delete', error.response);
+        alert(error.response.data.error);
+      });
+
+    console.log('apiDelete', apiProductDelete);
+    getPosts()
+  }
   async function getPosts() {
     const id = localStorage.getItem("id");
     // console.log("id=", id);
@@ -117,6 +152,28 @@ function Profile(props) {
     } catch (e) {
       console.log(e.message);
     }
+  }
+
+  const handleSubmitUpdate = async (e,index) => {
+    console.log('hereeeee');
+    const productData = {
+      title: addP.title,
+      description: addP.description,
+      picture: addP.picture,
+      startingPrice: addP.startingPrice,
+    };
+    console.log('handle',productData.title)
+    const id = localStorage.getItem("id");
+    const id2 = index;
+    const updateProduct = await axios
+      .put(`http://localhost:5000/posts/${id}/${id2}`, productData)
+      .then((res) => {
+        let response = (res.data);
+        console.log('res', res.data);
+        setUpdatePosts(response)
+      });
+    handleSubmit();
+    getPosts()
   }
 
   useEffect((props) => {
@@ -137,14 +194,17 @@ function Profile(props) {
     } catch (e) {
       console.log(e.message);
     }
-    getPosts();
-    console.log("user", userEffect);
-  }, []);
+    getPosts()
+    console.log('user', userEffect);
+  }, [userEffect]);
 
   return (
     <div className="container">
-      {userEffect.map((element) => {
+      {userEffect.map((element,idx) => {
         return (
+          <div key={idx}>
+
+
           <div class="flip-card">
             <div class="flip-card-inner">
               <div class="flip-card-front">
@@ -167,14 +227,26 @@ function Profile(props) {
                 >
                   Delete
                 </Button>{" "}
-                <Button className="buttonU" variant="outline-secondary">
+                <Button
+                  className="buttonU"
+                  variant="outline-secondary"
+                  onClick={e => {FormUpdate(idx) ; console.log('button',idx)}}
+                  
+
+
+                >
                   Update
                 </Button>{" "}
               </div>
             </div>
           </div>
-        );
+          </div>
+
+
+
+        )
       })}
+
 
       <div className="signin-form">
         {show && (
@@ -251,7 +323,71 @@ function Profile(props) {
         </Card> */}
         {/* )} */}
       </div>
+
+
+      <div className="signin-form">
+        
+        {showFormUpdate &&
+        
+          <Form className="form-product" onSubmit={handleSubmitUpdate}>
+            <Form.Group className="mb-2" controlId="formGridPassword">
+              <Form.Label>Title </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Product title"
+                name="title"
+                onChange={{handleChange}} value={newUpdate.title} type='text'
+
+              // onChange={handleChange}
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>description </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter a short description"
+                name="description"
+                onChange={(e) => handleChange(e)} value={newUpdate.description} type='text'
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Picture URL </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter URL"
+                name="picture"
+                onChange={(e) => handleChange(e)} value={newUpdate.picture} type='text'
+              />
+            </Form.Group>
+
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+              <Form.Label>Starting Price </Form.Label>
+              <Form.Control
+                type="text"
+                placeholder="Enter Your name"
+                name="startingPrice"
+                onChange={(e) => handleChange(e)} value={newUpdate.startingPrice} type='text'
+              />
+            </Form.Group>
+
+            <div className="button-add">
+              <Button variant="secondary" type="submit">
+                Update Product
+              </Button>{" "}
+            </div>
+          </Form>
+     
+        }
+        {/* {!showFormUpdate &&
+          <Button className="w-25 m-auto" variant="secondary" onClick={FormUpdate}>Add Product</Button>
+        } */}
+      
+      </div>
+    
     </div>
+ 
   );
 }
 
