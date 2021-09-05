@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     marginRight: 120,
   },
   cart: {
-    background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
+    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
     margin: 100,
     borderWidth: 3,
     borderColor: 'black',

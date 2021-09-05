@@ -9,7 +9,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
   buttonBar: {
-    backgroundColor: '#fcbbc9',
+    // backgroundColor: '#fcbbc9',
     borderWidth: 1.5,
     borderColor: 'white',
     borderStyle: 'solid',

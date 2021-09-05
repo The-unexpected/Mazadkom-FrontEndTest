@@ -21,7 +21,7 @@ import { FormHelperText } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
+    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
     marginTop: 180,
     marginLeft: 169,
   },

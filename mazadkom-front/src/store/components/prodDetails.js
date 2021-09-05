@@ -16,7 +16,7 @@ const useStyles = makeStyles({
     padding: 50,
     margin: 50,
     marginTop: 150,
-    background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
+    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
     borderWidth: 4,
     borderColor: 'white',
     borderStyle: 'solid',

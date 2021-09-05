@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
     position: 'fixed',
     width: 160,
     maxWidth: '36ch',
-    background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
+    // background: 'linear-gradient(45deg, #ff9cb1 30%, #ffd2ba 90%)',
     zIndex: 1000,
     borderWidth: 1.5,
     borderColor: 'gray',
