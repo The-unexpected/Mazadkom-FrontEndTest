@@ -80,7 +80,10 @@ body{
     width: 60px;
     height: 60px;
 }
-
+.logoS{
+    width: 135px;
+    height: 95px;
+}
 .display{
     width: 100%;
     height: 100%;

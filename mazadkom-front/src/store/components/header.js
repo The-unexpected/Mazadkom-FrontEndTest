@@ -8,7 +8,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import { makeStyles } from '@material-ui/core/styles';
 import { addItem, increment } from '../store/simplecart.js';
 import { catChange, reset } from '../store/products.js';
-
+import Logo from "./images/online.jpg";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
@@ -39,13 +39,17 @@ function Header(props) {
     <div className={classes.root}>
       <AppBar className="header-bar">
         <Toolbar className={classes.bar}>
-          <Typography className="logo" id="headerTitle" variant="h3" className={classes.title}>
+        <h1>
+            <img className="logoS" src={Logo} alt="logo"></img>  
+          </h1>
+          <Typography className="logo" id="headerTitle" variant="h3"  className={classes.title}>
             Online Store
           </Typography>
           <NavLink to="/cart" id="cartButton" color="inherit">Cart({props.cartReducer.cartList.length})</NavLink>
-          <Button color="inherit">
-            <NavLink className="slider-menu" to=''>All catagery</NavLink>
-          </Button>
+       
+ 
+            <NavLink id="cartButton" color="inherit"  to='/cat'>Show catagery</NavLink>
+        
         </Toolbar>
       </AppBar>
     </div>

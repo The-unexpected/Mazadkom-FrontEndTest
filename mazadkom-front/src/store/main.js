@@ -4,13 +4,13 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 import Header from './components/header.js';
 
-import Home from '../components/Home';
+
 
 import App from './app.js';
 import { makeStyles } from '@material-ui/core/styles';
 
 const useStyles = makeStyles((theme) => ({
- 
+
 }));
 
 
@@ -20,7 +20,7 @@ function Main() {
   return (
     <BrowserRouter>
       <Header />
-     
+
       <App className={classes.root} />
     </BrowserRouter>
   )

@@ -8,7 +8,8 @@ import Main from './main.js';
 
 function Entry() {
   return (
-    <Provider store={store}>
+    <Provider store={store} >
+     
       <Main />
     </Provider>
   )

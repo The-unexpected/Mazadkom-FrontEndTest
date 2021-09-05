@@ -21,8 +21,9 @@ function App(props) {
   return (
     <>
       <Switch>
-        <Route className={classes.root} exact path="/" width={1}>
-       <Home/>
+    
+        <Route className={classes.root} exact path="/cat" width={1}>
+      
           <Categories />
           <SimpleCart />
           <Products />
@@ -35,6 +36,9 @@ function App(props) {
         </Route>
         <Route exact path="/cart">
           <Cart />
+        </Route>
+        <Route exact path="">
+          <Home />
         </Route>
       </Switch>
     </>
