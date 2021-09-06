@@ -21,7 +21,7 @@ class Room extends React.Component {
       showTimer: false,
       showWinner: false,
       title: '',
-      users:[]
+      users: []
 
     };
     this.sendMessage = this.sendMessage.bind(this);
@@ -61,30 +61,28 @@ class Room extends React.Component {
 
   }
 
- async componentDidMount() {
+  async componentDidMount() {
     this.socket = io('http://localhost:5000');
-     const localtitle = await localStorage.getItem('header')
-     const localname = await localStorage.getItem('username')
+    const localtitle = await localStorage.getItem('header')
+    const localname = await localStorage.getItem('username')
 
     // console.log('up',update);
-     this.setState({
+    this.setState({
       title: localtitle,
-      username:localname,
+      username: localname,
 
-    });
-    console.log('title', this.state.title)
-    //  const { username, title } = queryString.parse(this.props.location.search);
-
-    this.socket.emit("join", {username:this.state.username,title:this.state.title}, () => {});
-
-    this.socket.on('message', (message) => {
-      console.log('message',message)
-      this.setState({
-        messages: [message, ...this.state.messages],
-      });
-      console.log('messagesssss',this.state.messages)
     });
     
+    this.socket.emit("join", { username: this.state.username, title: this.state.title }, () => { });
+
+    this.socket.on('message', (message) => {
+      console.log('message', message)
+      this.setState({
+        messages: [message.message, ...this.state.messages],
+      });
+      console.log('messagesssss', this.state.messages)
+    });
+
 
     this.socket.on('print', (print) => {
       this.setState({
@@ -117,11 +115,9 @@ class Room extends React.Component {
     //   });
     //   setUsers(users);
     // });
-
-
-
-
   }
+
+  
   // remove.catch if we get an error
   sendMessage(event) {
     const body = event.target.value;
@@ -145,9 +141,9 @@ class Room extends React.Component {
         from: this.state.username,
       };
 
-      
+
       this.setState({ messages: [message, ...this.state.messages] });
-      console.log('here emit messagesssssss',this.state.messages);
+      console.log('here emit messagesssssss', this.state.messages);
       this.socket.emit('message', message);
       console.log('here emit message', message);
     }
