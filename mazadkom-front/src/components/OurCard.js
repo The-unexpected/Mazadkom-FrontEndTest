@@ -6,11 +6,18 @@ import "./css/OurCard.css";
 
 function OurCard(props) {
   const [data, setData] = useState([]);
+  const [username, setUsername] = useState('')
+  const [title, setTitle] = useState('')
+
   useEffect((props) => {
     try {
+      const name = localStorage.getItem('username');
+      setUsername(name);
       axios.get(`http://localhost:5000/apiElement`).then((res) => {
         let response = JSON.parse(JSON.stringify(res.data.productElementInfo));
         setData(response);
+
+
         console.log(response);
       });
     } catch (e) {
@@ -21,6 +28,8 @@ function OurCard(props) {
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
       <CardGroup className="container mb-5 mt-5 pt-5 pb-5">
+
+
         {/* <Card className="image-card"> */}
         <Row xs={1} md={3} className="g-4">
           {data.map((element) => {
@@ -38,6 +47,7 @@ function OurCard(props) {
                     <Card.Title>{element.title}</Card.Title>
                     <Card.Text>
                       {element._id}
+
                       <p>{element.description} </p> <br />
                       <p>{element.startingPrice}</p>
                     </Card.Text>
@@ -45,13 +55,26 @@ function OurCard(props) {
                   <Button
                     className="button"
                     variant="outline-secondary"
-                    onClick={props.joinRoom}
-                    href="/room"
+
+                    onClick={() => {
+                       localStorage.setItem('header',idx);
+                    }}
+                    href={`/room?name=${username}&room=${idx}`}
+
                   >
                     Join Room
                   </Button>{" "}
                   {/* </Card> */}
                 </Col>
+
+                // </Row>
+
+              );
+
+            })}
+          </Row>
+        </Card>
+
               </div>
 
               //  </Row>
@@ -59,6 +82,7 @@ function OurCard(props) {
           })}
         </Row>
         {/* </Card> */}
+
       </CardGroup>
 
       {/* <Col>

@@ -1,3 +1,4 @@
+
 import React, { Component, useContext, useEffect } from "react";
 import "./css/home.css";
 import Image from "./image/bid2.jpg";
@@ -30,6 +31,7 @@ function Home(props) {
                   use platform.{" "}
                 </p>
               </div>
+
             </div>
           </div>
         </div>
