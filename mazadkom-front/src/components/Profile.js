@@ -10,7 +10,8 @@ import { UserContext } from "../context/context";
 
 function Profile(props) {
   const { user, setUser } = useContext(UserContext);
-
+  const [header, setHeader] = useState("");
+  const [num, setNum] = useState(0);
   const [show, setShow] = useState(false);
   const [showFormUpdate, setShowFormUpdate] = useState(false);
 
@@ -35,24 +36,8 @@ function Profile(props) {
     setShow(true);
   };
 
-  const FormUpdate = (idx) => {
+  const FormUpdate = (idx, id, title) => {
     setShowFormUpdate(true);
-    // addP.title = name;
-    // console.log('name',name);
-    const newUpdate = userEffect.filter((value, index) => {
-      // console.log('value',value);
-      console.log("id", idx);
-
-      return index === idx;
-    });
-    setNewUpdate(newUpdate);
-    console.log("newUpdate", newUpdate);
-
-    // index(idx);
-    // addP.title.value(newUpdate.title);
-    // addP.description.value(newUpdate.description);
-    // addP.picture.value(newUpdate.picture);
-    // addP.startingPrice.value(newUpdate.startingPrice);
   };
 
   const handleChange = async (e) => {
@@ -86,9 +71,6 @@ function Profile(props) {
         let response = JSON.parse(JSON.stringify(res));
         console.log("newProduct", response.data);
         setPosts(response.data);
-
-        // setImage(response.data.UserInfo[0].image);
-        // setBids(response.data.UserInfo[0].bids[0]);
       });
 
     const apiProduct = await axios
@@ -97,21 +79,16 @@ function Profile(props) {
         console.log(error.response);
         alert(error.response.data.error);
       });
-    // console.log(apiProduct);
-
-    // console.log(newProduct);
   };
 
   const handleSubmitDelete = async (e, index, title) => {
     e.preventDefault();
-
     const productData = {
       title: addP.title,
       description: addP.description,
       picture: addP.picture,
       startingPrice: addP.startingPrice,
     };
-
     const id = localStorage.getItem("id");
     const id2 = index;
 
@@ -119,7 +96,6 @@ function Profile(props) {
       .delete(`http://localhost:5000/posts/${id}/${id2}`)
       .then((res) => {
         let response = res.data;
-        // console.log("res", res.data);
         setDeletePosts(response.data);
       });
     console.log(productData);
@@ -133,6 +109,7 @@ function Profile(props) {
     console.log("apiDelete", apiProductDelete);
     getPosts();
   };
+
   async function getPosts() {
     const id = localStorage.getItem("id");
     // console.log("id=", id);
@@ -141,43 +118,38 @@ function Profile(props) {
         .get(`http://localhost:5000/posts/${id}`)
         .then((res) => {
           let response = res.data;
-          // console.log(response);
           setUserEffect(response);
-          // setImage(response.data.UserInfo[0].image);
-          // setBids(response.data.UserInfo[0].bids[0]);
         });
     } catch (e) {
       console.log(e.message);
     }
   }
 
-  const handleSubmitUpdate = async (e, index, title) => {
+  const handleSubmitUpdate = (e, title) => {
+    e.preventDefault();
     console.log("hereeeee");
     const productData = {
-      title: addP.title,
-      description: addP.description,
-      picture: addP.picture,
-      startingPrice: addP.startingPrice,
+      title: addP?.title,
+      description: addP?.description,
+      picture: addP?.picture,
+      startingPrice: addP?.startingPrice,
     };
     console.log("handle", productData.title);
     const id = localStorage.getItem("id");
-    const id2 = index;
-    const updateProduct = await axios
-      .put(`http://localhost:5000/posts/${id}/${id2}`, productData)
+    // const id2 = index;
+    const updateProduct = axios
+      .put(`http://localhost:5000/posts/${id}/${num}`, productData)
       .then((res) => {
         let response = res.data;
-        // console.log("res", res.data);
         setUpdatePosts(response);
       });
 
-    const updateProductApi = await axios
-      .put(`http://localhost:5000/apiElement/update/${title}`, productData)
+    const updateProductApi = axios
+      .put(`http://localhost:5000/apiElement/update/${header}`, productData)
       .then((res) => {
         let response = res.data;
         console.log("res", response);
       });
-
-    handleSubmit();
     getPosts();
   };
 
@@ -185,20 +157,14 @@ function Profile(props) {
     const id = localStorage.getItem("id");
     const parsed = JSON.parse(localStorage.getItem("user"));
     setUser(parsed);
-    // console.log("id=", id);
     try {
       const request = axios
         .get(`http://localhost:5000/users/${id}`)
         .then((res) => {
           let response = JSON.parse(JSON.stringify(res));
-          // console.log(response);
           setUsername(response.data.UserInfo[0].username);
-          // setImage(response.data.UserInfo[0].image);
-          // setBids(response.data.UserInfo[0].bids[0]);
         });
-    } catch (e) {
-      // console.log(e.message);
-    }
+    } catch (e) {}
     getPosts();
   }, [userEffect]);
 
@@ -234,8 +200,10 @@ function Profile(props) {
                     className="buttonU"
                     variant="outline-secondary"
                     onClick={(e) => {
-                      FormUpdate(idx, element.title);
-                      console.log("button", idx);
+                      FormUpdate(idx, element._id, element.title);
+                      setNum(element._id);
+                      setHeader(element.title);
+                      console.log(idx, element._id, element.title);
                     }}
                   >
                     Update
@@ -332,11 +300,8 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter Product title"
                 name="title"
-                onChange={{ handleChange }}
+                onChange={handleChange}
                 value={newUpdate.title}
-                type="text"
-
-                // onChange={handleChange}
               />
             </Form.Group>
 
@@ -346,9 +311,8 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter a short description"
                 name="description"
-                onChange={(e) => handleChange(e)}
+                onChange={handleChange}
                 value={newUpdate.description}
-                type="text"
               />
             </Form.Group>
 
@@ -358,9 +322,8 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter URL"
                 name="picture"
-                onChange={(e) => handleChange(e)}
+                onChange={handleChange}
                 value={newUpdate.picture}
-                type="text"
               />
             </Form.Group>
 
@@ -370,9 +333,8 @@ function Profile(props) {
                 type="text"
                 placeholder="Enter Your name"
                 name="startingPrice"
-                onChange={(e) => handleChange(e)}
+                onChange={handleChange}
                 value={newUpdate.startingPrice}
-                type="text"
               />
             </Form.Group>
 
@@ -383,9 +345,6 @@ function Profile(props) {
             </div>
           </Form>
         )}
-        {/* {!showFormUpdate &&
-          <Button className="w-25 m-auto" variant="secondary" onClick={FormUpdate}>Add Product</Button>
-        } */}
       </div>
     </div>
   );
