@@ -32,7 +32,7 @@ function OurCard(props) {
 
         {/* <Card className="image-card"> */}
         <Row xs={1} md={3} className="g-4">
-          {data.map((element) => {
+          {data.map((element,idx) => {
             return (
               <div className="cards">
                 {/* // <Row xs={1} md={2} className="g-4"> */}
@@ -57,7 +57,7 @@ function OurCard(props) {
                     variant="outline-secondary"
 
                     onClick={() => {
-                       localStorage.setItem('header',idx);
+                      localStorage.setItem('header', idx);
                     }}
                     href={`/room?name=${username}&room=${idx}`}
 
@@ -67,23 +67,18 @@ function OurCard(props) {
                   {/* </Card> */}
                 </Col>
 
-                // </Row>
-
-              );
-
-            })}
-          </Row>
-        </Card>
-
               </div>
 
-              //  </Row>
             );
+
           })}
         </Row>
+
+
+
         {/* </Card> */}
 
-      </CardGroup>
+      </CardGroup >
 
       {/* <Col>
           <Card className="image-card">
@@ -129,7 +124,7 @@ function OurCard(props) {
           </Card> */}
       {/* </Col> */}
       {/* </Row> */}
-    </div>
+    </div >
   );
 }
 
