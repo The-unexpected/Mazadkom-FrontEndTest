@@ -27,14 +27,16 @@ function OurCard(props) {
 
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
-      <CardGroup className="container mb-5 mt-5 pt-5 pb-5">
+    
 
 
         {/* <Card className="image-card"> */}
         <Row xs={1} md={3} className="g-4">
-          {data.map((element) => {
+          {data.map((element,idx) => {
+             
             return (
               <div className="cards">
+                 <Card className="NewStyleCard">
                 {/* // <Row xs={1} md={2} className="g-4"> */}
                 <Col>
                   {/* <Card className="image-card"> */}
@@ -53,11 +55,11 @@ function OurCard(props) {
                     </Card.Text>
                   </Card.Body>
                   <Button
-                    className="button"
+                    className="buttonJoin"
                     variant="outline-secondary"
 
                     onClick={() => {
-                       localStorage.setItem('header',idx);
+                      localStorage.setItem('header', idx);
                     }}
                     href={`/room?name=${username}&room=${idx}`}
 
@@ -66,24 +68,19 @@ function OurCard(props) {
                   </Button>{" "}
                   {/* </Card> */}
                 </Col>
-
-                // </Row>
-
-              );
-
-            })}
-          </Row>
-        </Card>
-
+                </Card>
               </div>
 
-              //  </Row>
             );
+
           })}
         </Row>
-        {/* </Card> */}
 
-      </CardGroup>
+    
+
+
+
+
 
       {/* <Col>
           <Card className="image-card">

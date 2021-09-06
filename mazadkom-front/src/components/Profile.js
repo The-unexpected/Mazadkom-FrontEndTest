@@ -164,54 +164,60 @@ function Profile(props) {
           let response = JSON.parse(JSON.stringify(res));
           setUsername(response.data.UserInfo[0].username);
         });
-    } catch (e) {}
+    } catch (e) { }
     getPosts();
   }, [userEffect]);
 
   return (
+
     <div className="container">
       {userEffect.map((element, idx) => {
         return (
-          <div key={idx}>
-            <div class="flip-card">
-              <div class="flip-card-inner">
-                <div class="flip-card-front">
-                  <img
-                    src={element.picture}
-                    alt="Avatar"
-                    style={{ width: "450px", height: "600px" }}
-                  />
-                </div>
-                <div class="flip-card-back">
-                  {element._id}
-                  <h1>{element.title}</h1>
-                  <p>{element.description}</p>
-                  <p>{element.startingPrice}</p>
-                  <Button
-                    className="buttonD"
-                    variant="outline-secondary"
-                    onClick={(e) => {
-                      handleSubmitDelete(e, element._id, element.title);
-                    }}
-                  >
-                    Delete
-                  </Button>{" "}
-                  <Button
-                    className="buttonU"
-                    variant="outline-secondary"
-                    onClick={(e) => {
-                      FormUpdate(idx, element._id, element.title);
-                      setNum(element._id);
-                      setHeader(element.title);
-                      console.log(idx, element._id, element.title);
-                    }}
-                  >
-                    Update
-                  </Button>{" "}
+
+          <Card className="NewStyleCard">
+            <div key={idx}>
+              <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img
+                      src={element.picture}
+                      alt="Avatar"
+                      style={{ width: "450px", height: "600px" }}
+                    />
+                  </div>
+                  <div class="flip-card-back">
+                    {element._id}
+                    <h1>{element.title}</h1>
+                    <p>{element.description}</p>
+                    <p>{element.startingPrice}</p>
+                    <Button
+                      className="buttonD"
+                      variant="outline-secondary"
+                      onClick={(e) => {
+                        handleSubmitDelete(e, element._id, element.title);
+                      }}
+                    >
+                      Delete
+                    </Button>{" "}
+                    <Button
+                      className="buttonU"
+                      variant="outline-secondary"
+                      onClick={(e) => {
+                        FormUpdate(idx, element._id, element.title);
+                        setNum(element._id);
+                        setHeader(element.title);
+                        console.log(idx, element._id, element.title);
+                      }}
+                    >
+                      Update
+                    </Button>{" "}
+                  </div>
                 </div>
               </div>
+
             </div>
-          </div>
+          </Card >
+
         );
       })}
 

@@ -231,7 +231,7 @@ class Room extends React.Component {
             </div>
             <div className="row">
               <div className="col-4">
-                <Card className="image-card">
+                <Card className="NewStyleCard">
                   <Card.Img variant="top" src={Monaliza} />
                   <Card.Body>
                     <Card.Title>Mona Liza</Card.Title>
