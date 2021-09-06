@@ -174,7 +174,7 @@ function Profile(props) {
       {userEffect.map((element, idx) => {
         return (
 
-          <Card className="NewStyleCard">
+         
             <div key={idx}>
               <div class="flip-card">
                 <div class="flip-card-inner">
@@ -182,7 +182,7 @@ function Profile(props) {
                     <img
                       src={element.picture}
                       alt="Avatar"
-                      style={{ width: "450px", height: "600px" }}
+                      style={{ width: "450px", height: "500px" }}
                     />
                   </div>
                   <div class="flip-card-back">
@@ -216,7 +216,7 @@ function Profile(props) {
               </div>
 
             </div>
-          </Card >
+        
 
         );
       })}
