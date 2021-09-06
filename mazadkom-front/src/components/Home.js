@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './css/home.css'
 import Image from './image/bidding.png';
 import Cards from './OurCard'
+
 class Home extends Component {
     render() {
         return (
@@ -11,7 +12,7 @@ class Home extends Component {
                         <div className="display">
 
                             <div className="image">
-                                <img src={Image} alt="img"/>
+                                <img src={Image} alt="img" />
                                 <div className="header-text">
                                     <h1>What is <span>Mazad</span>Kom?</h1>
                                     <p> MazadKom enables you to enter and bidding on some of the global Leonardo Da Vinci paintings online in a secure, easy to use platform. </p>
@@ -27,7 +28,9 @@ class Home extends Component {
                     </div>
 
                 </div>
+                
                 <Cards />
+
             </div>
         )
     }

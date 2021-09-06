@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Card, Row, Col, Button ,CardGroup} from "react-bootstrap";
+import { Card, Row, Col, Button, CardGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Monaliza from "./image/monaliza.jpg";
 import Maddona from "./image/Madonna_of_the_Carnation.jpg";
@@ -9,11 +9,18 @@ import "./css/OurCard.css";
 
 function OurCard(props) {
   const [data, setData] = useState([]);
+  const [username, setUsername] = useState('')
+  const [title, setTitle] = useState('')
+
   useEffect((props) => {
     try {
+      const name = localStorage.getItem('username');
+      setUsername(name);
       axios.get(`http://localhost:5000/apiElement`).then((res) => {
         let response = JSON.parse(JSON.stringify(res.data.productElementInfo));
         setData(response);
+
+
         console.log(response);
       });
     } catch (e) {
@@ -24,38 +31,40 @@ function OurCard(props) {
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
       <CardGroup className="container mb-5 mt-5 pt-5 pb-5">
-      <Card className="image-card">
-      <Row xs={1} md={3} className="g-4">
-        {data.map((element) => {
-        return (
-          // <Row xs={1} md={2} className="g-4">
-            <Col>
-              {/* <Card className="image-card"> */}
-                <Card.Img variant="top" className="pic" src={element.picture} />
-                <Card.Body>
-                  <Card.Title>{element.title}</Card.Title>
-                  <Card.Text>
-                    <p>{element.description} </p> <br />
-                    <p>{element.startingPrice}</p>
-                  </Card.Text>
-                </Card.Body>
-                <Button
-                  className="button"
-                  variant="outline-secondary"
-                  onClick={props.joinRoom}
-                  href="/room"
-                >
-                  Join Room
-                </Button>{" "}
-              {/* </Card> */}
-            </Col>
-          // </Row>
-       
-        );
-       
-      })}
-      </Row>
-       </Card>
+        <Card className="image-card">
+          <Row xs={1} md={3} className="g-4">
+            {data.map((element,idx) => {
+              return (
+                // <Row xs={1} md={2} className="g-4">
+                <Col>
+                  {/* <Card className="image-card"> */}
+                  <Card.Img variant="top" className="pic" src={element.picture} />
+                  <Card.Body>
+                    <Card.Title>{element.title}</Card.Title>
+                    <Card.Text>
+                      <p>{element.description} </p> <br />
+                      <p>{element.startingPrice}</p>
+                    </Card.Text>
+                  </Card.Body>
+                  <Button
+                    className="button"
+                    variant="outline-secondary"
+                    onClick={() => {
+                       localStorage.setItem('header',idx);
+                    }}
+                    href={`/room?name=${username}&room=${idx}`}
+                  >
+                    Join Room
+                  </Button>{" "}
+                  {/* </Card> */}
+                </Col>
+                // </Row>
+
+              );
+
+            })}
+          </Row>
+        </Card>
       </CardGroup>
 
       {/* <Col>
