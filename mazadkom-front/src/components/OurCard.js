@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Card, Row, Col, Button, CardGroup } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
-import Monaliza from "./image/monaliza.jpg";
-import Maddona from "./image/Madonna_of_the_Carnation.jpg";
-import Portraite from "./image/Portrait_of_a_Musician.jpg";
 import axios from "axios";
 import "./css/OurCard.css";
 
@@ -31,17 +28,26 @@ function OurCard(props) {
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
       <CardGroup className="container mb-5 mt-5 pt-5 pb-5">
-        <Card className="image-card">
-          <Row xs={1} md={3} className="g-4">
-            {data.map((element,idx) => {
-              return (
-                // <Row xs={1} md={2} className="g-4">
+
+
+        {/* <Card className="image-card"> */}
+        <Row xs={1} md={3} className="g-4">
+          {data.map((element) => {
+            return (
+              <div className="cards">
+                {/* // <Row xs={1} md={2} className="g-4"> */}
                 <Col>
                   {/* <Card className="image-card"> */}
-                  <Card.Img variant="top" className="pic" src={element.picture} />
+                  <Card.Img
+                    variant="top"
+                    className="pic"
+                    src={element.picture}
+                  />
                   <Card.Body>
                     <Card.Title>{element.title}</Card.Title>
                     <Card.Text>
+                      {element._id}
+
                       <p>{element.description} </p> <br />
                       <p>{element.startingPrice}</p>
                     </Card.Text>
@@ -49,15 +55,18 @@ function OurCard(props) {
                   <Button
                     className="button"
                     variant="outline-secondary"
+
                     onClick={() => {
                        localStorage.setItem('header',idx);
                     }}
                     href={`/room?name=${username}&room=${idx}`}
+
                   >
                     Join Room
                   </Button>{" "}
                   {/* </Card> */}
                 </Col>
+
                 // </Row>
 
               );
@@ -65,6 +74,15 @@ function OurCard(props) {
             })}
           </Row>
         </Card>
+
+              </div>
+
+              //  </Row>
+            );
+          })}
+        </Row>
+        {/* </Card> */}
+
       </CardGroup>
 
       {/* <Col>

@@ -1,9 +1,9 @@
-import React from 'react';
-import io from 'socket.io-client';
-import axios from 'axios';
-import { Card, Button } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './css/rooms.css'
+import React from "react";
+import io from "socket.io-client";
+import axios from "axios";
+import { Card, Button } from "react-bootstrap";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./css/rooms.css";
 import Monaliza from "./image/monaliza.jpg";
 import queryString from "query-string";
 
@@ -15,13 +15,15 @@ class Room extends React.Component {
       prints: [],
       startPrice: 200,
       click_count: 0,
-      username: '',
+      username: "",
       count: 10,
       show: false,
       showTimer: false,
       showWinner: false,
+
       title: '',
       users: []
+
 
     };
     this.sendMessage = this.sendMessage.bind(this);
@@ -30,36 +32,30 @@ class Room extends React.Component {
     this.increaseBy200 = this.increaseBy200.bind(this);
     this.sendPrint = this.sendPrint.bind(this);
     this.showButtons = this.showButtons.bind(this);
-    this.winnerName = '';
+    this.winnerName = "";
     this.getwinner();
-
-
   }
 
-
   getwinner() {
-    let id = localStorage.getItem('id');
-    axios.get(`http://localhost:5000/user/${id}`).then(res => {
+    let id = localStorage.getItem("id");
+    axios.get(`http://localhost:5000/user/${id}`).then((res) => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
         username: response.data.UserInfo[0].username,
-
-      })
-      this.socket.on('resWinner', (resWinner) => {
+      });
+      this.socket.on("resWinner", (resWinner) => {
         this.winnerName = resWinner;
-
-      })
-    })
-
+      });
+    });
   }
 
   showButtons() {
     this.setState({
       show: true,
-    })
-
+    });
   }
+
 
   async componentDidMount() {
     this.socket = io('http://localhost:5000');
@@ -77,6 +73,7 @@ class Room extends React.Component {
 
     this.socket.on('message', (message) => {
       console.log('message', message)
+
       this.setState({
         messages: [message.message, ...this.state.messages],
       });
@@ -84,55 +81,47 @@ class Room extends React.Component {
     });
 
 
+
     this.socket.on('print', (print) => {
+
       this.setState({
         prints: [print, ...this.state.prints],
       });
     });
 
-
-    this.socket.on('counter', (count) => {
+    this.socket.on("counter", (count) => {
       this.setState({
         count: count,
         ...this.state.count,
-        showTimer: true
+        showTimer: true,
       });
       if (count === "Times UP") {
         this.setState({
           show: false,
-          showWinner: true
-        })
+          showWinner: true,
+        });
 
         console.log("showw", this.state.show);
       }
       console.log(count);
     });
-
-    // this.socket.on("roomData", (user) => {
-    //   users = [];
-    //   user.users.forEach((el) => {
-    //     users.push(el.name);
-    //   });
-    //   setUsers(users);
-    // });
   }
 
-  
   // remove.catch if we get an error
   sendMessage(event) {
     const body = event.target.value;
+
     const id = localStorage.getItem('id');
     axios.get(`http://localhost:5000/user/${id}`).then(res => {
+
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
         username: response.data.UserInfo[0].username,
-      })
+      });
       console.log(this.state.username);
       return res;
-    })
-
-
+    });
 
     // if pressing enter button and body exsit
     if (event.keyCode === 13 && body) {
@@ -142,80 +131,81 @@ class Room extends React.Component {
       };
 
 
+
       this.setState({ messages: [message, ...this.state.messages] });
       console.log('here emit messagesssssss', this.state.messages);
       this.socket.emit('message', message);
       console.log('here emit message', message);
+
     }
   }
 
   // remove.catch if we get an error
   async sendPrint(event) {
+
     const id = localStorage.getItem('id');
     await axios.get(`http://localhost:5000/user/${id}`).then(res => {
+
+
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
         username: response.data.UserInfo[0].username,
-      })
+      });
       return response;
-    })
+    });
 
     let print = {
-      body: 'has increased the bid',
+      body: "has increased the bid",
       from: this.state.username,
     };
-    console.log('here', print);
+    console.log("here", print);
     this.setState({ prints: [print, ...this.state.prints] });
-    this.socket.emit('print', print);
+    this.socket.emit("print", print);
   }
-
 
   increaseBy50(e) {
     this.setState({ showTimer: false });
-    this.socket.emit('clicked', this.increaseBy50); //Emitting user click
-    this.socket.on('click_count', (value) => {
-      console.log('value', value);
+    this.socket.emit("clicked", this.increaseBy50); //Emitting user click
+    this.socket.on("click_count", (value) => {
+      console.log("value", value);
       this.setState({
         click_count: value,
       });
     });
     this.sendPrint(e);
-    this.socket.emit('winner', this.state.username);
-
+    this.socket.emit("winner", this.state.username);
   }
-
 
   increaseBy100(e) {
     this.setState({ showTimer: false });
-    this.socket.emit('clicked1', this.increaseBy100); //Emitting user click
-    this.socket.on('click_count', (value) => {
-      console.log('value', value);
+    this.socket.emit("clicked1", this.increaseBy100); //Emitting user click
+    this.socket.on("click_count", (value) => {
+      console.log("value", value);
       this.setState({
         click_count: value,
       });
     });
     this.sendPrint(e);
-    this.socket.emit('winner', this.state.username);
-
+    this.socket.emit("winner", this.state.username);
   }
 
   increaseBy200(e) {
     this.setState({ showTimer: false });
-    this.socket.emit('clicked2', this.increaseBy200); //Emitting user click
-    this.socket.on('click_count', (value) => {
-      console.log('value', value);
+    this.socket.emit("clicked2", this.increaseBy200); //Emitting user click
+    this.socket.on("click_count", (value) => {
+      console.log("value", value);
       this.setState({
         click_count: value,
       });
     });
     this.sendPrint(e);
-    this.socket.emit('winner', this.state.username);
-
+    this.socket.emit("winner", this.state.username);
   }
 
   render() {
     return (
+
       <>
         {/* <Main/> */}
         <div className="App">
@@ -294,6 +284,7 @@ class Room extends React.Component {
                     </div>
                   </div>
 
+
                 </div>
               </div>
             </div>
@@ -304,7 +295,9 @@ class Room extends React.Component {
             </div>
           }
         </div>
+
       </>
+
 
     );
   }
