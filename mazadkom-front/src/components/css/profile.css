@@ -11,9 +11,12 @@
     background-color: #FFF;
     padding: 20px 50px;
     border: 2px solid var(--main-color) ;
+    
+    margin-top: 12rem;
+
 }
 .addButton{
-  margin-bottom: 50vh;
+  margin-bottom: 37vh;
   height: 100px;
   width: 100px;
 }
@@ -93,14 +96,21 @@
   }
   
   .flip-card-back {
-    background-image: linear-gradient(110deg,    #bcc9c9 30%, #4b3d3d 70%);
+    background-color: #393737;
+    
     transform: rotateY(180deg);
+    color: #f1fcfd;
+    padding: 2rem;
   }
 .buttonD{
-  background-image: linear-gradient(50deg, rgba(250, 74, 74, 0.801) 40%, #c4cfcf 70%) !important ;
+  background-color: rgb(211, 51, 51) !important ;
+  color: #f1fcfd;
+padding-top:-3rem ;
+
 }
 .buttonU{
-  background-image: linear-gradient(50deg, #c4cfcf 40%,rgba(250, 74, 74, 0.801) 70%) !important ;
+  background-color: rgb(211, 51, 51) !important ;
+  color: #f1fcfd;
 }
 
 
