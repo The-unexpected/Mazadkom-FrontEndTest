@@ -112,7 +112,7 @@ function Home(props) {
         }}
         src={our}
 
-      /><h3 className="homeH3">Why People Like Shopping From   Online Auction Sites?</h3>
+      /><h3 className="homeH3">Why people like shopping from  online auction sites?</h3>
 
       <p className="homeP3">There are so many reasons as to why people find online auction sites with amazing deals of the day  to be very beneficial. First of all, it is through online auction sites that a consumer can be able to purchase an item at a price that is so much lower than what it would originally cost in other street chains. Aside from that, these online auction sites can also be able to offer a much more exciting way of shopping. The competition in getting the specific product is one of the things that bidders love and enjoy. It can be really exhilarating for a bidder to win the product.</p> 
       <br />
