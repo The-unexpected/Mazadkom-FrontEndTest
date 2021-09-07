@@ -13,7 +13,6 @@ height: 2rem;
   height: 2rem;
 } 
 
-
 .signin-form1{ 
 
  display: flex;
@@ -24,7 +23,6 @@ height: 2rem;
     justify-content: center;
     width: 50%;
     height: 80vh;
-
 }
 
 .cardSize{
