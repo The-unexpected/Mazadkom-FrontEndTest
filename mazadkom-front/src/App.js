@@ -9,12 +9,14 @@ import AboutUs from "./components/AboutUs";
 import Room from "./components/Room";
 import NavBar from "./components/Navbar";
 import Profile from "./components/Profile";
+import OurCard from "./components/OurCard";
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Redirect,
 } from "react-router-dom";
+
 
 function App(props) {
   return (
@@ -24,6 +26,9 @@ function App(props) {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/product">
+            <OurCard />
           </Route>
           <Route exact path="/login">
             <Login />

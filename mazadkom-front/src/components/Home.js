@@ -95,6 +95,7 @@ function Home(props) {
         </Carousel>
       </div>
 
+
       <br />
       <br />
       <br />
@@ -217,6 +218,7 @@ function Home(props) {
         src={third}
         alt="https://via.placeholder.com/1920x1080"
       /> */}
+
 
     </div>
   );
