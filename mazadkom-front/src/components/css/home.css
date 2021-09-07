@@ -74,6 +74,7 @@
 .logo {
   width: 60px;
   height: 60px;
+  margin-left: -7rem;
 }
 .win {
   width: 60px;
@@ -126,7 +127,7 @@
 .sing-out {
   /* background-image: linear-gradient(110deg,   #4b3d3d   30%,#66bfbf 70%)!important; */
   border-radius: 10px;
-  margin-left: 16rem;
+  margin-left: 9.9rem;
   width: 120px;
   height: 50px;
 
