@@ -50,12 +50,11 @@ function OurCard(props) {
                     className="pic"
                     src={element.picture}
                   />
-                  <Card.Body>
-                    <Card.Title>{element.title}</Card.Title>
-                    <Card.Text>
-                      {element._id}
+                  <Card.Body >
+                    <Card.Title className='titleStyle'>{element.title}</Card.Title>
+                    <Card.Text>                     
                       <p>{element.description} </p> <br />
-                      <p>{element.startingPrice}</p>
+                      <p><span style={{color:'rgb(211, 51, 51)'}}>Price:</span> {element.startingPrice}</p>
                     </Card.Text>
                   </Card.Body>
                   <Button
@@ -82,9 +81,11 @@ function OurCard(props) {
 
 
             );
-
+           <br/>
+       
           })}
         </Row>
+
 
 
 
