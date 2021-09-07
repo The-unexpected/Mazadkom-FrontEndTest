@@ -1,125 +1,154 @@
-.signin-form{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 70%;
-    height: 80vh;
-    margin: auto;
-}
-.form-product{
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    background-color: #FFF;
-    padding: 20px 50px;
-    border: 2px solid var(--main-color) ;
-    
-    margin-top: 12rem;
 
-}
-.addButton{
-  margin-bottom: 37vh;
-  height: 100px;
-  width: 100px;
-}
-
-.button-login{
-    
-    width: 70%;
-    font-weight: bolder;
-    font-family: 'Gowun Batang', serif;
-    margin: auto;
-    margin-top: 5vh;
-    text-align: center;
-}
-.button-add{
-    
-    width: 90%;
-    font-weight: bolder;
-    font-family: 'Gowun Batang', serif;
-    margin: auto;
-    margin-top: 5vh;
-    text-align: center;
-}
-
-.btn:hover{
-    background-color: var(--main-color);
-   }
-
-   .flip-card {
-    display: inline-block ;
-    background-color: transparent;
-    width: 350px;
-    height: 400px;
-    /* perspective: 1000px; */
-/*    
-   margin-top: 120px; */
-    /* box-shadow: rgb(100, 30, 30) 0px 15px 25px, rgb(150, 30, 30) 0px 9px 9px; */
-  
-  }
-  .NewStyleCardP{
-    background-image: linear-gradient(110deg,    #f0fcfc81 30%, #ffffff 70%);
-    display: inline-block ;
-    
-    margin: 10px;
-    margin-top: 170px;
-    border-color: black;
-    border-style: solid;
-    /* margin-top: 10vh; */
-    width: 350px;
-    height: 400px;}
-
-  .flip-card-inner {
-    /* position: relative; */
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    transition: transform 0.6s;
-    transform-style: preserve-3d;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  }
-  
-  .flip-card:hover .flip-card-inner {
-    transform: rotateY(180deg);
-  }
-  
-  .flip-card-front, .flip-card-back {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    -webkit-backface-visibility: hidden;
-    backface-visibility: hidden;
-  }
-  
-  .flip-card-front {
-    
-    /* background-color: #bbb; */
-    color: black;
-  }
-  
-  .flip-card-back {
-    background-color: #393737;
-    
-    transform: rotateY(180deg);
-    color: #f1fcfd;
-    padding: 2rem;
-  }
 .buttonD{
-  background-color: rgb(211, 51, 51) !important ;
+  background-color: #393737 !important ;
   color: #f1fcfd;
 padding-top:-3rem ;
+height: 2rem;
+
 
 }
 .buttonU{
-  background-color: rgb(211, 51, 51) !important ;
+  background-color: #393737!important ;
   color: #f1fcfd;
-}
+  height: 2rem;
+} 
 
 
-.signin-form1{
+.signin-form1{ 
 
-  display: flex;
+ display: flex;
+  position: relative;
+  left: 30rem;
+  bottom: 36rem;
     align-items: center;
     justify-content: center;
     width: 50%;
     height: 80vh;
+
+}
+
+.cardSize{
+  width: 50%;
+  margin: 10rem;
+  
+}
+
+.info{
+  position: relative;
+  left: 30rem;
+  bottom: 22rem;
+}
+
+.up-de{
+  margin-left: 12rem;
+  
+}
+
+.allCards{
+  border: solid 1px;
+  height: 25rem;
+  margin: 1rem;
+  
+}
+.title{
+  position: relative;
+  right: 6rem;
+  padding: 1rem;
+  font-weight: bold;
+  font-family:serif;
+
+  font-size: 2rem;
+  color:rgb(211, 51, 51);
+ 
+}
+
+.priceColor{
+  color: rgb(211, 51, 51);
+  
+}
+.desc{
+  position: relative;
+  right: 5rem;
+  
+  
+  font-weight: bolder;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.imgProduct{
+  width: 286px;
+  height: 368px;
+}
+
+
+
+.form-product{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ 
+  padding: 20px 50px;
+  border: 2px solid var(--main-color) ;
+  position: relative;
+  left: 38rem;
+  bottom: 45rem;
+ 
+  height: 63vh;
+
+
+}
+
+.form-product1{
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+ background-color: white;
+  padding: 20px 50px;
+  border: 2px solid var(--main-color) ;
+  position: relative;
+  left: 18rem;
+  bottom: 45rem;
+ 
+  height: 63vh;
+
+
+}
+.button-add{
+    
+  width: 90%;
+  font-weight: bolder;
+  font-family: 'Gowun Batang', serif;
+  margin: auto;
+  margin-top: 5vh;
+  text-align: center;
+}
+.addButton{
+  width: 70%;
+  height: 11%;
+  margin: auto;
+   margin-bottom: 5vh; 
+  position: relative;
+  left: 36rem;
+  bottom: 53rem;
+}
+.card-text{
+  font-weight: bolder;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 2rem;
+}
+
+.card-title{
+ 
+  font-weight: bold;
+  font-family:serif;
+
+  font-size: 2rem;
+  color:rgb(211, 51, 51);
+  text-align: center;
+
+  margin-top: 1rem;
+}
+.text-muted {
+  color: #6c757d!important;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  display: flex;
+  align-content: space-around;
 
 }

@@ -81,8 +81,7 @@ function OurCard(props) {
 
 
             );
-           <br/>
-       
+        
           })}
         </Row>
 

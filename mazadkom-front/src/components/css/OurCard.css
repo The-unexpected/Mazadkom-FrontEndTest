@@ -81,10 +81,12 @@ margin-top: 2rem;
   margin-bottom: 5rem;
 }
 .cards{
+  
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
 .card-body {
+  background-color: #f1fcfd;
   flex: 1 1 auto;
   padding: 0rem 0rem;
 }
