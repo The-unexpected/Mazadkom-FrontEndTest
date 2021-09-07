@@ -175,14 +175,14 @@ function Profile(props) {
         return (
 
          
-            <div key={idx}>
+            <Card key={idx} className='NewStyleCardP'>
               <div class="flip-card">
                 <div class="flip-card-inner">
                   <div class="flip-card-front">
                     <img
                       src={element.picture}
                       alt="Avatar"
-                      style={{ width: "450px", height: "500px" }}
+                      style={{ width: "350px", height: "400px" }}
                     />
                   </div>
                   <div class="flip-card-back">
@@ -215,7 +215,7 @@ function Profile(props) {
                 </div>
               </div>
 
-            </div>
+            </Card>
         
 
         );
@@ -273,7 +273,8 @@ function Profile(props) {
         )}
         {!show && (
           <Button
-            className="w-25 m-auto"
+           
+            className="addButton"
             variant="secondary"
             onClick={showForm}
           >
@@ -297,7 +298,7 @@ function Profile(props) {
         {/* )} */}
       </div>
 
-      <div className="signin-form">
+      <div className="signin-form1">
         {showFormUpdate && (
           <Form className="form-product" onSubmit={handleSubmitUpdate}>
             <Form.Group className="mb-2" controlId="formGridPassword">
