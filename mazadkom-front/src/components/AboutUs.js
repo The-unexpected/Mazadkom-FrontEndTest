@@ -46,7 +46,7 @@ function AboutUs(props) {
 
               <Card.Text>
                 <Row>
-                  <h6>Civil Engineer</h6>
+                  <h6>A Civil engineer who has a passion for programming</h6>
                 </Row>
                 <Row>
                   <div className="social-con">
@@ -95,7 +95,7 @@ function AboutUs(props) {
 
               <Card.Text>
                 <Row>
-                  <h6>Mechanical Engineer</h6>
+                  <h6>Hey ! My name is Mohammad Altamimi, I am a mechanical engineer and my goal is to kick-start a career path in software development</h6>
                 </Row>
 
                 <Row>
@@ -145,7 +145,7 @@ function AboutUs(props) {
 
               <Card.Text>
                 <Row>
-                  <h6> Communication Engineer</h6>
+                  <h6>I'm Communication Engineer and full stack developer , a graduate from Yarmouk University</h6>
                 </Row>
 
                 <Row>
@@ -194,7 +194,7 @@ function AboutUs(props) {
 
               <Card.Text>
                 <Row>
-                  <h6>Civil Engineer</h6>
+                  <h6>Hello my name is Dana, I am a civil engineer, graduated from al Hussein bin tall university</h6>
                 </Row>
 
                 <Row>

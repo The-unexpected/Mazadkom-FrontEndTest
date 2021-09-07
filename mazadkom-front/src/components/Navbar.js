@@ -53,7 +53,7 @@ function NavBar(props) {
                 Profile
               </Nav.Link>
             )}
-                  <Nav.Link  className="HeaderLink"  onClick={() => history.push("/about")}>About-us</Nav.Link>
+                  <Nav.Link  className="HeaderLink"  onClick={() => history.push("/about")}>Our Team</Nav.Link>
             {!user?.data?.token && (
               <>
                 <Button className="buttonLog" >
