@@ -44,20 +44,21 @@ function NavBar(props) {
           <Nav className="ml-auto w-100">
             <Nav.Link className="HeaderLink"  onClick={() => history.push("/")}>Home</Nav.Link>
             {/* <Nav.Link href="#product">Our-Products</Nav.Link> */}
-            <Nav.Link  className="HeaderLink"  onClick={() => history.push("/about")}>About-US</Nav.Link>
+      
             {user?.data?.token && (
               <Nav.Link className="HeaderLink"  onClick={() => history.push("/profile")}>
                 Profile
               </Nav.Link>
             )}
+                  <Nav.Link  className="HeaderLink"  onClick={() => history.push("/about")}>About-us</Nav.Link>
             {!user?.data?.token && (
               <>
-                <Button className="button" >
+                <Button className="buttonLog" >
                 <Nav.Link eventKey={2} onClick={() => history.push("/login")}>
                   Log-In
                 </Nav.Link>
                 </Button>
-                <Button className="button" >
+                <Button className="buttonLog" >
                 <Nav.Link
                   eventKey={2}
                   onClick={() => history.push("/register")}

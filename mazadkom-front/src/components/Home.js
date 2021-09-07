@@ -22,14 +22,21 @@ function Home(props) {
   return (
     
     <div>
-   
-       <Carousel interval={2000}>
+     <div >
+       <br/>
+       <br/>
+       <br/>
+       <br/>
+     
+       
+       <br/>
+       <Carousel interval={2000} className='carousel-slide'>
           <Carousel.Item>
             <img
            
               style={{
                 width: '100%',
-                height: '100vh',
+                height: '80vh',
               //  marginTop: '120.6px',
                 objectFit: 'cover',
               }}
@@ -59,7 +66,7 @@ function Home(props) {
             
               style={{
                 width: '100%',
-                height: '100vh',
+                height: '80vh',
                 // marginTop: '-55.6px',
                 objectFit: 'cover',
               }}
@@ -82,7 +89,7 @@ function Home(props) {
         
               style={{
                 width: '100%',
-                height: '100vh',
+                height: '80vh',
                 // marginTop: '-55.6px',
                 objectFit: 'cover',
               }}
@@ -97,9 +104,10 @@ function Home(props) {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-    
+        </div >
       <Cards />
-    </div >
+
+    </div>
   );
 }
 
