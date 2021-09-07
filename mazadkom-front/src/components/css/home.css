@@ -1,19 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Gowun+Batang&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap");
 
-:root{
-    --main-color:rgb(211, 51, 51)
+:root {
+  --main-color: rgb(211, 51, 51);
 }
 
-
-
-.home{
-    position:relative;
-    height: 90vh;
-    width: 100%;
-   /* background: rgb(228, 215, 190); */
-    /* background: linear-gradient(0deg, rgba(165,143,170,1) 0%, rgba(237,237,208,1) 100%); */
-    /* background: linear-gradient(0deg, rgb(180, 174, 137) 0%, rgba(237,237,208,1) 100%);  */
-
+.home {
+  position: relative;
+  height: 90vh;
+  width: 100%;
+  /* background: rgb(228, 215, 190); */
+  /* background: linear-gradient(0deg, rgba(165,143,170,1) 0%, rgba(237,237,208,1) 100%); */
+  /* background: linear-gradient(0deg, rgb(180, 174, 137) 0%, rgba(237,237,208,1) 100%);  */
 }
 /* 
 .custom-shape-divider-bottom-1627664528 {
@@ -37,112 +35,102 @@
     fill: #F8F9FA;
 } */
 
-.nav{
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+.nav {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 
-.navbar-brand h1{
-    font-family: 'Gowun Batang';
-    font-weight: bolder;
- color :var(--main-color);
- /* text-shadow: 2px 2px 3px #232323 */
+.navbar-brand h1 {
+  font-family: "Gowun Batang";
+  font-weight: bolder;
+  color: var(--main-color);
+  /* text-shadow: 2px 2px 3px #232323 */
 }
 
-.navbar-brand span{
-    color:rgb(255, 255, 255);
+.navbar-brand span {
+  color: rgb(255, 255, 255);
 }
 
-.nav-link{
- 
-    border: none;
-  
-    text-align: center;
-  
-    display: inline-block;
-    font-size: 16px;
-    margin: 9px 15px;
-    cursor: pointer;
-  
-color: #F8F9FA !important;
-    font-family: 'Gowun Batang', serif;
-    border-radius:15%;
-    font-weight: bolder;
-    font-size: 1.25rem;
-    /* text-shadow: 1px 1px 2px #ffffff */
-}
-.nav-link:hover{
-    color:var(--main-color) !important;
-}
+.nav-link {
+  border: none;
 
-.logo{
-    width: 60px;
-    height: 60px;
+  text-align: center;
+
+  display: inline-block;
+  font-size: 16px;
+  margin: 9px 15px;
+  cursor: pointer;
+
+  color: #f8f9fa !important;
+  font-family: "Gowun Batang", serif;
+  border-radius: 15%;
+  font-weight: bolder;
+  font-size: 1.25rem;
+  /* text-shadow: 1px 1px 2px #ffffff */
+}
+.nav-link:hover {
+  color: var(--main-color) !important;
 }
 
-.display{
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.logo {
+  width: 60px;
+  height: 60px;
 }
 
-.image{
-    position: relative;
-    width: 100%;
-    height: 100%;
-   
-  
+.display {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.image img{
-    position: relative;
-    width: 100%;
-    height: 100%;
-
-  
-  
+.image {
+  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.image .header-text{
-position: absolute;
-width: 40%;
-top: 20%;
-left: 10%;
+.image img {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image .header-text {
+  position: absolute;
+  width: 40%;
+  top: 20%;
+  left: 10%;
 }
 
 .image .header-text h1 {
-    font-family: 'Gowun Batang';
-    font-weight: bolder ;
-    text-shadow: 2px 2px 3px #232323
+  font-family: "Gowun Batang";
+  font-weight: bolder;
+  text-shadow: 2px 2px 3px #232323;
 }
 
-.image .header-text h1 span{
-    color: var(--main-color);
-    font-weight: bolder ;
+.image .header-text h1 span {
+  color: var(--main-color);
+  font-weight: bolder;
 }
 
-.image .header-text p{
-    font-family: 'Gowun Batang', serif;
-    font-weight: bolder;
-    padding-top: 1vh;
-
+.image .header-text p {
+  font-family: "Gowun Batang", serif;
+  font-weight: bolder;
+  padding-top: 1vh;
 }
 
- .sing-out{
-    /* background-image: linear-gradient(110deg,   #4b3d3d   30%,#66bfbf 70%)!important; */
-     border-radius: 10px;
-     margin-left: 300px;
-    width: 120px;
+.sing-out {
+  /* background-image: linear-gradient(110deg,   #4b3d3d   30%,#66bfbf 70%)!important; */
+  border-radius: 10px;
+  margin-left: 300px;
+  width: 120px;
   height: 50px;
 
-    font-weight: bolder;
-  
-    text-align: center !important;
-  
+  font-weight: bolder;
 
-}  
-
+  text-align: center !important;
+}
 
 /* .button {
    margin-left: 0;
@@ -153,23 +141,27 @@ left: 10%;
     border-color: 'white';
     border-Style: 'solid';
   } */
-  .userlogin {
-    background-image: linear-gradient(50deg, #141010 40%,#66bfbf 70%) !important ;
-    border-radius: 5px !important;
-    border: none;
-    padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
-    /* margin-left: 47%; */
-    font-size: 20px;
-    width: 100px;
-  }
-  
-  .userh3 {
-    /* margin-left: -20px; */
-    color: white;
-  }
+.userlogin {
+  background-image: linear-gradient(
+    50deg,
+    #141010 40%,
+    #66bfbf 70%
+  ) !important ;
+  border-radius: 5px !important;
+  border: none;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+  /* margin-left: 47%; */
+  font-size: 20px;
+  width: 100px;
+}
+
+.userh3 {
+  /* margin-left: -20px; */
+  color: white;
+}
 /*   
   .userborder {
     margin-top: 30px !important;
@@ -183,29 +175,22 @@ left: 10%;
     flex-direction: column;
     align-items: center;
   } */
-  
-  .h2class {
-    margin: 20px 60px 40px 60px;
-    text-align: center;
-  }
-  
 
+.h2class {
+  margin: 20px 60px 40px 60px;
+  text-align: center;
+}
 
-
-
-
-  .NewStyleCard{
- 
-    /* background-image: linear-gradient(110deg,    #66bfbf 30%, #4b3d3d 70%); */
-    margin: 20;
-    /* border-width: 1vh; */
-    /* border-color: black;
+.NewStyleCard {
+  /* background-image: linear-gradient(110deg,    #66bfbf 30%, #4b3d3d 70%); */
+  margin: 20;
+  /* border-width: 1vh; */
+  /* border-color: black;
     border-style: solid; */
-    /* margin-top: 10vh; */
-    height:85vh;
-  
+  /* margin-top: 10vh; */
+  height: 85vh;
 
-/* 
+  /* 
     display: 'inline-block',
     width: 300,
     height: 450,
@@ -214,7 +199,7 @@ left: 10%;
     borderWidth: 3,
     borderColor: '#24527a', */
 
-    /* button: {
+  /* button: {
         marginLeft: 0,
         paddingLeft: 20,
         paddingRight: 20,
@@ -223,7 +208,7 @@ left: 10%;
         borderColor: 'white',
         borderStyle: 'solid',
       }, */
-      /* <CardMedia
+  /* <CardMedia
       component="img"
       alt="Contemplative Reptile"
       height="400"
@@ -231,7 +216,72 @@ left: 10%;
       image={selectedProduct.image}
       title="Contemplative Reptile"
     /> */
-  }
+}
+
+
+
+.div-1 {
+  max-width: 100%;
+  /* background-color: black; */
+}
+
+.HomeText {
+  position: relative;
+  bottom: 7.5rem;
+  background-color: #39373790;
+  width: 100%;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  padding: 2rem;
+  font-family: "PT Serif", serif;
+  font-size: 2rem;
+}
+
+.text-div1 {
+  text-align: center;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+  position: absolute;
+  top: 0;
+  /* background-color: black; */
+  bottom: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5%;
+  padding: 0;
+  color: #fff;
+  text-align: center;
+  /* background: 0 0; */
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.15s ease;
+}
+
+
+
+
+
+.carousel-caption {
+  position: absolute;
+  right: 0;
+  bottom: 1.25rem;
+  left: 0;
+  padding-top: 1.25rem;
+  padding-bottom: 1.25rem;
+  color: #fff;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: fit-content;
+}
 
   .buttonJoin{
     background-color:#393737 !important ;
@@ -249,32 +299,11 @@ left: 10%;
   }
 
 
-  .HomeTesxt{
-      background-color: #4b3d3d88;
-      width: 60rem;
-     
-  }
+  
 
  
 
-  .carousel-control-next, .carousel-control-prev{
-    position: absolute;
-    top: 0;
-    background-color: black;
-    bottom: 0;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 2.5%;
-    padding: 0;
-    color: #fff;
-    text-align: center;
-    /* background: 0 0; */
-    border: 0;
-    opacity: .5;
-    transition: opacity .15s ease;
-  }
+
 
 
   body{
@@ -288,3 +317,4 @@ left: 10%;
     margin-left: auto;
     margin-right: auto;
   }
+
