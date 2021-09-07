@@ -265,6 +265,7 @@ class Room extends React.Component {
             </div>
             <div className="row">
               <div className="col-4">
+
                 {this.state.preview && (
                   <Card className="image-card">
                     <Card.Img variant="top" src={this.state.preview.picture} />
@@ -278,6 +279,7 @@ class Room extends React.Component {
                     </Card.Body>
                   </Card>
                 )}
+
               </div>
               <div className="col">
                 <div className="chat">

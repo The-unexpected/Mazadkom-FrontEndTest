@@ -12,6 +12,11 @@
     padding: 20px 50px;
     border: 2px solid var(--main-color) ;
 }
+.addButton{
+  margin-bottom: 50vh;
+  height: 100px;
+  width: 100px;
+}
 
 .button-login{
     
@@ -37,15 +42,28 @@
    }
 
    .flip-card {
+    display: inline-block ;
     background-color: transparent;
-    width: 450px;
-    height: 600px;
-    perspective: 1000px;
-    display:inline-block;
-    margin: 30px;
-    box-shadow: rgb(100, 30, 30) 0px 15px 25px, rgb(150, 30, 30) 0px 9px 9px;
-  }
+    width: 350px;
+    height: 400px;
+    /* perspective: 1000px; */
+/*    
+   margin-top: 120px; */
+    /* box-shadow: rgb(100, 30, 30) 0px 15px 25px, rgb(150, 30, 30) 0px 9px 9px; */
   
+  }
+  .NewStyleCardP{
+    background-image: linear-gradient(110deg,    #f0fcfc81 30%, #ffffff 70%);
+    display: inline-block ;
+    
+    margin: 10px;
+    margin-top: 170px;
+    border-color: black;
+    border-style: solid;
+    /* margin-top: 10vh; */
+    width: 350px;
+    height: 400px;}
+
   .flip-card-inner {
     /* position: relative; */
     width: 100%;
@@ -69,20 +87,29 @@
   }
   
   .flip-card-front {
+    
     /* background-color: #bbb; */
     color: black;
   }
   
   .flip-card-back {
-    background-color: #EDB0A4;
-    color: white;
+    background-image: linear-gradient(110deg,    #bcc9c9 30%, #4b3d3d 70%);
     transform: rotateY(180deg);
   }
 .buttonD{
-  background-color: tomato;
-  color:white
+  background-image: linear-gradient(50deg, rgba(250, 74, 74, 0.801) 40%, #c4cfcf 70%) !important ;
 }
 .buttonU{
-  background-color:#779989;
-  color:white
+  background-image: linear-gradient(50deg, #c4cfcf 40%,rgba(250, 74, 74, 0.801) 70%) !important ;
+}
+
+
+.signin-form1{
+
+  display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50%;
+    height: 80vh;
+
 }

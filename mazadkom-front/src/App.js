@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./components/Navbar";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import Home from "./components/Home";
 import Login from "./components/Login";
@@ -7,7 +7,7 @@ import Register from "./components/Register";
 import Footer from "./components/Footer";
 import AboutUs from "./components/AboutUs";
 import Room from "./components/Room";
-
+import NavBar from "./components/Navbar";
 import Profile from "./components/Profile";
 import {
   BrowserRouter as Router,
@@ -20,7 +20,7 @@ function App(props) {
   return (
     <div>
       <Router>
-        <NavBar />
+      <NavBar />
         <Switch>
           <Route exact path="/">
             <Home />
