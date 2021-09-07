@@ -5,7 +5,7 @@ import Home from "./components/Home";
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Footer from "./components/Footer";
-import AboutUs from "./components/AboutUs";
+import OurTeam from "./components/OurTeam";
 import Room from "./components/Room";
 import NavBar from "./components/Navbar";
 import Profile from "./components/Profile";
@@ -37,7 +37,7 @@ function App(props) {
             <Register />
           </Route>
           <Route exact path="/about">
-            <AboutUs />
+            <OurTeam />
           </Route>
           <Route exact path="/room">
             <Room />
