@@ -30,9 +30,8 @@ function OurCard(props) {
 
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
-
-    
-
+      <h1 style={{textAlign:'center',marginTop:'3rem',color:'rgb(211, 51, 51)',fontFamily: ' serif',fontWeight:'bold'}}>Our Exhibit</h1>
+      <h5 style={{textAlign:'center',marginTop:'1rem'}}>You can start bidding from here . Choose the product you like and join its bidding room</h5>
 
         {/* <Card className="image-card"> */}
         <Row xs={1} md={3} className="g-4">
@@ -54,7 +53,7 @@ function OurCard(props) {
                     <Card.Title className='titleStyle'>{element.title}</Card.Title>
                     <Card.Text>                     
                       <p>{element.description} </p> <br />
-                      <p><span style={{color:'rgb(211, 51, 51)'}}>Price:</span> {element.startingPrice}</p>
+                      <p><span style={{color:'rgb(211, 51, 51)'}}>Price:</span> {element.startingPrice}$</p>
                     </Card.Text>
                   </Card.Body>
                   <Button
@@ -69,7 +68,6 @@ function OurCard(props) {
 
                     }}
 
-                    // href={`/room?name=${username}&room=${idx}`}
                   >
                     Join Room
                   </Button>{" "}
@@ -79,60 +77,13 @@ function OurCard(props) {
                 </Card>
               </div>
 
-
             );
            <br/>
        
           })}
         </Row>
 
-
-
-
-      {/* <Col>
-          <Card className="image-card">
-            <Card.Img variant="top" src={Maddona} />
-            <Card.Body>
-              <Card.Title>Madonna of the Carnation</Card.Title>
-              <Card.Text>
-                This painting from the late 13th century by Italian painter
-                Duccio di Buoninsega, in contrast, expresses the emotions of
-                love and tenderness between mother and child. The infant Jesus
-                returns the Madonna's placid but intense gaze
-              </Card.Text>
-            </Card.Body>
-            <Button
-              className="button"
-              variant="outline-secondary"
-              onClick={props.joinRoom}
-            >
-              Join Room
-            </Button>{" "}
-          </Card>
-        </Col>
-        <Col>
-          <Card className="image-card">
-            <Card.Img variant="top" src={Portraite} alt="portrait" />
-            <Card.Body>
-              <Card.Title>Portrait of a Musician</Card.Title>
-              <Card.Text>
-                The Portrait of a Musician is an unfinished painting widely
-                attributed to the Italian Renaissance artist Leonardo da Vinci,
-                dated to circa 1483–1487. Produced while Leonardo was in Milan,
-                the work is painted in oils, and perhaps tempera, on a small
-                panel of walnut wood.
-              </Card.Text>
-            </Card.Body>
-            <Button
-              className="button"
-              variant="outline-secondary"
-              onClick={props.joinRoom}
-            >
-              Join Room
-            </Button>{" "}
-          </Card> */}
-      {/* </Col> */}
-      {/* </Row> */}
+      
     </div>
   );
 }

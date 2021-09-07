@@ -90,7 +90,7 @@ function Home(props) {
           </Carousel.Item>
         </Carousel>
       </div>
-      <Cards />
+      {/* <Cards /> */}
     </div>
   );
 }

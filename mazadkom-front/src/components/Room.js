@@ -4,10 +4,9 @@ import axios from "axios";
 import { Card, Button } from "react-bootstrap";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./css/rooms.css";
-import Monaliza from "./image/monaliza.jpg";
-import queryString from "query-string";
+
 import { UserContext } from "../context/context";
-import { useHistory } from "react-router-dom";
+
 
 class Room extends React.Component {
   static contextType = UserContext;
@@ -16,7 +15,7 @@ class Room extends React.Component {
     this.state = {
       messages: [],
       prints: [],
-      startPrice: 200,
+      startPrice: 0,
       click_count: 0,
       username: "",
       count: 10,
@@ -24,7 +23,6 @@ class Room extends React.Component {
       showTimer: false,
       showWinner: false,
       preview: {},
-
       title: "",
       users: [],
     };
@@ -69,6 +67,7 @@ class Room extends React.Component {
           console.log("roomdata", response);
           this.setState({
             preview: response.productElementInfo[0],
+            startPrice: response.productElementInfo[0].startingPrice
           });
         });
     } catch (e) {
@@ -93,7 +92,7 @@ class Room extends React.Component {
     this.socket.emit(
       "join",
       { username: this.state.username, title: this.state.title },
-      () => {}
+      () => { }
     );
 
     this.socket.on("message", (message) => {
@@ -231,6 +230,7 @@ class Room extends React.Component {
                     <Button
                       className="w-25 m-auto"
                       variant="secondary"
+                      style={{ backgroundColor: '#393737' }}
                       onClick={this.increaseBy50}
                     >
                       increase 50$
@@ -238,6 +238,7 @@ class Room extends React.Component {
                     <Button
                       className="w-25 m-auto"
                       variant="secondary"
+                      style={{ backgroundColor: '#393737' }}
                       onClick={this.increaseBy100}
                     >
                       increase 100$
@@ -245,6 +246,7 @@ class Room extends React.Component {
                     <Button
                       className="w-25 m-auto"
                       variant="secondary"
+                      style={{ backgroundColor: '#393737' }}
                       onClick={this.increaseBy200}
                     >
                       increase 200$
@@ -255,6 +257,7 @@ class Room extends React.Component {
                   <Button
                     className="w-25 m-auto"
                     variant="secondary"
+                    style={{ backgroundColor: '#393737' }}
                     onClick={this.showButtons}
                   >
                     Start Bidding
@@ -268,10 +271,10 @@ class Room extends React.Component {
                   <Card className="image-card">
                     <Card.Img variant="top" src={this.state.preview.picture} />
                     <Card.Body>
-                      <Card.Title>{this.state.preview.title}</Card.Title>
+                      <Card.Title className='header-card'>{this.state.preview.title}</Card.Title>
                       <Card.Text>{this.state.preview.description}</Card.Text>
                       <Card.Text className="price">
-                        Starting Price :{" "}
+                        Starting Price :<span >{" "}</span>
                         <span>{this.state.preview.startingPrice}$</span>
                       </Card.Text>
                     </Card.Body>
@@ -280,9 +283,9 @@ class Room extends React.Component {
               </div>
               <div className="col">
                 <div className="chat">
-                  {this.state.showTimer && <h3>Timer = {this.state.count}</h3>}
+                  {this.state.showTimer && <h3  style={{color:'rgb(211, 51, 51)',fontFamily:'serif'}}>Timer = {this.state.count}</h3>}
 
-                  <h3 id="counterroom111">
+                  <h3 style={{color:'rgb(211, 51, 51)',fontFamily:'serif'}} id="counterroom111">
                     {" "}
                     The Increase amount = {this.state.click_count}
                   </h3>
@@ -297,7 +300,7 @@ class Room extends React.Component {
                         return (
                           <div className="chat-box">
                             <p>
-                              <span> Message </span> : {message.body} from :{" "}
+                              <span> Message </span> : {message.body}<span style={{ marginLeft: '10rem' }}>from :<span style={{ color:'white' }}>{" "}</span></span>
                               {message.from}
                             </p>
                           </div>
@@ -305,11 +308,14 @@ class Room extends React.Component {
                       })}
                     </div>
                     <div className="col">
+                    {/* {this.state.showTimer && <h3><h3>Bid Updates</h3></h3>} */}
+                      
                       {this.state.prints.map((print) => {
                         return (
                           <div className="chat-box note">
+
                             <p>
-                              <span> Note !! </span> : {print.from} {print.body}
+                              <span> Note  </span> <span style={{ color:'white' }}>{print.from} {print.body}</span> 
                               .
                             </p>
                           </div>
@@ -324,8 +330,8 @@ class Room extends React.Component {
           {this.state.showWinner && (
             <div className="result">
               <h1>
-                {this.winnerName} Won The Bid With{" "}
-                <span>{this.state.click_count + this.state.startPrice}$ </span>
+                <span style={{ color: '#393737' }}>{this.winnerName.toUpperCase()} </span> Won The Bid With{" "}
+                <span>{this.state.click_count + Number(this.state.startPrice)}$ </span>
               </h1>
             </div>
           )}

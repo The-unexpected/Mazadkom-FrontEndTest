@@ -44,6 +44,9 @@ function NavBar(props) {
           <Nav className="ml-auto w-100">
             <Nav.Link className="HeaderLink"  onClick={() => history.push("/")}>Home</Nav.Link>
             {/* <Nav.Link href="#product">Our-Products</Nav.Link> */}
+            <Nav.Link className="HeaderLink"  onClick={() => history.push("/product")}>
+              Our Products
+              </Nav.Link>
       
             {user?.data?.token && (
               <Nav.Link className="HeaderLink"  onClick={() => history.push("/profile")}>
