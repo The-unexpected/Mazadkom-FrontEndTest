@@ -83,7 +83,7 @@ function Login(props) {
 
           <div className="button-login">
             <Button variant="outline-secondary" type="submit">
-              LogIn
+              Log in
             </Button>{" "}
           </div>
         </Form>

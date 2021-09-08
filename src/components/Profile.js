@@ -169,6 +169,11 @@ function Profile(props) {
 
   return (
     <div className="cardSize">
+      <h1 style={{textAlign:'center',marginTop:'3rem',color:'rgb(211, 51, 51)',fontFamily: ' serif',fontWeight:'bold', marginLeft:'22rem'}}>Profile Page</h1>
+      <h5 style={{textAlign:'center',marginTop:'1rem',marginBottom:'2rem',marginLeft:'23rem'}}>This is your own page where you can add any product to bid on it</h5>
+
+
+
       {userEffect.map((element, idx) => {
         return (
           <div key={idx} class="card mb-3">
@@ -354,7 +359,7 @@ function Profile(props) {
 
         {!show && (
           <Button className="addButton" variant="secondary" onClick={showForm}>
-            Add Product
+            Add Product  ➕
           </Button>
         )}
       </div>

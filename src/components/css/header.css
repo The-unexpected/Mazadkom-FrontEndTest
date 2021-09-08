@@ -1,95 +1,110 @@
 * {
-    box-sizing: border-box;
- 
-  }
-  /* a {
-  
-  } */
-  /* .header-link {
-    color: rgb(255, 255, 255) !important;
-    font-size: larger;
-  } */
-  .Navbar {
+  box-sizing: border-box;
 
-  
-  
+}
+/* a {
 
-  
-  
-    background-color:#393737;
-        height: 6rem;
-        border-Width: 2;
-        /* border-Color: black;
-        border-Style: solid;
-     */
-  }
-  
-  .navs:hover {
-    text-decoration: none;
-    transition: 1000ms;
-    border-radius: 15px;
-    color: rgb(255, 255, 255);
-  }
-  
-  .navs,
-  .active-navbar {
-    margin-left: 28px;
-    margin-right: 28px;
-    padding: 5px;
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-  .active-navbar {
-    /* color: rgb(134, 122, 122); */
-    text-decoration: none;
-    /* background-color: rgba(255, 0, 0, 0.801); */
-    transition: 1000ms;
-    border-radius: 15px;
-  }
-  .active-navbar:hover {
-    text-decoration: none;
-    /* background-color: rgba(255, 0, 0, 0.801); */
-    transition: 1000ms;
-    border-radius: 15px;
-    color: rgb(255, 255, 255);
-  }
-  /* .Button:hover {
-    text-decoration: none;
-    background-color: red;
-    transition: 1000ms;
-    border-radius: 15px;
-  } */
-  
-  .button {
-    border-Color: 'white';
-    border-Style: 'solid';
+} */
+/* .header-link {
+  color: rgb(255, 255, 255) !important;
+  font-size: larger;
+} */
+.Navbar {
+  background-color:#393737;
+      height: 6rem;
+      border-Width: 2;
+      box-shadow: 10px 5px 8px #393737;
+      /* border-Color: black;
+      border-Style: solid;
+   */
+}
+
+.navs:hover {
+  text-decoration: none;
+  transition: 1000ms;
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+}
+
+.navs,
+.active-navbar {
+  margin-left: 28px;
+  margin-right: 28px;
+  padding: 5px;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+.active-navbar {
+  /* color: rgb(134, 122, 122); */
+  text-decoration: none;
+  /* background-color: rgba(255, 0, 0, 0.801); */
+  transition: 1000ms;
+  border-radius: 15px;
+}
+.active-navbar:hover {
+  text-decoration: none;
+  /* background-color: rgba(255, 0, 0, 0.801); */
+  transition: 1000ms;
+  border-radius: 15px;
+  color: rgb(255, 255, 255);
+}
+/* .Button:hover {
+  text-decoration: none;
+  background-color: red;
+  transition: 1000ms;
+  border-radius: 15px;
+} */
+
+.button {
+  border-Color: 'white';
+  border-Style: 'solid';
+  border-radius: 15px !important;
+  border: none;
+  margin-left: 35px;
+  margin-right: 35px;
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  color: white;
+} 
+.name {
+  font-size: 24px !important;
+  margin-right: 50px;
+}
+
+.profilePicHeader {
+  width: 33px !important;
+  height: 33px !important;
+  position: relative;
+  right: 20px !important;
+  bottom: 2px;
+}
+
+.HeaderLink{  
+  /* background-image: linear-gradient(110deg,    #66bfbf 30%, #4b3d3d 70%); */
     border-radius: 15px !important;
     border: none;
-    margin-left: 35px;
-    margin-right: 35px;
+    margin-left: 0px;
+    margin-right: 0px;
     padding: 5px;
-    padding-left: 10px;
-    padding-right: 10px;
-    color: white;
-  } 
-  .name {
-    font-size: 27px;
-    margin-right: 50px;
-  }
-  
-  .profilePicHeader {
-    width: 33px !important;
-    height: 33px !important;
-    position: relative;
-    right: 20px !important;
-    bottom: 2px;
-  }
-  
-  .HeaderLink{  
-    /* background-image: linear-gradient(110deg,    #66bfbf 30%, #4b3d3d 70%); */
-      border-radius: 15px !important;
-      border: none;
-      margin-left: 15px;
+/*    
+    color: white; */
+    /* background-color: var(--main-color) !important; */
+
+   
+   width: 145px;
+ height: 50px;
+
+   font-family: 'Gowun Batang', serif;
+   font-weight: bolder;
+   
+}
+
+.buttonLog{
+      /* background-image: linear-gradient(110deg,    #66bfbf 30%, #4b3d3d 70%); */
+    
+     
+     
       margin-right: 15px;
       padding: 5px;
 /*    
@@ -97,29 +112,12 @@
       /* background-color: var(--main-color) !important; */
  
      
-     width: 145px;
-   height: 50px;
+     width: 150px;
+   height: 59px;
  
-     font-family: 'Gowun Batang', serif;
-     font-weight: bolder;
-     
-  }
-
-  .buttonLog{
-        /* background-image: linear-gradient(110deg,    #66bfbf 30%, #4b3d3d 70%); */
-      
-       
-       
-        margin-right: 15px;
-        padding: 5px;
-  /*    
-        color: white; */
-        /* background-color: var(--main-color) !important; */
-   
-       
-       width: 150px;
-     height: 59px;
-   
-       /* font-family: 'Gowun Batang', serif; */
-       /* font-weight: bolder; */
-  }
+     /* font-family: 'Gowun Batang', serif; */
+     /* font-weight: bolder; */
+}
+.sing-out{
+  margin-left: 20rem;
+}
