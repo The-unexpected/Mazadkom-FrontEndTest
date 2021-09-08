@@ -78,8 +78,7 @@ function OurCard(props) {
               </div>
 
             );
-           <br/>
-       
+        
           })}
         </Row>
 

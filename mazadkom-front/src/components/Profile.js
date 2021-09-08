@@ -153,70 +153,153 @@ function Profile(props) {
     getPosts();
   };
 
+
+
+
   useEffect(() => {
-    const id = localStorage.getItem("id");
-    const parsed = JSON.parse(localStorage.getItem("user"));
-    setUser(parsed);
-    try {
-      const request = axios
-        .get(`http://localhost:5000/users/${id}`)
-        .then((res) => {
-          let response = JSON.parse(JSON.stringify(res));
-          setUsername(response.data.UserInfo[0].username);
-        });
-    } catch (e) { }
+
     getPosts();
   }, [userEffect]);
 
   return (
 
-    <div className="container">
+    <div className='cardSize'>
+
       {userEffect.map((element, idx) => {
         return (
-
-         
-            <Card key={idx} className='NewStyleCardP'>
-              <div class="flip-card">
-                <div class="flip-card-inner">
-                  <div class="flip-card-front">
-                    <img
-                      src={element.picture}
-                      alt="Avatar"
-                      style={{ width: "350px", height: "400px" }}
-                    />
-                  </div>
-                  <div class="flip-card-back">
-                    {element._id}
-                    <h1>{element.title}</h1>
-                    <p>{element.description}</p>
-                    <p>{element.startingPrice}</p>
-                    <Button
-                      className="buttonD"
-                      variant="outline-secondary"
-                      onClick={(e) => {
-                        handleSubmitDelete(e, element._id, element.title);
-                      }}
-                    >
-                      Delete
-                    </Button>{" "}
-                    <Button
-                      className="buttonU"
-                      variant="outline-secondary"
-                      onClick={(e) => {
-                        FormUpdate(idx, element._id, element.title);
-                        setNum(element._id);
-                        setHeader(element.title);
-                        console.log(idx, element._id, element.title);
-                      }}
-                    >
-                      Update
-                    </Button>{" "}
-                  </div>
-                </div>
+          <div key={idx} class="card mb-3" >
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img
+                  src={element.picture}
+                  alt="..."
+                  class="img-fluid"
+                />
               </div>
+              <div class="col-md-8">
+                <div class="card-body1">
+                  <h5 class="card-title">{element.title}</h5>
+                  <p class="card-text">
+                    {element.description}
+                  </p>
+                  <p class="card-text">
+                    <small class="text-muted"><span className='priceColor'>Price: &nbsp;</span> {element.startingPrice}$</small>
+                  </p>
+                </div>
+                <div className='up-de'>
+                <button
+                   className="buttonD"
+                   variant="outline-secondary"
+                   onClick={(e) => {
+                     handleSubmitDelete(e, element._id, element.title);
+                   }}
+                 >
+                   Delete
+                 </button>{" "}
+                 <button
+                   className="buttonU"
+                   variant="outline-secondary"
+                   onClick={(e) => {
+                     FormUpdate(idx, element._id, element.title);
+                     setNum(element._id);
+                     setHeader(element.title);
+                     setShow(false);
+                     console.log(idx, element._id, element.title);
+                   }}
+                 >
+                   Update
+                 </button>{" "}
+                 </div>
+              </div>
+            </div>
+          </div>
 
-            </Card>
-        
+
+
+
+
+          // <div key={idx} class="card" >
+
+          //   <div class="card-body">
+          //   <img
+          // className='imgProduct'
+          //           src={element.picture}
+          //           alt="Avatar"
+
+          //         />
+          //     <h5 class="card-title">{element.title}</h5>
+          //     <h6 class="card-subtitle mb-2 text-muted">{element.description}</h6>
+          //     <p class="card-text"><span className='priceColor'>price:</span> {element.startingPrice}</p>
+          //     <button
+          //           className="buttonD"
+          //           variant="outline-secondary"
+          //           onClick={(e) => {
+          //             handleSubmitDelete(e, element._id, element.title);
+          //           }}
+          //         >
+          //           Delete
+          //         </button>{" "}
+          //         <button
+          //           className="buttonU"
+          //           variant="outline-secondary"
+          //           onClick={(e) => {
+          //             FormUpdate(idx, element._id, element.title);
+          //             setNum(element._id);
+          //             setHeader(element.title);
+          //             setShow(false);
+          //             console.log(idx, element._id, element.title);
+          //           }}
+          //         >
+          //           Update
+          //         </button>{" "}
+
+          //   </div>
+
+          // </div>
+
+
+
+          // <div key={idx} className='allCards' >
+
+          //   <img
+          //   className='imgProduct'
+          //             src={element.picture}
+          //             alt="Avatar"
+
+          //           />
+          //           <div className='info'>
+          //           <h1 className='title'>{element.title}</h1>
+          //           <p className='desc'>{element.description}</p>
+          //           <p className='desc'><span className='priceColor'>price:</span> {element.startingPrice}</p>
+          //           </div>
+
+          //           <div className='up-de'>
+          //           <button
+          //           className="buttonD"
+          //           variant="outline-secondary"
+          //           onClick={(e) => {
+          //             handleSubmitDelete(e, element._id, element.title);
+          //           }}
+          //         >
+          //           Delete
+          //         </button>{" "}
+          //         <button
+          //           className="buttonU"
+          //           variant="outline-secondary"
+          //           onClick={(e) => {
+          //             FormUpdate(idx, element._id, element.title);
+          //             setNum(element._id);
+          //             setHeader(element.title);
+          //             setShow(false);
+          //             console.log(idx, element._id, element.title);
+          //           }}
+          //         >
+          //           Update
+          //         </button>{" "}
+          //           </div>
+
+
+          // </div>
 
         );
       })}
@@ -258,22 +341,25 @@ function Profile(props) {
               <Form.Label>Starting Price </Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Your name"
+                placeholder="Enter price"
                 name="startingPrice"
                 onChange={handleChange}
               />
             </Form.Group>
 
             <div className="button-add">
-              <Button variant="secondary" type="submit">
+              <Button variant="secondary" type="submit" style={{backgroundColor:'#393737'}}>
+
+
                 Add Product
               </Button>{" "}
             </div>
           </Form>
         )}
+
         {!show && (
           <Button
-           
+
             className="addButton"
             variant="secondary"
             onClick={showForm}
@@ -281,26 +367,13 @@ function Profile(props) {
             Add Product
           </Button>
         )}
-        {/* {bids && (
-        <Card
-          bg="primary"
-          text="white"
-          style={{ width: "18rem" }}
-          className="mb-2"
-        >
-          <Card.Header>Claimed bid</Card.Header>
-          <Card.Body>
-            <Card.Title>{bids.title} </Card.Title>
-            <Card.Text>{bids.description}</Card.Text>
-          </Card.Body>
-          <Card.Footer>{bids.startingPrice}</Card.Footer>
-        </Card> */}
-        {/* )} */}
+
+
       </div>
 
       <div className="signin-form1">
         {showFormUpdate && (
-          <Form className="form-product" onSubmit={handleSubmitUpdate}>
+          <Form className="form-product1" onSubmit={handleSubmitUpdate}>
             <Form.Group className="mb-2" controlId="formGridPassword">
               <Form.Label>Title </Form.Label>
               <Form.Control
@@ -338,7 +411,7 @@ function Profile(props) {
               <Form.Label>Starting Price </Form.Label>
               <Form.Control
                 type="text"
-                placeholder="Enter Your name"
+                placeholder="Enter price"
                 name="startingPrice"
                 onChange={handleChange}
                 value={newUpdate.startingPrice}
@@ -346,7 +419,7 @@ function Profile(props) {
             </Form.Group>
 
             <div className="button-add">
-              <Button variant="secondary" type="submit">
+              <Button variant="secondary" type="submit" style={{backgroundColor:'#393737'}}>
                 Update Product
               </Button>{" "}
             </div>
