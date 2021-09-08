@@ -17,7 +17,7 @@ function OurCard(props) {
     try {
       const name = localStorage.getItem("username");
       setUsername(name);
-      axios.get(`http://localhost:5000/apiElement`).then((res) => {
+      axios.get(`https://mazadkom.herokuapp.com/apiElement`).then((res) => {
         let response = JSON.parse(JSON.stringify(res.data.productElementInfo));
         setData(response);
 

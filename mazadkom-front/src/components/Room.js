@@ -7,7 +7,6 @@ import "./css/rooms.css";
 
 import { UserContext } from "../context/context";
 
-
 class Room extends React.Component {
   static contextType = UserContext;
   constructor(props) {
@@ -38,7 +37,7 @@ class Room extends React.Component {
 
   getwinner() {
     let id = localStorage.getItem("id");
-    axios.get(`http://localhost:5000/user/${id}`).then((res) => {
+    axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then((res) => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
@@ -61,13 +60,13 @@ class Room extends React.Component {
     console.log("context", context.value);
     try {
       const request = axios
-        .get(`http://localhost:5000/apiElement/${context.value}`)
+        .get(`https://mazadkom.herokuapp.com/apiElement/${context.value}`)
         .then((res) => {
           let response = res.data;
           console.log("roomdata", response);
           this.setState({
             preview: response.productElementInfo[0],
-            startPrice: response.productElementInfo[0].startingPrice
+            startPrice: response.productElementInfo[0].startingPrice,
           });
         });
     } catch (e) {
@@ -79,7 +78,7 @@ class Room extends React.Component {
     const context = this.context;
     console.log("context", context.value);
     await this.getProd();
-    this.socket = io("http://localhost:5000");
+    this.socket = io("https://mazadkom.herokuapp.com");
     const localtitle = await localStorage.getItem("header");
     const localname = await localStorage.getItem("username");
 
@@ -92,7 +91,7 @@ class Room extends React.Component {
     this.socket.emit(
       "join",
       { username: this.state.username, title: this.state.title },
-      () => { }
+      () => {}
     );
 
     this.socket.on("message", (message) => {
@@ -133,7 +132,7 @@ class Room extends React.Component {
     const body = event.target.value;
 
     const id = localStorage.getItem("id");
-    axios.get(`http://localhost:5000/user/${id}`).then((res) => {
+    axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then((res) => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
@@ -160,7 +159,7 @@ class Room extends React.Component {
   // remove.catch if we get an error
   async sendPrint(event) {
     const id = localStorage.getItem("id");
-    await axios.get(`http://localhost:5000/user/${id}`).then((res) => {
+    await axios.get(`https://mazadkom.herokuapp.com/user/${id}`).then((res) => {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
@@ -230,7 +229,7 @@ class Room extends React.Component {
                     <Button
                       className="w-25 m-auto"
                       variant="secondary"
-                      style={{ backgroundColor: '#393737' }}
+                      style={{ backgroundColor: "#393737" }}
                       onClick={this.increaseBy50}
                     >
                       increase 50$
@@ -238,7 +237,7 @@ class Room extends React.Component {
                     <Button
                       className="w-25 m-auto"
                       variant="secondary"
-                      style={{ backgroundColor: '#393737' }}
+                      style={{ backgroundColor: "#393737" }}
                       onClick={this.increaseBy100}
                     >
                       increase 100$
@@ -246,7 +245,7 @@ class Room extends React.Component {
                     <Button
                       className="w-25 m-auto"
                       variant="secondary"
-                      style={{ backgroundColor: '#393737' }}
+                      style={{ backgroundColor: "#393737" }}
                       onClick={this.increaseBy200}
                     >
                       increase 200$
@@ -257,7 +256,7 @@ class Room extends React.Component {
                   <Button
                     className="w-25 m-auto"
                     variant="secondary"
-                    style={{ backgroundColor: '#393737' }}
+                    style={{ backgroundColor: "#393737" }}
                     onClick={this.showButtons}
                   >
                     Start Bidding
@@ -271,10 +270,12 @@ class Room extends React.Component {
                   <Card className="image-card">
                     <Card.Img variant="top" src={this.state.preview.picture} />
                     <Card.Body>
-                      <Card.Title className='header-card'>{this.state.preview.title}</Card.Title>
+                      <Card.Title className="header-card">
+                        {this.state.preview.title}
+                      </Card.Title>
                       <Card.Text>{this.state.preview.description}</Card.Text>
                       <Card.Text className="price">
-                        Starting Price :<span >{" "}</span>
+                        Starting Price :<span> </span>
                         <span>{this.state.preview.startingPrice}$</span>
                       </Card.Text>
                     </Card.Body>
@@ -283,9 +284,18 @@ class Room extends React.Component {
               </div>
               <div className="col">
                 <div className="chat">
-                  {this.state.showTimer && <h3  style={{color:'rgb(211, 51, 51)',fontFamily:'serif'}}>Timer = {this.state.count}</h3>}
+                  {this.state.showTimer && (
+                    <h3
+                      style={{ color: "rgb(211, 51, 51)", fontFamily: "serif" }}
+                    >
+                      Timer = {this.state.count}
+                    </h3>
+                  )}
 
-                  <h3 style={{color:'rgb(211, 51, 51)',fontFamily:'serif'}} id="counterroom111">
+                  <h3
+                    style={{ color: "rgb(211, 51, 51)", fontFamily: "serif" }}
+                    id="counterroom111"
+                  >
                     {" "}
                     The Increase amount = {this.state.click_count}
                   </h3>
@@ -300,7 +310,10 @@ class Room extends React.Component {
                         return (
                           <div className="chat-box">
                             <p>
-                              <span> Message </span> : {message.body}<span style={{ marginLeft: '10rem' }}>from :<span style={{ color:'white' }}>{" "}</span></span>
+                              <span> Message </span> : {message.body}
+                              <span style={{ marginLeft: "10rem" }}>
+                                from :<span style={{ color: "white" }}> </span>
+                              </span>
                               {message.from}
                             </p>
                           </div>
@@ -308,14 +321,16 @@ class Room extends React.Component {
                       })}
                     </div>
                     <div className="col">
-                    {/* {this.state.showTimer && <h3><h3>Bid Updates</h3></h3>} */}
-                      
+                      {/* {this.state.showTimer && <h3><h3>Bid Updates</h3></h3>} */}
+
                       {this.state.prints.map((print) => {
                         return (
                           <div className="chat-box note">
-
                             <p>
-                              <span> Note  </span> <span style={{ color:'white' }}>{print.from} {print.body}</span> 
+                              <span> Note </span>{" "}
+                              <span style={{ color: "white" }}>
+                                {print.from} {print.body}
+                              </span>
                               .
                             </p>
                           </div>
@@ -330,8 +345,13 @@ class Room extends React.Component {
           {this.state.showWinner && (
             <div className="result">
               <h1>
-                <span style={{ color: '#393737' }}>{this.winnerName.toUpperCase()} </span> Won The Bid With{" "}
-                <span>{this.state.click_count + Number(this.state.startPrice)}$ </span>
+                <span style={{ color: "#393737" }}>
+                  {this.winnerName.toUpperCase()}{" "}
+                </span>{" "}
+                Won The Bid With{" "}
+                <span>
+                  {this.state.click_count + Number(this.state.startPrice)}${" "}
+                </span>
               </h1>
             </div>
           )}

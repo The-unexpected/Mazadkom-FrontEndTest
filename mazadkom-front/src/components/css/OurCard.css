@@ -42,16 +42,15 @@ font-family: 'Gowun Batang', serif;
 .button:hover{
  background-color: var(--main-color) !important;
 } */
-.pic{
-  width: 25.8rem;
+.pic {
+  width: 22.15rem;
   height: 20rem;
 }
 
-.image-card .pic{
+.image-card .pic {
   max-height: 40vh !important;
- 
 
-  height:750px;
+  height: 750px;
 }
 .card-img-top {
   max-height: 60vh;
@@ -61,28 +60,24 @@ font-family: 'Gowun Batang', serif;
 .card-text {
   padding: 1rem;
   /* padding-top: 3vh; */
-  
+
   font-weight: bolder;
-  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  
-  
-  }
- .titleStyle{
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.titleStyle {
   padding: 1rem;
   font-weight: bold;
-  font-family:serif;
+  font-family: serif;
 
   font-size: 2rem;
-  color:rgb(211, 51, 51);
+  color: rgb(211, 51, 51);
   text-align: center;
-
 }
-.g-4{
-margin-top: 2rem;
+.g-4 {
+  margin-top: 2rem;
   margin-bottom: 5rem;
 }
-.cards{
-  
+.cards {
   margin-top: 2rem;
   margin-bottom: 5rem;
 }
