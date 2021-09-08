@@ -89,7 +89,7 @@ function Register(props) {
 
             <div className="button-login">
               <Button variant="outline-secondary" type="submit">
-                SignUp
+                Sign up
               </Button>
             </div>
           </Form>
