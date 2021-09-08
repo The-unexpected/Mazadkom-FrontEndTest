@@ -144,7 +144,10 @@ function Profile(props) {
       });
 
     const updateProductApi = axios
-      .put(`https://mazadkom.herokuapp.com/apiElement/update/${header}`, productData)
+      .put(
+        `https://mazadkom.herokuapp.com/apiElement/update/${header}`,
+        productData
+      )
       .then((res) => {
         let response = res.data;
         console.log("res", response);
@@ -154,7 +157,15 @@ function Profile(props) {
 
   useEffect(() => {
     getPosts();
-  }, []);
+  }, [posts]);
+
+
+  useEffect(() => {
+    getPosts();
+  }, [updatePosts]);
+
+
+  
 
   return (
     <div className="cardSize">

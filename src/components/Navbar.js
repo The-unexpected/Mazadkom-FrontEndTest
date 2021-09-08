@@ -71,7 +71,7 @@ function NavBar(props) {
                       eventKey={2}
                       onClick={() => history.push("/login")}
                     >
-                      Log-In
+                      LOG IN
                     </Nav.Link>
                   </Button>
                   <Button className="buttonLog">
@@ -79,7 +79,7 @@ function NavBar(props) {
                       eventKey={2}
                       onClick={() => history.push("/register")}
                     >
-                      Sign-Up
+                      SIGN UP
                     </Nav.Link>
                   </Button>
                 </>
@@ -87,7 +87,7 @@ function NavBar(props) {
               {user?.data?.token && (
                 <Nav.Link className="sing-out" onClick={logOut}>
                   {" "}
-                  Sign-Out
+                  SIGN OUT
                 </Nav.Link>
               )}
             </Nav>
