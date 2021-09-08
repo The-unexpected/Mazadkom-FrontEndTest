@@ -17,27 +17,27 @@ class AboutUs extends React.Component {
       <div className='img-cards'>
         <div className='jumb'>
           <div fluid id="team-intro">
-            <Container>
-              <h2>Meet Our Team</h2>
+            <Container style={{marginTop:'10rem'}}>
+              <h1 style={{textAlign:'center',marginTop:'3rem',color:'rgb(211, 51, 51)',fontFamily: ' serif',fontWeight:'bold'}}>Meet Our Team</h1>
               <p id='para'>
-                we are a sincere company with a straightforward vision . we believe that there is an amazing amount to be learned by working in the web production environment .<br></br>
+                We are a sincere company with a straightforward vision . we believe that there is an amazing amount to be learned by working in the web production environment .<br></br>
               </p>
             </Container>
           </div>
         </div>
 
-        <div id='img-cards1'>
-          <Card className='img-card' style={{ width: '18rem' }}>
+        <div id='img-cards1' style={{marginLeft:'18rem'}}>
+          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
             <Row   >
 
-              {/* src={} */}
+              
               <Card.Img variant="top" src={Alaa} alt="AlaaImg" className="card-img" />
 
             </Row>
 
             <Row className='nameR'>
 
-              <Card.Body>
+              <Card.Body >
 
 
                 <Card.Title className='name'>Alaa <br></br> Abu Isaa</Card.Title>
@@ -50,13 +50,13 @@ class AboutUs extends React.Component {
                   <Row>
 
                     <div className='social-con'>
-                      <Col style={{ border: 'none' }}>
+                      <Col id="alaa"style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none' ,height:'5rem'}}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/alaaabuissa" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none' ,height:'5rem'}}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Haneenabonser" />
                       </Col>
                     </div>
@@ -67,7 +67,7 @@ class AboutUs extends React.Component {
             </Row>
           </Card>
 
-          <Card className='img-card' style={{ width: '18rem' }}>
+          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
             <Row   >
 
               <Card.Img variant="top" src={Mohammad} alt="mohammadImg" className="card-img" />
@@ -89,13 +89,13 @@ class AboutUs extends React.Component {
 
                   <Row>
                     <div className='social-con'>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/mohammadaltamimi98/" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/m98altamimi?_rdc=1&_rdr"/>
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Alaa-AbuIssa" />
                       </Col>
                     </div>
@@ -107,7 +107,7 @@ class AboutUs extends React.Component {
             </Row>
           </Card>
 
-          <Card className='img-card' style={{ width: '18rem' }}>
+          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
             <Row   >
 
               <Card.Img variant="top" src={Ayah} alt="AyahImg" className="card-img" />
@@ -129,13 +129,13 @@ class AboutUs extends React.Component {
 
                   <Row>
                     <div className='social-con'>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/maryam-najjar-112a98161 " />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none' ,height:'5rem'}}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/mariam.alnajjar.142" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Maryam-n98" />
                       </Col>
                     </div>
@@ -148,8 +148,8 @@ class AboutUs extends React.Component {
 
         </div>
 
-        <div id='img-cards2'>
-          <Card className='img-card' style={{ width: '18rem' }}>
+        <div id='img-cards2' style={{marginBottom:'3rem',marginLeft:'28rem'}}>
+          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
             <Row   >
 
               <Card.Img variant="top" src={Sara} alt="SaraImg" className="card-img" />
@@ -171,13 +171,13 @@ class AboutUs extends React.Component {
 
                   <Row>
                     <div className='social-con'>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/alaaabuissa" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none' ,height:'5rem'}}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/mmohiesen96" />
                       </Col>
 
@@ -189,7 +189,7 @@ class AboutUs extends React.Component {
             </Row>
           </Card>
 
-          <Card className='img-card' style={{ width: '18rem' }}>
+          <Card className='img-card' style={{ width: '18rem' ,height:'40rem'}}>
             <Row   >
 
               <Card.Img variant="top" src={Dana} alt="MotasimImg" className="card-img" />
@@ -212,13 +212,13 @@ class AboutUs extends React.Component {
                   <Row>
                     <div className='social-con'>
 
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none' ,height:'5rem'}}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/mo-tasim-al-azzam-3543b51a2/" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none',height:'5rem' }}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://web.facebook.com/profile.php?id=100003494264820" />
                       </Col>
-                      <Col style={{ border: 'none' }}>
+                      <Col style={{ border: 'none' ,height:'5rem'}}>
                         <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/motasimalazzam" />
                       </Col>
 
