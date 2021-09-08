@@ -103,19 +103,22 @@ function Home(props) {
       <br />
       {/* <Cards /> */}
 
-    
+
       <img
         style={{
-          width: "30rem",
-          height: "57vh",
+          width: "25rem",
+          height: "52vh",
 
-          marginLeft: "4.5rem"
+          marginLeft: "15rem"
         }}
         src={our}
 
-      /><h3 className="homeH3">Why people like shopping from  online auction sites?</h3>
+      /><div  style={{width:'80rem' }}><h3 className="homeH3">Why people like shopping from  online auction sites?</h3></div>
+      <div style={{width:'80rem' ,textAlign:'center', marginRight: '10rem'}}>
+      <p className="homeP3">There are so many reasons as to why people find online auction sites with amazing deals of the day  to be very beneficial. First of all, it is through online auction sites that a consumer can be able to purchase an item at a price that is so much lower than what it would originally cost in other street chains. Aside from that, these online auction sites can also be able to offer a much more exciting way of shopping. The competition in getting the specific product is one of the things that bidders love and enjoy. It can be really exhilarating for a bidder to win the product.</p>
 
-      <p className="homeP3">There are so many reasons as to why people find online auction sites with amazing deals of the day  to be very beneficial. First of all, it is through online auction sites that a consumer can be able to purchase an item at a price that is so much lower than what it would originally cost in other street chains. Aside from that, these online auction sites can also be able to offer a much more exciting way of shopping. The competition in getting the specific product is one of the things that bidders love and enjoy. It can be really exhilarating for a bidder to win the product.</p> 
+      </div>
+
       <br />
       <br />
       <br />
@@ -123,27 +126,30 @@ function Home(props) {
       <br />
       <br />
       <br />
-    
-    
-    
-    
+
+
+
+
       <br />
       <br />
       <img
         style={{
-          width: "30rem",
-          height: "57vh",
+          width: "25rem",
+          height: "52vh",
 
-          marginLeft: "50rem",
-          marginBottom:"10rem",
-          
+          marginLeft: "49rem",
+          marginBottom: "10rem",
+
         }}
         src={homeF}
         alt="https://via.placeholder.com/1920x1080"
       />
-      <h3 className="homeH32">Why do you have to use our website to bid?</h3>
+      <div ><h3 className="homeH32">Why do you have to use our website to bid?</h3></div>
+      <div style={{width:'80rem',textAlign:'center'}}>
+      <p className="homeP32">Easy to use and also allows you to chat during bidding and also our site not only allows to bid and win products at competitive prices but also allows you to offer your own product for people to bid on it within a certain period and the person who offers the highest price will win. </p>
 
-<p className="homeP32">Easy to use and also allows you to chat during bidding and also our site not only allows to bid and win products at competitive prices but also allows you to offer your own product for people to bid on it within a certain period and the person who offers the highest price will win. </p> 
+      </div>
+
 
       <br />
       <br />
@@ -151,16 +157,16 @@ function Home(props) {
       <br />
       <br />
       <br />
-        <br />
       <br />
-    
       <br />
-        <br />
+
       <br />
-    
-     
-        <br />
-        {/* <img
+      <br />
+      <br />
+
+
+      <br />
+      {/* <img
         style={{
           width: "20rem",
           height: "20vh",
@@ -209,7 +215,7 @@ function Home(props) {
 
 
 
-{/* 
+      {/* 
 
       <img
         style={{

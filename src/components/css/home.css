@@ -324,15 +324,15 @@
 
 .homeH3{
 
-  margin-left: 38rem;
+  margin-left: 45rem;
   margin-block: 240px;
     margin-top: -375px;
-    margin-right: 3.19rem;
+    margin-right: 7rem;
     color:rgb(211, 51, 51);
    font-weight: bold;
 }
 .homeP3{
-  margin-left: 38rem;
+  margin-left: 45rem;
   text-align: justify; /* For Edge */
 
 margin-right: 6rem;
@@ -340,13 +340,14 @@ margin-right: 6rem;
 }
 .homeH32{
   font-weight: bold;
-  margin-left: 3rem;
+  margin-left: 15rem;
   margin-block: 240px;
     margin-top: -536px;
     color:rgb(211, 51, 51);
+    width: 30rem;
 }
 .homeP32{
-  margin-left: 3rem;
+  margin-left: 15rem;
   text-align: justify; /* For Edge */
 
 margin-right: 45rem;
