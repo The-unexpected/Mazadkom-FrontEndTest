@@ -31,7 +31,7 @@ function OurCard(props) {
   return (
     <div className="container mb-5 mt-5 pt-5 pb-5">
       <h1 style={{textAlign:'center',marginTop:'3rem',color:'rgb(211, 51, 51)',fontFamily: ' serif',fontWeight:'bold'}}>Our Exhibit</h1>
-      <h5 style={{textAlign:'center',marginTop:'1rem'}}>You can start bidding from here . Choose the product you like and join its bidding room</h5>
+      <h5 style={{textAlign:'center',marginTop:'1rem'}}>You can start bidding from here. Choose the product you like and join its bidding room</h5>
 
         {/* <Card className="image-card"> */}
         <Row xs={1} md={3} className="g-4">
