@@ -65,8 +65,8 @@ class Room extends React.Component {
           let response = res.data;
           console.log("roomdata", response);
           this.setState({
-            preview: response.productElementInfo[0],
-            startPrice: response.productElementInfo[0].startingPrice,
+            preview: response?.productElementInfo[0],
+            startPrice: response?.productElementInfo[0]?.startingPrice,
           });
         });
     } catch (e) {
@@ -75,6 +75,8 @@ class Room extends React.Component {
   }
 
   async componentDidMount() {
+    const ism = localStorage.getItem("username");
+    this.setState({ username: ism });
     const context = this.context;
     console.log("context", context.value);
     await this.getProd();
@@ -310,7 +312,7 @@ class Room extends React.Component {
                         return (
                           <div className="chat-box">
                             <p>
-                              <span> Message </span> : {message.body}
+                              <span> Message </span> : {message?.body}
                               <span style={{ marginLeft: "10rem" }}>
                                 from :<span style={{ color: "white" }}> </span>
                               </span>

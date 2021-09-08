@@ -17,8 +17,8 @@ function NavBar(props) {
   const logOut = () => {
     localStorage.clear();
     console.log("logged out");
-    window.location.reload();
     history.push("/");
+    window.location.reload();
   };
   useEffect(() => {
     const temp = JSON.parse(localStorage.getItem("user"));
