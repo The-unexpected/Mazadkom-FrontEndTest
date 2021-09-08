@@ -107,20 +107,14 @@
      
       margin-right: 15px;
       padding: 5px;
-/*    
-      color: white; */
-      /* background-color: var(--main-color) !important; */
- 
+
      
      width: 150px;
    height: 59px;
  
-     /* font-family: 'Gowun Batang', serif; */
-     /* font-weight: bolder; */
+     
 }
-.sing-out{
-  margin-left: 20rem;
-}
+
 .logo{
   margin-left:-5.5rem;
 }

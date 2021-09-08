@@ -27,7 +27,7 @@ class AboutUs extends React.Component {
         </div>
 
         <div id='img-cards1' style={{marginLeft:'18rem'}}>
-          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
+          <Card className='img-card' style={{  width: '18rem',height:'28rem' }}>
             <Row   >
 
               
@@ -50,15 +50,13 @@ class AboutUs extends React.Component {
                   <Row>
 
                     <div className='social-con'>
-                      <Col id="alaa"style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
-                      </Col>
-                      <Col style={{ border: 'none' ,height:'5rem'}}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/alaaabuissa" />
-                      </Col>
-                      <Col style={{ border: 'none' ,height:'5rem'}}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Haneenabonser" />
-                      </Col>
+                 
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40,margin:"0.5rem" }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
+           
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} url="https://www.facebook.com/alaaabuissa" />
+                 
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40,margin:"0.5rem" }} network="github" url="https://github.com/Haneenabonser" />
+                
                     </div>
                   </Row>
                 </Card.Text>
@@ -67,7 +65,7 @@ class AboutUs extends React.Component {
             </Row>
           </Card>
 
-          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
+          <Card className='img-card' style={{  width: '18rem',height:'28rem' }}>
             <Row   >
 
               <Card.Img variant="top" src={Mohammad} alt="mohammadImg" className="card-img" />
@@ -89,15 +87,13 @@ class AboutUs extends React.Component {
 
                   <Row>
                     <div className='social-con'>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/mohammadaltamimi98/" />
-                      </Col>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/m98altamimi?_rdc=1&_rdr"/>
-                      </Col>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Alaa-AbuIssa" />
-                      </Col>
+                   
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} url="https://www.linkedin.com/in/mohammadaltamimi98/" />
+                   
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40,margin:"0.5rem" }} url="https://www.facebook.com/m98altamimi?_rdc=1&_rdr"/>
+             
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} network="github" url="https://github.com/Alaa-AbuIssa" />
+                 
                     </div>
 
                   </Row>
@@ -107,7 +103,7 @@ class AboutUs extends React.Component {
             </Row>
           </Card>
 
-          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
+          <Card className='img-card' style={{ width: '18rem',height:'28rem' }}>
             <Row   >
 
               <Card.Img variant="top" src={Ayah} alt="AyahImg" className="card-img" />
@@ -129,15 +125,13 @@ class AboutUs extends React.Component {
 
                   <Row>
                     <div className='social-con'>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/maryam-najjar-112a98161 " />
-                      </Col>
-                      <Col style={{ border: 'none' ,height:'5rem'}}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/mariam.alnajjar.142" />
-                      </Col>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/Maryam-n98" />
-                      </Col>
+                  
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} url="https://www.linkedin.com/in/maryam-najjar-112a98161 " />
+                  
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} url="https://www.facebook.com/mariam.alnajjar.142" />
+        
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} network="github" url="https://github.com/Maryam-n98" />
+                 
                     </div>
                   </Row>
                 </Card.Text>
@@ -148,8 +142,8 @@ class AboutUs extends React.Component {
 
         </div>
 
-        <div id='img-cards2' style={{marginBottom:'3rem',marginLeft:'28rem'}}>
-          <Card className='img-card' style={{ width: '18rem',height:'40rem' }}>
+        <div id='img-cards2' style={{marginBottom:'3rem',marginLeft:'23rem'}}>
+          <Card className='img-card' style={{ width: '18rem',height:'28rem' }}>
             <Row   >
 
               <Card.Img variant="top" src={Sara} alt="SaraImg" className="card-img" />
@@ -171,16 +165,13 @@ class AboutUs extends React.Component {
 
                   <Row>
                     <div className='social-con'>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
-                      </Col>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.facebook.com/alaaabuissa" />
-                      </Col>
-                      <Col style={{ border: 'none' ,height:'5rem'}}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/mmohiesen96" />
-                      </Col>
-
+                     
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40,margin:"0.5rem" }} url="https://www.linkedin.com/in/alaa-abu-issa-53a211172/" />
+                     
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40,margin:"0.5rem" }} url="https://www.facebook.com/alaaabuissa" />
+                 
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} network="github" url="https://github.com/mmohiesen96" />
+                 
                     </div>
                   </Row>
                 </Card.Text>
@@ -189,7 +180,7 @@ class AboutUs extends React.Component {
             </Row>
           </Card>
 
-          <Card className='img-card' style={{ width: '18rem' ,height:'40rem'}}>
+          <Card className='img-card' style={{  width: '18rem',height:'28rem' }}>
             <Row   >
 
               <Card.Img variant="top" src={Dana} alt="MotasimImg" className="card-img" />
@@ -212,15 +203,15 @@ class AboutUs extends React.Component {
                   <Row>
                     <div className='social-con'>
 
-                      <Col style={{ border: 'none' ,height:'5rem'}}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://www.linkedin.com/in/mo-tasim-al-azzam-3543b51a2/" />
-                      </Col>
-                      <Col style={{ border: 'none',height:'5rem' }}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} url="https://web.facebook.com/profile.php?id=100003494264820" />
-                      </Col>
-                      <Col style={{ border: 'none' ,height:'5rem'}}>
-                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 }} network="github" url="https://github.com/motasimalazzam" />
-                      </Col>
+                    
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} url="https://www.linkedin.com/in/mo-tasim-al-azzam-3543b51a2/" />
+                  
+                   
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40 ,margin:"0.5rem"}} url="https://web.facebook.com/profile.php?id=100003494264820" />
+                     
+                      
+                        <SocialIcon className='social-icon' style={{ height: 40, width: 40,margin:"0.5rem" }} network="github" url="https://github.com/motasimalazzam" />
+                     
 
                     </div>
                   </Row>
