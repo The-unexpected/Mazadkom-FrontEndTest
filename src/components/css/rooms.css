@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:ital,wght@1,300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@1,700&display=swap");
 
 .App {
@@ -20,6 +20,7 @@
   display: flex;
   flex-direction: column;
   margin: 0 auto;
+  /* border: solid black 1px; */
 }
 .chat h3 {
   color: var(--main-color);
@@ -29,7 +30,8 @@
 .chat input {
   width: 50%;
   padding: 10px;
-  
+  position: relative;
+  top: 21rem;
   border-radius: 1rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -47,47 +49,48 @@
 .chat-box {
   width: 100%;
   height: max-content;
-  background-color:#393737;
+  background-color: #393737;
   padding: 10px 10px;
+  /* border: solid yellow 1px; */
   /* border-radius: 1rem; */
   margin: 1rem 0rem;
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
     rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   font-size: large;
   font-weight: bold;
-  font-family: 'Gowun Batang', serif !important;
+  font-family: "Gowun Batang", serif !important;
 }
 
 .chat-box span {
   font-weight: bolder;
   font-size: large;
-  font-family: 'Gowun Batang', serif !important;
+  font-family: "Gowun Batang", serif !important;
 }
 
 .note {
-  background-color:#393737;
+  background-color: #393737;
 }
 
 .chat-box span {
-  color:rgb(211, 51, 51);;
+  color: rgb(211, 51, 51);
 }
-.chat-box p{
-  color: white!important;
+.chat-box p {
+  color: white !important;
 }
 
 .price {
   text-align: center;
   font-size: x-large;
   font-weight: bolder;
-  font-family: 'Gowun Batang', serif;
-  color:rgb(211, 51, 51);
+  font-family: "Gowun Batang", serif;
+  color: rgb(211, 51, 51);
   /* text-shadow: 1px 1px 2px #232323; */
 }
 .price span:hover {
   color: red;
 }
-.price span{
-  color: black!important;
+.price span {
+  color: black !important;
 }
 
 .result {
@@ -95,36 +98,33 @@
   align-items: center;
   font-size: x-large;
   font-weight: bolder;
-  font-family: 'Gowun Batang', serif;
+  font-family: "Gowun Batang", serif;
   color: var(--main-color);
   text-shadow: 1px 1px 2px #232323;
   padding-top: 8vh;
 }
 
-.result span:hover{
-    color: red;
+.result span:hover {
+  color: red;
 }
 
-.header-card{
-  font-family:  serif;
-  text-align :center;
-  color:rgb(211, 51, 51);
+.header-card {
+  font-family: serif;
+  text-align: center;
+  color: rgb(211, 51, 51);
   padding: 1rem;
   font-weight: bold;
   font-size: 2rem;
 }
 
-h3 #counterroom111
-{
-  color:rgb(211, 51, 51)!important;
-  font-family:  serif !important;
+h3 #counterroom111 {
+  color: rgb(211, 51, 51) !important;
+  font-family: serif !important;
 }
 
 /* .image-card{
   width: 15rem;
 } */
-
-
 
 /* button, input, optgroup, select, textarea {
   margin: 8px;
@@ -132,3 +132,15 @@ h3 #counterroom111
   font-size: inherit;
   line-height: inherit;
 } */
+
+.col {
+  /* border: green 1px solid; */
+  height: 27rem;
+}
+
+#col310 {
+  /* border: red 3px solid; */
+  /* margin-bottom: 15rem; */
+  overflow-y: scroll;
+  height: 17.65rem;
+}

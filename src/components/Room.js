@@ -295,11 +295,14 @@ class Room extends React.Component {
                   )}
 
                   <h3
-                    style={{ color: "rgb(211, 51, 51)", fontFamily: "serif" }}
+                    style={{
+                      color: "rgb(211, 51, 51)",
+                      fontFamily: "serif",
+                    }}
                     id="counterroom111"
                   >
                     {" "}
-                    The Increase amount = {this.state.click_count}
+                    Bid Raised = {this.state.click_count}
                   </h3>
                   <input
                     type="text"
@@ -307,7 +310,7 @@ class Room extends React.Component {
                     onKeyUp={this.sendMessage}
                   />
                   <div className="row">
-                    <div className="col">
+                    <div className="col" id="col310">
                       {this.state.messages.map((message) => {
                         return (
                           <div className="chat-box">
@@ -322,7 +325,7 @@ class Room extends React.Component {
                         );
                       })}
                     </div>
-                    <div className="col">
+                    <div className="col" id="col310">
                       {/* {this.state.showTimer && <h3><h3>Bid Updates</h3></h3>} */}
 
                       {this.state.prints.map((print) => {
