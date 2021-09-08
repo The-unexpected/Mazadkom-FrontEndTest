@@ -316,7 +316,7 @@ class Room extends React.Component {
                               <span style={{ marginLeft: "10rem" }}>
                                 from :<span style={{ color: "white" }}> </span>
                               </span>
-                              {message.from}
+                              {message?.from}
                             </p>
                           </div>
                         );
