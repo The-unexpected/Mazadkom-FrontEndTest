@@ -1,17 +1,17 @@
 #img-cards1{
     display: flex;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 20%;
+    margin-right: 20%;
     text-align: center;
+    
 
 }
 
 
-
 #img-cards2{
     display: flex;
-    margin-left: 5%;
-    margin-right: 15%;
+   
+ margin: 9rem;
     margin-top: 7%;
     text-align: center;
 
@@ -30,10 +30,10 @@
 
     border-radius: 50%;
     text-align: center;
-    width: 250px;
-    height: 250px;
-    margin-right: 80px;
-    margin-left: 10%;
+    width: 230px;
+    height: 230px;
+  
+    margin-left: 6%;
     transition-duration: 0.4s;
 
 }
@@ -50,6 +50,7 @@
 
 .name{
     font-size: 30px;
+    
 }
 
 
