@@ -348,7 +348,7 @@ class Room extends React.Component {
             <div className="result">
               <h1>
                 <span style={{ color: "#393737" }}>
-                  {this.winnerName.toUpperCase()}{" "}
+                  {this.winnerName?.toUpperCase()}{" "}
                 </span>{" "}
                 Won The Bid With{" "}
                 <span>
