@@ -348,7 +348,7 @@ function Profile(props) {
             </Form.Group>
 
             <div className="button-add">
-              <Button variant="secondary" type="submit">
+              <Button variant="secondary" type="submit" style={{backgroundColor:'#393737'}}>
 
 
                 Add Product
@@ -419,7 +419,7 @@ function Profile(props) {
             </Form.Group>
 
             <div className="button-add">
-              <Button variant="secondary" type="submit">
+              <Button variant="secondary" type="submit" style={{backgroundColor:'#393737'}}>
                 Update Product
               </Button>{" "}
             </div>
