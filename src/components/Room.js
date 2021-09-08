@@ -41,7 +41,7 @@ class Room extends React.Component {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
-        username: response.data.UserInfo[0].username,
+        username: response?.data?.UserInfo[0].username,
       });
       this.socket.on("resWinner", (resWinner) => {
         this.winnerName = resWinner;
@@ -138,9 +138,9 @@ class Room extends React.Component {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
-        username: response.data.UserInfo[0].username,
+        username: response?.data?.UserInfo[0].username,
       });
-      console.log(this.state.username);
+      console.log(this.state?.username);
       return res;
     });
 
@@ -148,7 +148,7 @@ class Room extends React.Component {
     if (event.keyCode === 13 && body) {
       let message = {
         body: body,
-        from: this.state.username,
+        from: this.state?.username,
       };
 
       this.setState({ messages: [message, ...this.state.messages] });
@@ -165,14 +165,14 @@ class Room extends React.Component {
       let response = JSON.parse(JSON.stringify(res));
       console.log("response", response);
       this.setState({
-        username: response.data.UserInfo[0].username,
+        username: response?.data?.UserInfo[0]?.username,
       });
       return response;
     });
 
     let print = {
       body: "has increased the bid",
-      from: this.state.username,
+      from: this.state?.username,
     };
     console.log("here", print);
     this.setState({ prints: [print, ...this.state.prints] });
@@ -189,7 +189,7 @@ class Room extends React.Component {
       });
     });
     this.sendPrint(e);
-    this.socket.emit("winner", this.state.username);
+    this.socket.emit("winner", this.state?.username);
   }
 
   increaseBy100(e) {
@@ -202,7 +202,7 @@ class Room extends React.Component {
       });
     });
     this.sendPrint(e);
-    this.socket.emit("winner", this.state.username);
+    this.socket.emit("winner", this.state?.username);
   }
 
   increaseBy200(e) {
@@ -215,7 +215,7 @@ class Room extends React.Component {
       });
     });
     this.sendPrint(e);
-    this.socket.emit("winner", this.state.username);
+    this.socket.emit("winner", this.state?.username);
   }
 
   render() {
