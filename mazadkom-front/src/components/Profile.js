@@ -66,7 +66,7 @@ function Profile(props) {
     console.log("id=", id);
 
     const newProduct = await axios
-      .post(`http://localhost:5000/posts/${id}`, productData)
+      .post(`https://mazadkom.herokuapp.com/posts/${id}`, productData)
       .then((res) => {
         let response = JSON.parse(JSON.stringify(res));
         console.log("newProduct", response.data);
@@ -74,7 +74,7 @@ function Profile(props) {
       });
 
     const apiProduct = await axios
-      .post(`http://localhost:5000/apiElement`, productData)
+      .post(`https://mazadkom.herokuapp.com/apiElement`, productData)
       .catch((error) => {
         console.log(error.response);
         alert(error.response.data.error);
@@ -93,14 +93,14 @@ function Profile(props) {
     const id2 = index;
 
     const deleteProduct = await axios
-      .delete(`http://localhost:5000/posts/${id}/${id2}`)
+      .delete(`https://mazadkom.herokuapp.com/posts/${id}/${id2}`)
       .then((res) => {
         let response = res.data;
         setDeletePosts(response.data);
       });
     console.log(productData);
     const apiProductDelete = await axios
-      .delete(`http://localhost:5000/apiElement/remove/${title}`)
+      .delete(`https://mazadkom.herokuapp.com/apiElement/remove/${title}`)
       .catch((error) => {
         console.log("delete", error.response);
         alert(error.response.data.error);
@@ -115,7 +115,7 @@ function Profile(props) {
     // console.log("id=", id);
     try {
       const request = axios
-        .get(`http://localhost:5000/posts/${id}`)
+        .get(`https://mazadkom.herokuapp.com/posts/${id}`)
         .then((res) => {
           let response = res.data;
           setUserEffect(response);
@@ -138,14 +138,14 @@ function Profile(props) {
     const id = localStorage.getItem("id");
     // const id2 = index;
     const updateProduct = axios
-      .put(`http://localhost:5000/posts/${id}/${num}`, productData)
+      .put(`https://mazadkom.herokuapp.com/posts/${id}/${num}`, productData)
       .then((res) => {
         let response = res.data;
         setUpdatePosts(response);
       });
 
     const updateProductApi = axios
-      .put(`http://localhost:5000/apiElement/update/${header}`, productData)
+      .put(`https://mazadkom.herokuapp.com/apiElement/update/${header}`, productData)
       .then((res) => {
         let response = res.data;
         console.log("res", response);
