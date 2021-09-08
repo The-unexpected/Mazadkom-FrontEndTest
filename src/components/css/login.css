@@ -12,14 +12,13 @@
 }
 
 .form {
-  background-color: white;
-  opacity: 87%;
-  box-shadow: rgb(0 0 0) 0px 2px 8px 5px;
-  /* background-color: #fff; */
+  background-color: #fff;
+  opacity: 100%;
+  box-shadow: 0 2px 8px 5px rgb(0 0 0);
   padding: 50px 20px;
-  /* border: 2px solid var(--main-color); */
   margin-top: 7rem;
-  color:black
+  color: #000;
+
 }
 
 .button-login {
