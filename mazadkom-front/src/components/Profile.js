@@ -105,7 +105,6 @@ function Profile(props) {
         console.log("delete", error.response);
         alert(error.response.data.error);
       });
-
     console.log("apiDelete", apiProductDelete);
     getPosts();
   };
