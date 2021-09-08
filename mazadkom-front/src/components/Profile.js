@@ -153,70 +153,57 @@ function Profile(props) {
     getPosts();
   };
 
-
-
-
   useEffect(() => {
-
     getPosts();
-  }, [userEffect]);
+  }, []);
 
   return (
-
-    <div className='cardSize'>
-
+    <div className="cardSize">
       {userEffect.map((element, idx) => {
         return (
-          <div key={idx} class="card mb-3" >
+          <div key={idx} class="card mb-3">
             <div class="row g-0">
               <div class="col-md-4">
-                <img
-                  src={element.picture}
-                  alt="..."
-                  class="img-fluid"
-                />
+                <img src={element.picture} alt="..." class="img-fluid" />
               </div>
               <div class="col-md-8">
                 <div class="card-body1">
                   <h5 class="card-title">{element.title}</h5>
+                  <p class="card-text">{element.description}</p>
                   <p class="card-text">
-                    {element.description}
-                  </p>
-                  <p class="card-text">
-                    <small class="text-muted"><span className='priceColor'>Price: &nbsp;</span> {element.startingPrice}$</small>
+                    <small class="text-muted">
+                      <span className="priceColor">Price: &nbsp;</span>{" "}
+                      {element.startingPrice}$
+                    </small>
                   </p>
                 </div>
-                <div className='up-de'>
-                <button
-                   className="buttonD"
-                   variant="outline-secondary"
-                   onClick={(e) => {
-                     handleSubmitDelete(e, element._id, element.title);
-                   }}
-                 >
-                   Delete
-                 </button>{" "}
-                 <button
-                   className="buttonU"
-                   variant="outline-secondary"
-                   onClick={(e) => {
-                     FormUpdate(idx, element._id, element.title);
-                     setNum(element._id);
-                     setHeader(element.title);
-                     setShow(false);
-                     console.log(idx, element._id, element.title);
-                   }}
-                 >
-                   Update
-                 </button>{" "}
-                 </div>
+                <div className="up-de">
+                  <button
+                    className="buttonD"
+                    variant="outline-secondary"
+                    onClick={(e) => {
+                      handleSubmitDelete(e, element._id, element.title);
+                    }}
+                  >
+                    Delete
+                  </button>{" "}
+                  <button
+                    className="buttonU"
+                    variant="outline-secondary"
+                    onClick={(e) => {
+                      FormUpdate(idx, element._id, element.title);
+                      setNum(element._id);
+                      setHeader(element.title);
+                      setShow(false);
+                      console.log(idx, element._id, element.title);
+                    }}
+                  >
+                    Update
+                  </button>{" "}
+                </div>
               </div>
             </div>
           </div>
-
-
-
-
 
           // <div key={idx} class="card" >
 
@@ -257,8 +244,6 @@ function Profile(props) {
 
           // </div>
 
-
-
           // <div key={idx} className='allCards' >
 
           //   <img
@@ -298,9 +283,7 @@ function Profile(props) {
           //         </button>{" "}
           //           </div>
 
-
           // </div>
-
         );
       })}
 
@@ -348,9 +331,11 @@ function Profile(props) {
             </Form.Group>
 
             <div className="button-add">
-              <Button variant="secondary" type="submit" style={{backgroundColor:'#393737'}}>
-
-
+              <Button
+                variant="secondary"
+                type="submit"
+                style={{ backgroundColor: "#393737" }}
+              >
                 Add Product
               </Button>{" "}
             </div>
@@ -358,17 +343,10 @@ function Profile(props) {
         )}
 
         {!show && (
-          <Button
-
-            className="addButton"
-            variant="secondary"
-            onClick={showForm}
-          >
+          <Button className="addButton" variant="secondary" onClick={showForm}>
             Add Product
           </Button>
         )}
-
-
       </div>
 
       <div className="signin-form1">
@@ -419,7 +397,11 @@ function Profile(props) {
             </Form.Group>
 
             <div className="button-add">
-              <Button variant="secondary" type="submit" style={{backgroundColor:'#393737'}}>
+              <Button
+                variant="secondary"
+                type="submit"
+                style={{ backgroundColor: "#393737" }}
+              >
                 Update Product
               </Button>{" "}
             </div>
