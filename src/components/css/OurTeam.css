@@ -1,70 +1,59 @@
-#img-cards1{
-    display: flex;
-    margin-left: 20%;
-    margin-right: 20%;
-    text-align: center;
-    
-
+#img-cards1 {
+  display: flex;
+  margin-left: 20%;
+  margin-right: 20%;
+  text-align: center;
 }
 
+#img-cards2 {
+  display: flex;
 
-#img-cards2{
-    display: flex;
-   
- margin: 9rem;
-    margin-top: 7%;
-    text-align: center;
-
+  margin: 9rem;
+  margin-top: 7%;
+  text-align: center;
 }
 
-.img-card{
-    margin-right: 20px;
-    margin-top: 10px;
-    border: 0;
-    background-color:whitesmoke;
-
+.img-card {
+  margin-right: 20px;
+  margin-top: 10px;
+  border: 0;
+  background-color: whitesmoke;
 }
 
+.card-img {
+  border-radius: 50%;
+  text-align: center;
+  width: 230px;
+  height: 230px;
 
-.card-img{
-
-    border-radius: 50%;
-    text-align: center;
-    width: 230px;
-    height: 230px;
-  
-    margin-left: 6%;
-    transition-duration: 0.4s;
-
+  margin-left: 6%;
+  transition-duration: 0.4s;
 }
 
-.card-img:hover{
-    border-radius:0;
-    width: 310px;
-    height: 300px;
-    margin-left: 1.04%;
-    transition-duration: 0.4s;
+.card-img:hover {
+  border-radius: 0;
+  width: 310px;
+  height: 300px;
+  margin-left: 1.04%;
+  transition-duration: 0.4s;
 }
 
-
-
-.name{
-    font-size: 30px;
-    
+.name {
+  font-size: 30px;
 }
 
-
-
-.social-icon:hover{
-    transform: translateX(0px) rotate(360deg) ;
-    transition-duration: 0.4s;
-
+.social-icon:hover {
+  transform: translateX(0px) rotate(360deg);
+  transition-duration: 0.4s;
 }
 
+#para {
+  text-align: justify;
+  font-weight: bolder;
+  font-size: 17px;
+  padding-top: 15px;
+}
 
-#para{
-    text-align: justify;
-    font-weight: bolder;
-    font-size: 17px;
-    padding-top: 15px;
+.card-text {
+  margin-right: 2rem;
 }
